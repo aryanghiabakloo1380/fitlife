@@ -290,7 +290,7 @@ function useMob(){
 function mkS(T){
   return{
     card:{background:T.card,border:T.cardBorder||"1px solid "+T.bdr,borderRadius:20,padding:18,boxShadow:T.shadow||"none"},
-    inp:{background:T.ib,border:"1px solid "+T.bdr,borderRadius:12,color:T.txt,padding:"10px 14px",fontSize:13,outline:"none",fontFamily:"inherit",width:"100%"},
+    inp:{background:T.ib,border:"1px solid "+T.bdr,borderRadius:12,color:T.txt,padding:"10px 14px",fontSize:13,outline:"none",fontFamily:"inherit",width:"100%",boxSizing:"border-box"},
     btn:{background:T.accent,color:T.btnTxt,border:"none",borderRadius:12,padding:"11px 22px",fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:"inherit"},
     sm:{background:"transparent",color:T.sub,border:"1px solid "+T.bdr,borderRadius:10,padding:"7px 14px",fontSize:12,cursor:"pointer",fontFamily:"inherit"},
   };
@@ -1604,6 +1604,7 @@ function DietTab({T,S,mob,diets,setDiets,profile,priceDb,suppDb,setSuppDb}){
   const preview=selFood&&amount?scaleFood(selFood,amount):null;
   const piece=selFood?isPiece(selFood):false;
   const hasCost=totals.cost>0;
+  const suppToday=suppLogs.filter(s=>s.date===selDate);
   // Calculate daily micronutrient totals
   const microTotals=Object.fromEntries(MICROS.map(m=>[m.k,0]));
   entries.forEach(e=>{
@@ -1625,7 +1626,6 @@ function DietTab({T,S,mob,diets,setDiets,profile,priceDb,suppDb,setSuppDb}){
     }
   });
   const hasMicros=MICROS.some(m=>microTotals[m.k]>0);
-  const suppToday=suppLogs.filter(s=>s.date===selDate);
   const suppTotalCost=suppToday.reduce((sum,s)=>{
     const item=suppDb&&suppDb.find(d=>d.name===s.name);
     if(!item||!item.price||!item.count)return sum;
@@ -3231,28 +3231,25 @@ function VaultTab({T,S,mob}){
                   <button onClick={()=>delItem(item.id)} style={{background:"rgba(255,0,0,0.3)",border:"none",borderRadius:8,color:"#fff",padding:"4px 8px",cursor:"pointer",fontSize:11}}>x</button>
                 </div>
                 <div style={{fontWeight:700,fontSize:14,marginBottom:16}}>{bankName}</div>
-                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:14}}>
-                  <div style={{fontFamily:"monospace",fontSize:14,letterSpacing:2,flex:1}}>{isVis?cd.number:"•••• •••• •••• "+last4}</div>
-                  {isVis&&<button onClick={()=>copyText(cd.number.replace(/\s/g,""))} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:6,color:"#fff",padding:"3px 7px",cursor:"pointer",fontSize:10,fontFamily:"inherit"}}>Copy</button>}
-                </div>
+                <div style={{fontFamily:"monospace",fontSize:14,letterSpacing:2,marginBottom:14}}>{isVis?cd.number:"•••• •••• •••• "+last4}</div>
                 <div style={{display:"flex",justifyContent:"space-between",fontSize:11,marginBottom:isVis&&(cd.sortCode||cd.cvv)?10:0}}>
                   <div>
                     <div style={{opacity:0.6,fontSize:8,marginBottom:2}}>NAME</div>
-                    <div style={{display:"flex",alignItems:"center",gap:6}}><span>{isVis?cd.holder:"••••••••"}</span>{isVis&&<button onClick={()=>copyText(cd.holder)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button>}</div>
+                    <div>{isVis?cd.holder:"••••••••"}</div>
                   </div>
                   <div style={{textAlign:"center"}}>
                     <div style={{opacity:0.6,fontSize:8,marginBottom:2}}>EXPIRES</div>
-                    <div style={{display:"flex",alignItems:"center",gap:6}}><span>{isVis?cd.expiry:"••/••"}</span>{isVis&&<button onClick={()=>copyText(cd.expiry)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button>}</div>
+                    <div>{isVis?cd.expiry:"••/••"}</div>
                   </div>
                   <div style={{textAlign:"right"}}>
                     <div style={{opacity:0.6,fontSize:8,marginBottom:2}}>CVV</div>
-                    <div style={{display:"flex",alignItems:"center",gap:6}}><span>{isVis?cd.cvv:"•••"}</span>{isVis&&<button onClick={()=>copyText(cd.cvv)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button>}</div>
+                    <div>{isVis?cd.cvv:"•••"}</div>
                   </div>
                 </div>
                 {isVis&&(cd.sortCode||cd.accountNo)&&(
                   <div style={{display:"flex",gap:14,fontSize:11,paddingTop:8,borderTop:"1px solid rgba(255,255,255,0.2)",marginTop:8}}>
-                    {cd.sortCode&&<div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>SORT CODE</div><div style={{display:"flex",alignItems:"center",gap:5}}><span style={{fontFamily:"monospace"}}>{cd.sortCode}</span><button onClick={()=>copyText(cd.sortCode)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button></div></div>}
-                    {cd.accountNo&&<div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>ACCOUNT</div><div style={{display:"flex",alignItems:"center",gap:5}}><span style={{fontFamily:"monospace"}}>{cd.accountNo}</span><button onClick={()=>copyText(cd.accountNo)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button></div></div>}
+                    {cd.sortCode&&<div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>SORT CODE</div><div style={{fontFamily:"monospace"}}>{cd.sortCode}</div></div>}
+                    {cd.accountNo&&<div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>ACCOUNT</div><div style={{fontFamily:"monospace"}}>{cd.accountNo}</div></div>}
                   </div>
                 )}
                 <button onClick={()=>{if(isVis){setRevealedCards(p=>{const n={...p};delete n[item.id];return n;});}else revealCard(item.id);}} style={{marginTop:12,background:"rgba(255,255,255,0.15)",border:"none",borderRadius:8,color:"#fff",padding:"7px 14px",cursor:"pointer",fontSize:12,fontFamily:"inherit",width:"100%"}}>{isVis?"Hide Details":"Show Details"}</button>
@@ -3943,6 +3940,9 @@ function AppInner(){
     l.rel="stylesheet";
     l.href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap";
     document.head.appendChild(l);
+    const st=document.createElement("style");
+    st.textContent="*{box-sizing:border-box;} html,body,#root{margin:0;padding:0;min-height:100vh;background:"+T.bg+";} input,select,textarea,button{box-sizing:border-box;max-width:100%;}";
+    document.head.appendChild(st);
   },[]);
   useEffect(()=>{
     window.history.replaceState({level:"root"},"");
@@ -3959,7 +3959,7 @@ function AppInner(){
     return <WelcomeScreen onDone={()=>{sessionStorage.setItem("fl_sess","1");setAuthed(true);}}/>;
   }
   return(
-    <div dir={lang==="fa"?"rtl":"ltr"} style={{display:"flex",flexDirection:"column",height:"100vh",background:T.bg,color:T.txt,fontFamily:lang==="fa"?"'Vazirmatn','Tahoma',sans-serif":"'DM Sans','Sora','Segoe UI',sans-serif",overflow:"hidden"}}>
+    <div dir={lang==="fa"?"rtl":"ltr"} style={{display:"flex",flexDirection:"column",height:"100vh",minHeight:"100vh",width:"100%",background:T.bg,color:T.txt,fontFamily:lang==="fa"?"'Vazirmatn','Tahoma',sans-serif":"'DM Sans','Sora','Segoe UI',sans-serif",overflow:"hidden"}}>
       <div style={{flex:1,overflowY:"auto",paddingBottom:100}}>
         {tab==="home"&&<DashTab {...allProps}/>}
         {tab==="menu"&&<MenuTab {...allProps}/>}
