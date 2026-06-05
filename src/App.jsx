@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import { createClient } from "@supabase/supabase-js";
+const SUPA_URL = import.meta.env.VITE_SUPABASE_URL || "";
+const SUPA_KEY = import.meta.env.VITE_SUPABASE_KEY || "";
+const supabase = (SUPA_URL && SUPA_KEY) ? createClient(SUPA_URL, SUPA_KEY) : null;
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 const DARK={bg:"#000000",sb:"#1C1C1E",card:"#2C2C2E",bdr:"rgba(255,255,255,0.12)",accent:"#FFFFFF",txt:"#FFFFFF",sub:"#8E8E93",red:"#FF453A",green:"#30D158",orange:"#FF9F0A",blue:"#0A84FF",pink:"#FF375F",ib:"rgba(255,255,255,0.06)",btnTxt:"#000000",shadow:"none",cardBorder:"1px solid rgba(255,255,255,0.1)"};
@@ -3598,7 +3602,7 @@ function AccountSettings({T,S}){
 }
 
 
-function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lang,setLang,onExport,onImport}){
+function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lang,setLang,onExport,onImport,saveToSupabase}){
   const[pForm,setPForm]=useState(profile);
   const[pf,setPf]=useState({name:"",baseType:"weight",baseGrams:"100",pieceName:"",cal:"",p:"",c:"",f:"",price:"",priceUnit:"kg"});
   useEffect(()=>{setPForm(profile);},[profile]);
@@ -3660,10 +3664,17 @@ function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lan
       </div>
 
       <div style={S.card}>
-        <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:12,letterSpacing:1}}>DATA</div>
-        <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
-          <button onClick={onExport} style={S.btn}>Export JSON</button>
-          <button onClick={onImport} style={{...S.sm,fontSize:12,padding:"8px 16px"}}>Import JSON</button>
+        <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:12,letterSpacing:1}}>DATA & SYNC</div>
+        <div style={{display:"flex",flexDirection:"column",gap:8}}>
+          <div style={{fontSize:12,color:T.sub,background:T.ib,borderRadius:8,padding:"8px 12px"}}>
+            {supabase?"Connected to Supabase — auto-saves every 30s":"Offline mode — data stored locally only"}
+          </div>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+            {supabase&&<button onClick={()=>{if(typeof saveToSupabase==="function")saveToSupabase();}} style={{...S.btn,fontSize:12,padding:"8px 16px"}}>Save to Cloud</button>}
+            <button onClick={onExport} style={{...S.sm,fontSize:12,padding:"8px 16px"}}>Export JSON</button>
+            <button onClick={onImport} style={{...S.sm,fontSize:12,padding:"8px 16px"}}>Import JSON</button>
+            {supabase&&<button onClick={async()=>{await supabase.auth.signOut();sessionStorage.removeItem("fl_sess");window.location.reload();}} style={{...S.sm,color:T.red,borderColor:T.red+"44",fontSize:12,padding:"8px 16px"}}>Sign Out</button>}
+          </div>
         </div>
       </div>
     </div>
@@ -3693,25 +3704,40 @@ const UK_BANKS=[
 
 // ── Welcome / Auth ─────────────────────────────────────────────────
 function WelcomeScreen({onDone}){
-  const[step,setStep]=useState("auth"); // auth | pin
+  const[step,setStep]=useState("auth");
   const[isLogin,setIsLogin]=useState(false);
   const[email,setEmail]=useState("");
   const[pass,setPass]=useState("");
   const[pin,setPin]=useState("");
   const[pinConfirm,setPinConfirm]=useState("");
   const[err,setErr]=useState("");
-  function handleAuth(){
+  const[loading,setLoading]=useState(false);
+  async function handleAuth(){
     if(!email||!pass){setErr("Please fill all fields");return;}
     if(pass.length<6){setErr("Password must be at least 6 characters");return;}
-    if(isLogin){
-      const saved=JSON.parse(localStorage.getItem("fl_auth")||"{}");
-      if(saved.email!==email||saved.pass!==pass){setErr("Invalid email or password");return;}
-      setStep("pinEntry");
-    }else{
-      localStorage.setItem("fl_auth",JSON.stringify({email,pass}));
-      setStep("pin");
-    }
-    setErr("");
+    setLoading(true);setErr("");
+    try{
+      if(supabase){
+        if(isLogin){
+          const{error}=await supabase.auth.signInWithPassword({email,password:pass});
+          if(error){setErr(error.message);setLoading(false);return;}
+        }else{
+          const{error}=await supabase.auth.signUp({email,password:pass});
+          if(error){setErr(error.message);setLoading(false);return;}
+        }
+      }else{
+        // Offline fallback
+        if(isLogin){
+          const saved=JSON.parse(localStorage.getItem("fl_auth")||"{}");
+          if(saved.email!==email||saved.pass!==pass){setErr("Invalid email or password");setLoading(false);return;}
+        }else{
+          localStorage.setItem("fl_auth",JSON.stringify({email,pass}));
+        }
+      }
+      const hasPIN=!!localStorage.getItem("fl_pin");
+      setStep(hasPIN?"pinEntry":"pin");
+    }catch(e){setErr("Connection error. Try again.");}
+    setLoading(false);
   }
   function handlePin(){
     if(pin.length!==6){setErr("PIN must be 6 digits");return;}
@@ -3739,7 +3765,7 @@ function WelcomeScreen({onDone}){
               <input value={pass} onChange={e=>setPass(e.target.value)} style={inpStyle} placeholder="Password (min 6 chars)" type="password"/>
             </div>
             {err&&<div style={{color:"#FF3B30",fontSize:13,marginBottom:10}}>{err}</div>}
-            <button onClick={handleAuth} style={btnStyle}>{isLogin?"Sign In":"Create Account"}</button>
+            <button onClick={handleAuth} disabled={loading} style={{...btnStyle,opacity:loading?0.6:1}}>{loading?"Loading...":(isLogin?"Sign In":"Create Account")}</button>
             <button onClick={()=>{setIsLogin(!isLogin);setErr("");}} style={{background:"transparent",border:"none",color:T_W.sub,fontSize:13,cursor:"pointer",width:"100%",marginTop:12,fontFamily:"inherit"}}>{isLogin?"Don't have an account? Sign Up":"Already have an account? Sign In"}</button>
             {isLogin&&<button onClick={()=>{
               const saved=localStorage.getItem("fl_auth");
@@ -3803,11 +3829,53 @@ function PinDialog({onSuccess,onClose,title}){
 
 export default function App(){
   const[authed,setAuthed]=useState(()=>{
-    const auth=localStorage.getItem("fl_auth");
-    const pin=localStorage.getItem("fl_pin");
     const sess=sessionStorage.getItem("fl_sess");
-    return !!(auth&&pin&&sess==="1");
+    return sess==="1";
   });
+  const[syncing,setSyncing]=useState(false);
+
+  // Load data from Supabase on login
+  async function loadFromSupabase(){
+    if(!supabase)return;
+    try{
+      const{data:{user}}=await supabase.auth.getUser();
+      if(!user)return;
+      const{data,error}=await supabase.from("user_data").select("data").eq("user_id",user.id).single();
+      if(error&&error.code!=="PGRST116")return; // PGRST116 = no rows
+      if(data&&data.data){
+        const d=data.data;
+        const keys=["fl3_programs","fl3_wlogs","fl3_diets","fl3_diet_plans","fl3_health","fl3_events","fl3_sources","fl3_txns","fl3_subs","fl3_debts","fl3_goals","fl3_prices","fl3_profile","fl3_shifts","fl3_vault","fl3_todos","fl3_suppdb","fl3_files","fl3_supp_logs","fl_theme","fl_lang"];
+        keys.forEach(k=>{if(d[k]!==undefined)localStorage.setItem(k,JSON.stringify(d[k]));});
+        if(d.fl_pin)localStorage.setItem("fl_pin",d.fl_pin);
+        window.location.reload();
+      }
+    }catch(e){console.log("Sync error:",e);}
+  }
+
+  // Save all data to Supabase
+  async function saveToSupabase(){
+    if(!supabase||syncing)return;
+    setSyncing(true);
+    try{
+      const{data:{user}}=await supabase.auth.getUser();
+      if(!user){setSyncing(false);return;}
+      const keys=["fl3_programs","fl3_wlogs","fl3_diets","fl3_diet_plans","fl3_health","fl3_events","fl3_sources","fl3_txns","fl3_subs","fl3_debts","fl3_goals","fl3_prices","fl3_profile","fl3_shifts","fl3_vault","fl3_todos","fl3_suppdb","fl3_supp_logs","fl_theme","fl_lang"];
+      const d={};
+      keys.forEach(k=>{try{d[k]=JSON.parse(localStorage.getItem(k)||"null");}catch(e){}});
+      const pin=localStorage.getItem("fl_pin");
+      if(pin)d.fl_pin=pin;
+      await supabase.from("user_data").upsert({user_id:user.id,data:d,updated_at:new Date().toISOString()},{onConflict:"user_id"});
+    }catch(e){console.log("Save error:",e);}
+    setSyncing(false);
+  }
+
+  useEffect(()=>{
+    if(authed){
+      loadFromSupabase();
+      const t=setInterval(saveToSupabase,30000); // auto-save every 30s
+      return()=>clearInterval(t);
+    }
+  },[authed]);
   const[tn,setTn]=useLs("fl_theme","dark");
   const[lang,setLang]=useLs("fl_lang","en");
   const T=tn==="dark"?DARK:LIGHT;
@@ -3873,7 +3941,7 @@ export default function App(){
       <div style={{flex:1,overflowY:"auto",paddingBottom:100}}>
         {tab==="home"&&<DashTab {...allProps}/>}
         {tab==="menu"&&<MenuTab {...allProps}/>}
-        {tab==="settings"&&<SettingsTab {...allProps} tn={tn} setTn={setTn} lang={lang} setLang={setLang} onExport={expAll} onImport={()=>impRef.current&&impRef.current.click()}/>}
+        {tab==="settings"&&<SettingsTab {...allProps} tn={tn} setTn={setTn} lang={lang} setLang={setLang} onExport={expAll} onImport={()=>impRef.current&&impRef.current.click()} saveToSupabase={saveToSupabase}/>}
       </div>
       <div style={{position:"fixed",bottom:0,left:0,right:0,zIndex:100,pointerEvents:"none",paddingBottom:"env(safe-area-inset-bottom,0px)"}}>
         <div style={{maxWidth:500,margin:"0 auto",padding:"0 16px 16px",pointerEvents:"none"}}>
