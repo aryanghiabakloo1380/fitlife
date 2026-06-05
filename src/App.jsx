@@ -3673,7 +3673,7 @@ function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lan
             {supabase&&<button onClick={()=>{if(typeof saveToSupabase==="function")saveToSupabase();}} style={{...S.btn,fontSize:12,padding:"8px 16px"}}>Save to Cloud</button>}
             <button onClick={onExport} style={{...S.sm,fontSize:12,padding:"8px 16px"}}>Export JSON</button>
             <button onClick={onImport} style={{...S.sm,fontSize:12,padding:"8px 16px"}}>Import JSON</button>
-            {supabase&&<button onClick={async()=>{await supabase.auth.signOut();sessionStorage.removeItem("fl_sess");window.location.reload();}} style={{...S.sm,color:T.red,borderColor:T.red+"44",fontSize:12,padding:"8px 16px"}}>Sign Out</button>}
+            {supabase&&<button onClick={async()=>{await supabase.auth.signOut();sessionStorage.removeItem("fl_sess");sessionStorage.removeItem("fl_loaded");window.location.reload();}} style={{...S.sm,color:T.red,borderColor:T.red+"44",fontSize:12,padding:"8px 16px"}}>Sign Out</button>}
           </div>
         </div>
       </div>
@@ -3834,22 +3834,25 @@ export default function App(){
   });
   const[syncing,setSyncing]=useState(false);
 
-  // Load data from Supabase on login
+  // Load data from Supabase on login (once per session)
   async function loadFromSupabase(){
     if(!supabase)return;
+    if(sessionStorage.getItem("fl_loaded")==="1")return; // prevent reload loop
     try{
       const{data:{user}}=await supabase.auth.getUser();
-      if(!user)return;
-      const{data,error}=await supabase.from("user_data").select("data").eq("user_id",user.id).single();
-      if(error&&error.code!=="PGRST116")return; // PGRST116 = no rows
-      if(data&&data.data){
+      if(!user){sessionStorage.setItem("fl_loaded","1");return;}
+      const{data,error}=await supabase.from("user_data").select("data").eq("user_id",user.id).maybeSingle();
+      sessionStorage.setItem("fl_loaded","1");
+      if(error)return;
+      if(data&&data.data&&Object.keys(data.data).length>0){
         const d=data.data;
         const keys=["fl3_programs","fl3_wlogs","fl3_diets","fl3_diet_plans","fl3_health","fl3_events","fl3_sources","fl3_txns","fl3_subs","fl3_debts","fl3_goals","fl3_prices","fl3_profile","fl3_shifts","fl3_vault","fl3_todos","fl3_suppdb","fl3_files","fl3_supp_logs","fl_theme","fl_lang"];
-        keys.forEach(k=>{if(d[k]!==undefined)localStorage.setItem(k,JSON.stringify(d[k]));});
+        let changed=false;
+        keys.forEach(k=>{if(d[k]!==undefined&&d[k]!==null){localStorage.setItem(k,JSON.stringify(d[k]));changed=true;}});
         if(d.fl_pin)localStorage.setItem("fl_pin",d.fl_pin);
-        window.location.reload();
+        if(changed)window.location.reload();
       }
-    }catch(e){console.log("Sync error:",e);}
+    }catch(e){sessionStorage.setItem("fl_loaded","1");console.log("Sync error:",e);}
   }
 
   // Save all data to Supabase
