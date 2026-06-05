@@ -1,8 +1,27 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Component } from "react";
 import { createClient } from "@supabase/supabase-js";
 const SUPA_URL = import.meta.env.VITE_SUPABASE_URL || "";
 const SUPA_KEY = import.meta.env.VITE_SUPABASE_KEY || "";
 const supabase = (SUPA_URL && SUPA_KEY) ? createClient(SUPA_URL, SUPA_KEY) : null;
+
+class ErrorBoundary extends Component {
+  constructor(props){super(props);this.state={hasError:false,error:null};}
+  static getDerivedStateFromError(error){return{hasError:true,error};}
+  componentDidCatch(error,info){console.error("App crash:",error,info);}
+  render(){
+    if(this.state.hasError){
+      return(
+        <div style={{padding:24,fontFamily:"monospace",background:"#1a1a1a",color:"#fff",minHeight:"100vh"}}>
+          <h2 style={{color:"#FF3B30"}}>App Error</h2>
+          <p style={{color:"#FF9500",fontSize:14}}>{this.state.error&&this.state.error.toString()}</p>
+          <pre style={{fontSize:11,color:"#aaa",whiteSpace:"pre-wrap",marginTop:12}}>{this.state.error&&this.state.error.stack}</pre>
+          <button onClick={()=>{sessionStorage.clear();window.location.reload();}} style={{marginTop:16,padding:"10px 20px",background:"#fff",color:"#000",border:"none",borderRadius:8,cursor:"pointer"}}>Reset & Reload</button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 const DARK={bg:"#000000",sb:"#1C1C1E",card:"#2C2C2E",bdr:"rgba(255,255,255,0.12)",accent:"#FFFFFF",txt:"#FFFFFF",sub:"#8E8E93",red:"#FF453A",green:"#30D158",orange:"#FF9F0A",blue:"#0A84FF",pink:"#FF375F",ib:"rgba(255,255,255,0.06)",btnTxt:"#000000",shadow:"none",cardBorder:"1px solid rgba(255,255,255,0.1)"};
@@ -3827,7 +3846,7 @@ function PinDialog({onSuccess,onClose,title}){
   );
 }
 
-export default function App(){
+function AppInner(){
   const[authed,setAuthed]=useState(()=>{
     const sess=sessionStorage.getItem("fl_sess");
     return sess==="1";
@@ -3966,4 +3985,8 @@ export default function App(){
       <input type="file" accept=".json" ref={impRef} onChange={impAll} style={{display:"none"}}/>
     </div>
   );
+}
+
+export default function App(){
+  return <ErrorBoundary><AppInner/></ErrorBoundary>;
 }
