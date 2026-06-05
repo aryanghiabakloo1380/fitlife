@@ -55,6 +55,51 @@ const EN={
 };
 function t(lang,key){return (lang==="fa"?FA:EN)[key]||key;}
 
+const SVGP={
+  home:"M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z",
+  menu:"M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+  settings:"M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.49.49 0 00-.59-.22l-2.39.96a7 7 0 00-1.62-.94l-.36-2.54A.484.484 0 0014 2h-4c-.25 0-.46.18-.49.42l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.37 1.04.7 1.62.94l.36 2.54c.05.24.26.42.49.42h4c.25 0 .46-.18.49-.42l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.08-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z",
+  training:"M20.57 14.86L22 13.43l-1.43-1.43-1 1L18 11.43l1.43-1.43L18 8.57l-1.43 1.43-1-1L14 7.43 12.57 6 11 7.57l1 1L10.57 10 9.14 8.57 7.57 10 6 11.57l1 1L5.57 14 4.14 12.57 2.57 14.14l1.43 1.43-1 1L4.43 18l1.43-1.43 1 1L8.29 19l1.43-1.43 1 1 1.57-1.57-1-1 1.43-1.43 1.43 1.43 1.57-1.57-1-1L15.71 12l1.43 1.43 1.57-1.57-1-1 1.43-1.43 1.43 1.43z",
+  diet:"M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8.5-15.03-8.5-15.03 0h15.03z",
+  health:"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z",
+  history:"M13 3a9 9 0 100 18A9 9 0 0013 3zm0 16a7 7 0 110-14 7 7 0 010 14zm-.5-11H11v6l5.25 3.15.75-1.23-4.5-2.67V8z",
+  finance:"M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z",
+  calendar:"M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z",
+  shifts:"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z",
+  vault:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z",
+  files:"M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z",
+  todo:"M19 3H14.82C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z",
+  program:"M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z",
+  add:"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z",
+  delete:"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z",
+  edit:"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z",
+  search:"M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+  close:"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z",
+  check:"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z",
+  chevronRight:"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z",
+  chevronLeft:"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z",
+  chevronDown:"M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z",
+  eye:"M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z",
+  eyeOff:"M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46A11.804 11.804 0 001 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z",
+  copy:"M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z",
+  transfer:"M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z",
+  save:"M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z",
+  card:"M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z",
+  phone:"M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
+  lock:"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z",
+  note:"M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z",
+  upload:"M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z",
+  download:"M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z",
+  info:"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
+  warning:"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z",
+};
+function Ico({n,sz=20,cl="currentColor",st=2}){
+  const p=SVGP[n];if(!p)return null;
+  return React.createElement("svg",{width:sz,height:sz,viewBox:"0 0 24 24",fill:"none",stroke:cl,strokeWidth:st,strokeLinecap:"round",strokeLinejoin:"round"},React.createElement("path",{d:p}));
+}
+
+
+
 
 const EXDB=[
   {id:"pu",name:"Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
@@ -97,6 +142,93 @@ const EXDB=[
   {id:"bur",name:"Burpees",cat:"Endurance",typ:"Cardio",mu:"Cardio"},
   {id:"mtc",name:"Mountain Climbers",cat:"Endurance",typ:"Cardio",mu:"Core"},
   {id:"bxj",name:"Box Jumps",cat:"Endurance",typ:"Cardio",mu:"Quads"},
+  // Calisthenics — Skills
+  {id:"fl",name:"Front Lever",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"bl",name:"Back Lever",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"pl",name:"Planche",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"hf",name:"Human Flag",cat:"Upper",typ:"Calisthenics",mu:"Core"},
+  {id:"tp",name:"Tuck Planche",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"spl",name:"Straddle Planche",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"mbl",name:"Maltese",cat:"Upper",typ:"Calisthenics",mu:"Shoulders"},
+  {id:"vsit",name:"V-sit",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"ghng",name:"German Hang",cat:"Upper",typ:"Calisthenics",mu:"Shoulders"},
+  // Calisthenics — Push
+  {id:"pplpu",name:"Pseudo Planche Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"rpu",name:"Ring Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"decpu",name:"Decline Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"elepu",name:"Feet Elevated Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"clpu",name:"Clapping Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"hpu",name:"Hindu Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"90pu",name:"90 Degree Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  {id:"wshsp",name:"Wall Handstand Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Shoulders"},
+  {id:"frhsp",name:"Freestanding Handstand Push-ups",cat:"Upper",typ:"Calisthenics",mu:"Shoulders"},
+  {id:"rdip",name:"Ring Dips",cat:"Upper",typ:"Calisthenics",mu:"Chest"},
+  // Calisthenics — Pull
+  {id:"ctbpu",name:"Chest to Bar Pull-ups",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"kpu",name:"Kipping Pull-ups",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"bfpu",name:"Butterfly Pull-ups",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"twpu",name:"Typewriter Pull-ups",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"arpu",name:"Archer Pull-ups",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"oapu",name:"One-arm Pull-up",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"rrow",name:"Ring Rows",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"rmup",name:"Ring Muscle-up",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  {id:"brmup",name:"Bar Muscle-up",cat:"Upper",typ:"Calisthenics",mu:"Back"},
+  // Calisthenics — Core
+  {id:"df",name:"Dragon Flag",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"hlr",name:"Hanging Leg Raises",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"t2b",name:"Toes to Bar",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"awr",name:"Ab Wheel Rollout",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"hbh",name:"Hollow Body Hold",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"sup",name:"Superman Hold",cat:"Core",typ:"Calisthenics",mu:"Back"},
+  {id:"plk",name:"Plank",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"splk",name:"Side Plank",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  {id:"hkr",name:"Hanging Knee Raises",cat:"Core",typ:"Calisthenics",mu:"Core"},
+  // Calisthenics — Lower
+  {id:"bsqs",name:"Bulgarian Split Squat",cat:"Lower",typ:"Calisthenics",mu:"Quads"},
+  {id:"ssq",name:"Sissy Squat",cat:"Lower",typ:"Calisthenics",mu:"Quads"},
+  {id:"stpu",name:"Step-ups",cat:"Lower",typ:"Calisthenics",mu:"Quads"},
+  {id:"csq",name:"Cossack Squat",cat:"Lower",typ:"Calisthenics",mu:"Quads"},
+  {id:"rlun",name:"Reverse Lunges",cat:"Lower",typ:"Calisthenics",mu:"Quads"},
+  {id:"hsq",name:"Shrimp Squat",cat:"Lower",typ:"Calisthenics",mu:"Quads"},
+  {id:"slglb",name:"Single Leg Glute Bridge",cat:"Lower",typ:"Calisthenics",mu:"Glutes"},
+  {id:"hsplt",name:"Hamstring Curl",cat:"Lower",typ:"Calisthenics",mu:"Hamstrings"},
+  // CrossFit — Olympic
+  {id:"cj",name:"Clean & Jerk",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"pcl",name:"Power Clean",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"hcl",name:"Hang Clean",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"sqcl",name:"Squat Clean",cat:"Lower",typ:"CrossFit",mu:"Full Body"},
+  {id:"snat",name:"Snatch",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"psn",name:"Power Snatch",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"hsn",name:"Hang Snatch",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"pjrk",name:"Push Jerk",cat:"Upper",typ:"CrossFit",mu:"Shoulders"},
+  {id:"spjrk",name:"Split Jerk",cat:"Upper",typ:"CrossFit",mu:"Shoulders"},
+  // CrossFit — Barbell
+  {id:"thr",name:"Thruster",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"ohsq",name:"Overhead Squat",cat:"Lower",typ:"CrossFit",mu:"Full Body"},
+  {id:"sdhp",name:"Sumo Deadlift High Pull",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"frsq",name:"Front Squat",cat:"Lower",typ:"CrossFit",mu:"Quads"},
+  {id:"dbsn",name:"Dumbbell Snatch",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"dbcl",name:"Dumbbell Clean",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  // CrossFit — Kettlebell
+  {id:"kbsw",name:"Kettlebell Swing",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"tgu",name:"Turkish Get-up",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"kbcl",name:"Kettlebell Clean",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"kbsn",name:"Kettlebell Snatch",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  // CrossFit — Gymnastics/Skills
+  {id:"rc",name:"Rope Climb",cat:"Upper",typ:"CrossFit",mu:"Back"},
+  {id:"ghds",name:"GHD Sit-up",cat:"Core",typ:"CrossFit",mu:"Core"},
+  {id:"hswk",name:"Handstand Walk",cat:"Upper",typ:"CrossFit",mu:"Shoulders"},
+  {id:"bxmu",name:"Box Step-overs",cat:"Endurance",typ:"CrossFit",mu:"Quads"},
+  // CrossFit — Cardio/MetCon
+  {id:"wb",name:"Wall Ball",cat:"Endurance",typ:"CrossFit",mu:"Full Body"},
+  {id:"du",name:"Double Unders",cat:"Endurance",typ:"CrossFit",mu:"Cardio"},
+  {id:"row",name:"Row (Erg)",cat:"Endurance",typ:"CrossFit",mu:"Cardio"},
+  {id:"abk",name:"Assault Bike",cat:"Endurance",typ:"CrossFit",mu:"Cardio"},
+  {id:"dp",name:"Devil's Press",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"cls",name:"Cluster",cat:"Upper",typ:"CrossFit",mu:"Full Body"},
+  {id:"bfe",name:"Back Extension",cat:"Core",typ:"CrossFit",mu:"Back"},
+  {id:"shdru",name:"Shuttle Run",cat:"Endurance",typ:"CrossFit",mu:"Cardio"},
+  {id:"wstpu",name:"Weighted Step-ups",cat:"Lower",typ:"CrossFit",mu:"Quads"},
 ];
 
 const MEALS=["Breakfast","Lunch","Dinner","Snack 1","Snack 2","Drink"];
@@ -292,6 +424,10 @@ function DashTab({T,S,mob,profile,wLogs,sources,txns,subs,debts,goals,hLog,diets
   const tomEvs=calEv.filter(e=>e.date===tom&&!e.cancelled);
   const greetHr=now.getHours();
   const greet=greetHr<12?"Good morning":greetHr<17?"Good afternoon":"Good evening";
+
+  const dashTodos=(()=>{
+    try{const todos=JSON.parse(localStorage.getItem("fl3_todos")||"[]");return todos.filter(t=>!t.done&&t.date).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);}catch(e){return [];}
+  })();
   return(
     <div style={{padding:mob?16:28,paddingBottom:100,maxWidth:600,margin:"0 auto"}}>
       <div style={{marginBottom:24}}>
@@ -399,30 +535,28 @@ function DashTab({T,S,mob,profile,wLogs,sources,txns,subs,debts,goals,hLog,diets
       {(todEvs.length>0||tomEvs.length>0)&&(
         <div style={{...S.card,marginBottom:16}}>
           <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:10,letterSpacing:1}}>EVENTS</div>
-          {todEvs.map(e=><div key={e.id} style={{fontSize:12,padding:"4px 0",borderBottom:"1px solid "+T.bdr,color:T.txt}}><span style={{color:T.green,fontWeight:700,fontSize:10}}>TODAY </span>{e.title}{e.time?" · "+e.time:""}</div>)}
-          {tomEvs.map(e=><div key={e.id} style={{fontSize:12,padding:"4px 0",borderBottom:"1px solid "+T.bdr,color:T.sub}}><span style={{color:T.orange,fontWeight:700,fontSize:10}}>TMR </span>{e.title}</div>)}
+          {todEvs.map(e=><div key={e.id} style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",padding:"6px 0",borderBottom:"1px solid "+T.bdr}}><div><div style={{fontSize:12,color:T.txt,fontWeight:600}}>{e.title}</div><div style={{fontSize:10,color:T.sub,marginTop:1}}>Today{e.time?" · "+e.time:""}</div></div><div style={{fontSize:10,color:T.green,fontWeight:700,flexShrink:0,marginLeft:8}}>TODAY</div></div>)}
+          {tomEvs.map(e=><div key={e.id} style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",padding:"6px 0",borderBottom:"1px solid "+T.bdr}}><div><div style={{fontSize:12,color:T.txt,fontWeight:500}}>{e.title}</div><div style={{fontSize:10,color:T.sub,marginTop:1}}>Tomorrow{e.time?" · "+e.time:""}</div></div><div style={{fontSize:10,color:T.orange,fontWeight:700,flexShrink:0,marginLeft:8}}>TMR</div></div>)}
         </div>
       )}
-      {(()=>{
-        const todos=JSON.parse(localStorage.getItem("fl3_todos")||"[]");
-        const now=today();
-        const d3=new Date();d3.setDate(d3.getDate()+3);
-        const max=d3.toISOString().slice(0,10);
-        const upcoming=todos.filter(t=>!t.done&&t.date>=now&&t.date<=max).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,6);
-        if(upcoming.length===0)return null;
-        return(
-          <div style={S.card}>
-            <div style={{fontSize:11,fontWeight:700,color:"#5856D6",marginBottom:10,letterSpacing:1}}>TO-DO (NEXT 3 DAYS)</div>
-            {upcoming.map(t=>(
-              <div key={t.id} style={{display:"flex",alignItems:"center",gap:8,padding:"5px 0",borderBottom:"1px solid "+T.bdr,fontSize:12}}>
-                <div style={{width:8,height:8,borderRadius:"50%",background:"#5856D6",flexShrink:0}}/>
-                <div style={{flex:1,color:T.txt}}>{t.title}</div>
-                <div style={{color:T.sub,fontSize:10}}>{t.date===now?"Today":fmtDate(t.date)}{t.time?" · "+t.time:""}</div>
+      {dashTodos.length>0&&(
+        <div style={S.card}>
+          <div style={{fontSize:11,fontWeight:700,color:"#5856D6",marginBottom:10,letterSpacing:1}}>UPCOMING TO-DO</div>
+          {dashTodos.map((t,i)=>{
+            const isPast=t.date<today();
+            const isToday=t.date===today();
+            return(
+              <div key={t.id} style={{display:"flex",alignItems:"center",gap:10,padding:"7px 0",borderBottom:i<dashTodos.length-1?"1px solid "+T.bdr:"none"}}>
+                <div style={{width:8,height:8,borderRadius:"50%",background:isPast?"#FF3B30":isToday?"#34C759":"#5856D6",flexShrink:0}}/>
+                <div style={{flex:1,minWidth:0}}>
+                  <div style={{fontSize:13,color:T.txt,fontWeight:500}}>{t.title}</div>
+                  <div style={{fontSize:11,color:isPast?"#FF3B30":isToday?"#34C759":T.sub,marginTop:1}}>{isToday?"Today":isPast?"Overdue · "+fmtDate(t.date):fmtDate(t.date)}{t.time?" · "+t.time:""}</div>
+                </div>
               </div>
-            ))}
-          </div>
-        );
-      })()}
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
@@ -472,7 +606,7 @@ function AMRAPSingleModal({T,S,mob,onSave,onClose,draft,onSaveDraft}){
     <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.88)",display:"flex",alignItems:"flex-start",justifyContent:"center",zIndex:600,overflowY:"auto",padding:"12px 0"}}>
       <div style={{...S.card,width:mob?"96vw":"400px",border:"1px solid "+T.orange+"55",display:"flex",flexDirection:"column"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-          <div style={{fontSize:12,fontWeight:700,color:T.orange,letterSpacing:2}}>AMRAP SINGLE</div>
+          <div style={{fontSize:12,fontWeight:700,color:T.orange,letterSpacing:2}}>EMOM</div>
           <button onClick={()=>{saveDraft();onClose();}} style={{...S.sm,padding:"3px 9px",fontSize:11}}>{draft?"Resume later":"Close"}</button>
         </div>
         {phase==="countdown"&&(
@@ -1050,7 +1184,10 @@ function TrainingTab({T,S,mob,wLogs,setWLogs,programs}){
                   ))}
                 </tbody>
               </table>
-              <button onClick={()=>addSet(ei)} style={{...S.sm,marginTop:6,fontSize:11,padding:"3px 9px"}}>+ Set</button>
+              <div style={{display:"flex",gap:8,marginTop:8,justifyContent:"flex-end"}}>
+                {ex.sets.length>0&&<button onClick={()=>{const last={...ex.sets[ex.sets.length-1]};addSet(ei);setTimeout(()=>{updSet(ei,ex.sets.length-1,"reps",last.reps);updSet(ei,ex.sets.length-1,"weight",last.weight);},50);}} style={{...S.sm,fontSize:12,padding:"7px 16px",fontWeight:600}}>Copy Set</button>}
+                <button onClick={()=>addSet(ei)} style={{...S.sm,fontSize:12,padding:"7px 16px",fontWeight:600}}>+ Add Set</button>
+              </div>
             </div>
           ))}
         </div>
@@ -1093,7 +1230,7 @@ function TrainingTab({T,S,mob,wLogs,setWLogs,programs}){
       {showDiscardConfirm&&(
         <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.7)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:800}}>
           <div style={{...S.card,width:mob?"88vw":"320px",textAlign:"center",padding:28}}>
-            <div style={{fontSize:22,marginBottom:10}}>🗑️</div>
+            <div style={{marginBottom:10}}><Ico n="delete" sz={28} cl={T.red}/></div>
             <div style={{fontSize:16,fontWeight:700,color:T.txt,marginBottom:8}}>Cancel Workout?</div>
             <div style={{fontSize:13,color:T.sub,marginBottom:22}}>All progress will be lost.</div>
             <div style={{display:"flex",gap:10}}>
@@ -1126,61 +1263,174 @@ function TrainingTab({T,S,mob,wLogs,setWLogs,programs}){
     </div>
   );
 }
+
+function ProgramCircuitModal({T,S,mob,onSave,onClose}){
+  const[circuitExs,setCircuitExs]=useState([]);
+  const[rounds,setRounds]=useState("4");
+  const[everyMins,setEveryMins]=useState("3");
+  const[showExPick,setShowExPick]=useState(false);
+  const[exSearch,setExSearch]=useState("");
+  const[dragIdx,setDragIdx]=useState(null);
+  function pickEx(ex){setCircuitExs(prev=>[...prev,{id:uid(),ex,reps:"10",weight:""}]);setShowExPick(false);setExSearch("");}
+  function updEx(i,f,v){setCircuitExs(prev=>prev.map((c,j)=>j===i?{...c,[f]:v}:c));}
+  function rmEx(i){setCircuitExs(prev=>prev.filter((_,j)=>j!==i));}
+  function reorder(from,to){if(from===to||from===null)return;const items=[...circuitExs];const[m]=items.splice(from,1);items.splice(to,0,m);setCircuitExs(items);setDragIdx(null);}
+  function save(){
+    if(circuitExs.length===0)return;
+    onSave({id:uid(),exercises:circuitExs.map(c=>({name:c.ex.name,exId:c.ex.id,mu:c.ex.mu,reps:c.reps||"10",weight:c.weight||"BW"})),rounds:parseInt(rounds)||0,everyMins:parseInt(everyMins)||0,duration:0});
+    onClose();
+  }
+  const filtEx=EXDB.filter(e=>e.name.toLowerCase().includes(exSearch.toLowerCase())||e.mu.toLowerCase().includes(exSearch.toLowerCase()));
+  return(
+    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.88)",display:"flex",alignItems:"flex-start",justifyContent:"center",zIndex:600,overflowY:"auto",padding:"12px 0"}}>
+      <div style={{...S.card,width:mob?"96vw":"420px",border:"1px solid "+T.blue+"55"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+          <div style={{fontSize:12,fontWeight:700,color:T.blue,letterSpacing:2}}>CIRCUIT BLOCK</div>
+          <button onClick={onClose} style={{...S.sm,padding:"3px 9px",fontSize:11}}>Close</button>
+        </div>
+        {circuitExs.length===0&&<div style={{textAlign:"center",padding:"14px 0",color:T.sub,fontSize:13}}>Add exercises to this circuit block</div>}
+        {circuitExs.map((c,i)=>(
+          <div key={c.id} draggable onDragStart={()=>setDragIdx(i)} onDragEnd={()=>setDragIdx(null)} onDragOver={e=>e.preventDefault()} onDrop={()=>reorder(dragIdx,i)}
+            style={{background:T.ib,borderRadius:12,padding:10,marginBottom:7,display:"flex",gap:8,alignItems:"center",opacity:dragIdx===i?0.45:1,cursor:"grab"}}>
+            <div style={{fontSize:18,color:T.sub,userSelect:"none"}}>⋮⋮</div>
+            <div style={{fontSize:13,fontWeight:800,color:T.blue,width:18}}>{i+1}</div>
+            <div style={{flex:1}}>
+              <div style={{fontSize:12,fontWeight:700,color:T.txt,marginBottom:6}}>{c.ex.name}</div>
+              <div style={{display:"flex",gap:6}}>
+                <div style={{flex:1}}><div style={{fontSize:8,color:T.sub,marginBottom:2}}>REPS</div><input value={c.reps} onChange={e=>updEx(i,"reps",e.target.value)} style={{...S.inp,textAlign:"center",fontSize:14,fontWeight:700,padding:"5px 4px"}} type="number" min="1"/></div>
+                <div style={{flex:1}}><div style={{fontSize:8,color:T.sub,marginBottom:2}}>WEIGHT</div><input value={c.weight} onChange={e=>updEx(i,"weight",e.target.value)} style={{...S.inp,textAlign:"center",fontSize:13,padding:"5px 4px"}} placeholder="BW"/></div>
+              </div>
+            </div>
+            <button onClick={()=>rmEx(i)} style={{...S.sm,color:T.red,padding:"4px 9px",fontSize:12}}>x</button>
+          </div>
+        ))}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
+          <div><div style={{fontSize:9,color:T.sub,marginBottom:5}}>ROUNDS (0=unlimited)</div><input value={rounds} onChange={e=>setRounds(e.target.value)} style={{...S.inp,textAlign:"center"}} placeholder="4" type="number"/></div>
+          <div><div style={{fontSize:9,color:T.sub,marginBottom:5}}>EVERY X MIN</div><input value={everyMins} onChange={e=>setEveryMins(e.target.value)} style={{...S.inp,textAlign:"center"}} placeholder="3" type="number"/></div>
+        </div>
+        <button onClick={()=>setShowExPick(true)} style={{...S.sm,width:"100%",marginBottom:10,padding:"11px",fontSize:12,color:T.blue,borderColor:T.blue+"55"}}>+ Add Exercise</button>
+        <button onClick={save} disabled={circuitExs.length===0} style={{...S.btn,width:"100%",opacity:circuitExs.length>0?1:0.4}}>Add Circuit to Program</button>
+        {showExPick&&(
+          <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.8)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:700}}>
+            <div style={{...S.card,width:mob?"95vw":"380px",maxHeight:"75vh",overflow:"hidden",display:"flex",flexDirection:"column"}}>
+              <div style={{fontWeight:700,fontSize:14,color:T.blue,marginBottom:10}}>Select Exercise</div>
+              <input value={exSearch} onChange={e=>setExSearch(e.target.value)} style={{...S.inp,marginBottom:8}} placeholder="Search..."/>
+              <div style={{overflowY:"auto",flex:1}}>{filtEx.map(ex=><button key={ex.id} onClick={()=>pickEx(ex)} style={{display:"flex",width:"100%",textAlign:"left",padding:"9px 11px",background:"transparent",border:"1px solid "+T.bdr,borderRadius:9,cursor:"pointer",marginBottom:4,color:T.txt,fontFamily:"inherit"}}><div><div style={{fontWeight:600,fontSize:13}}>{ex.name}</div><div style={{fontSize:10,color:T.sub}}>{ex.mu}</div></div></button>)}</div>
+              <button onClick={()=>setShowExPick(false)} style={{...S.sm,marginTop:8}}>Cancel</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProgramEmomModal({T,S,mob,onSave,onClose}){
+  const[selEx,setSelEx]=useState(null);
+  const[sets,setSets]=useState("10");
+  const[repsPerSet,setRepsPerSet]=useState("10");
+  const[weight,setWeight]=useState("");
+  const[timeLim,setTimeLim]=useState("30");
+  const[note,setNote]=useState("");
+  const[showExPick,setShowExPick]=useState(false);
+  const[exSearch,setExSearch]=useState("");
+  function save(){
+    if(!selEx)return;
+    const n=parseInt(sets)||0;
+    const r=parseInt(repsPerSet)||0;
+    onSave({id:uid(),exerciseName:selEx.name,exerciseMu:selEx.mu,timeLimitMins:parseInt(timeLim)||0,sets:Array.from({length:n},(_,i)=>({reps:r,weight:parseFloat(weight)||0})),totalSets:n,totalReps:n*r,duration:0,note});
+    onClose();
+  }
+  const filtEx=EXDB.filter(e=>e.name.toLowerCase().includes(exSearch.toLowerCase())||e.mu.toLowerCase().includes(exSearch.toLowerCase()));
+  return(
+    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.88)",display:"flex",alignItems:"flex-start",justifyContent:"center",zIndex:600,overflowY:"auto",padding:"12px 0"}}>
+      <div style={{...S.card,width:mob?"96vw":"400px",border:"1px solid "+T.orange+"55"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+          <div style={{fontSize:12,fontWeight:700,color:T.orange,letterSpacing:2}}>EMOM BLOCK</div>
+          <button onClick={onClose} style={{...S.sm,padding:"3px 9px",fontSize:11}}>Close</button>
+        </div>
+        <div style={{marginBottom:10}}>
+          <div style={{fontSize:10,color:T.sub,marginBottom:4}}>EXERCISE</div>
+          <button onClick={()=>setShowExPick(true)} style={{...S.inp,textAlign:"left",cursor:"pointer",display:"block",color:selEx?T.txt:T.sub,fontFamily:"inherit"}}>{selEx?selEx.name:"Tap to choose exercise..."}</button>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:8}}>
+          <div><div style={{fontSize:9,color:T.sub,marginBottom:4}}>SETS</div><input value={sets} onChange={e=>setSets(e.target.value)} style={{...S.inp,textAlign:"center"}} type="number" placeholder="10"/></div>
+          <div><div style={{fontSize:9,color:T.sub,marginBottom:4}}>REPS/SET</div><input value={repsPerSet} onChange={e=>setRepsPerSet(e.target.value)} style={{...S.inp,textAlign:"center"}} type="number" placeholder="10"/></div>
+          <div><div style={{fontSize:9,color:T.sub,marginBottom:4}}>WEIGHT</div><input value={weight} onChange={e=>setWeight(e.target.value)} style={{...S.inp,textAlign:"center"}} placeholder="BW"/></div>
+          <div><div style={{fontSize:9,color:T.sub,marginBottom:4}}>TIME LIMIT (MIN)</div><input value={timeLim} onChange={e=>setTimeLim(e.target.value)} style={{...S.inp,textAlign:"center"}} type="number" placeholder="30"/></div>
+        </div>
+        <input value={note} onChange={e=>setNote(e.target.value)} style={{...S.inp,marginBottom:10}} placeholder="Notes (optional)..."/>
+        <button onClick={save} disabled={!selEx} style={{...S.btn,width:"100%",opacity:selEx?1:0.4}}>Add EMOM to Program</button>
+        {showExPick&&(
+          <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.8)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:700}}>
+            <div style={{...S.card,width:mob?"95vw":"380px",maxHeight:"75vh",overflow:"hidden",display:"flex",flexDirection:"column"}}>
+              <div style={{fontWeight:700,fontSize:14,color:T.orange,marginBottom:10}}>Select Exercise</div>
+              <input value={exSearch} onChange={e=>setExSearch(e.target.value)} style={{...S.inp,marginBottom:8}} placeholder="Search..."/>
+              <div style={{overflowY:"auto",flex:1}}>{filtEx.map(ex=><button key={ex.id} onClick={()=>{setSelEx(ex);setShowExPick(false);setExSearch("");}} style={{display:"flex",width:"100%",textAlign:"left",padding:"9px 11px",background:"transparent",border:"1px solid "+T.bdr,borderRadius:9,cursor:"pointer",marginBottom:4,color:T.txt,fontFamily:"inherit"}}><div><div style={{fontWeight:600,fontSize:13}}>{ex.name}</div><div style={{fontSize:10,color:T.sub}}>{ex.mu}</div></div></button>)}</div>
+              <button onClick={()=>setShowExPick(false)} style={{...S.sm,marginTop:8}}>Cancel</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function ProgramTab({T,S,mob,programs,setPrograms}){
   const[view,setView]=useState("list");
   const[cur,setCur]=useState(null);
   const[exSearch,setExSearch]=useState("");
+  const[selectedProgs,setSelectedProgs]=useState(new Set());
   const[showExPicker,setShowExPicker]=useState(false);
-  function newProg(){
-    const p={id:uid(),name:"New Program",exercises:[]};
-    setPrograms(prev=>[...prev,p]);
-    setCur(p);setView("edit");
-  }
+  const[showCircuit,setShowCircuit]=useState(false);
+  const[showEmom,setShowEmom]=useState(false);
+  function newProg(){const p={id:uid(),name:"New Program",exercises:[],circuits:[],emoms:[],note:""};setPrograms(prev=>[...prev,p]);setCur(p);setView("edit");}
   function saveProg(updated){setPrograms(prev=>prev.map(p=>p.id===updated.id?updated:p));setCur(updated);}
   function delProg(id){setPrograms(prev=>prev.filter(p=>p.id!==id));setView("list");}
-  function dupProg(p){
-    const n={...p,id:uid(),name:p.name+" (Copy)",exercises:(p.exercises||[]).map(e=>({...e,id:uid(),sets:(e.sets||[]).map(s=>({...s}))}))};
-    setPrograms(prev=>[...prev,n]);
-  }
-  function addEx(ex){
-    const updated={...cur,exercises:[...(cur.exercises||[]),{id:uid(),name:ex.name,exId:ex.id,mu:ex.mu,sets:[{reps:"10",weight:"BW"}]}]};
-    saveProg(updated);setShowExPicker(false);setExSearch("");
-  }
-  function rmEx(ei){saveProg({...cur,exercises:cur.exercises.filter((_,i)=>i!==ei)});}
-  function addSet(ei){const exercises=cur.exercises.map((ex,i)=>i===ei?{...ex,sets:[...ex.sets,{reps:"10",weight:"BW"}]}:ex);saveProg({...cur,exercises});}
-  function rmSet(ei,si){const exercises=cur.exercises.map((ex,i)=>i===ei?{...ex,sets:ex.sets.filter((_,j)=>j!==si)}:ex);saveProg({...cur,exercises});}
-  function updSet(ei,si,f,v){const exercises=cur.exercises.map((ex,i)=>i===ei?{...ex,sets:ex.sets.map((s,j)=>j===si?{...s,[f]:v}:s)}:ex);saveProg({...cur,exercises});}
+  function dupProg(p){const n={...p,id:uid(),name:p.name+" (Copy)",exercises:(p.exercises||[]).map(e=>({...e,id:uid(),sets:(e.sets||[]).map(s=>({...s}))})),circuits:(p.circuits||[]).map(c=>({...c,id:uid()})),emoms:(p.emoms||[]).map(a=>({...a,id:uid()}))};setPrograms(prev=>[...prev,n]);}
+  function addEx(ex){const updated={...cur,exercises:[...(cur.exercises||[]),{id:uid(),name:ex.name,exId:ex.id,mu:ex.mu,sets:[{reps:"10",weight:"BW"}]}]};saveProg(updated);setShowExPicker(false);setExSearch("");}
+  function rmEx(ei){saveProg({...cur,exercises:(cur.exercises||[]).filter((_,i)=>i!==ei)});}
+  function addSet(ei){saveProg({...cur,exercises:(cur.exercises||[]).map((ex,i)=>i===ei?{...ex,sets:[...ex.sets,{reps:"10",weight:"BW"}]}:ex)});}
+  function rmSet(ei,si){saveProg({...cur,exercises:(cur.exercises||[]).map((ex,i)=>i===ei?{...ex,sets:ex.sets.filter((_,j)=>j!==si)}:ex)});}
+  function updSet(ei,si,f,v){saveProg({...cur,exercises:(cur.exercises||[]).map((ex,i)=>i===ei?{...ex,sets:ex.sets.map((s,j)=>j===si?{...s,[f]:v}:s)}:ex)});}
+  function addCircuit(circuit){saveProg({...cur,circuits:[...(cur.circuits||[]),circuit]});}
+  function addEmom(data){saveProg({...cur,emoms:[...(cur.emoms||[]),data]});}
   const filtered=EXDB.filter(e=>e.name.toLowerCase().includes(exSearch.toLowerCase())||e.mu.toLowerCase().includes(exSearch.toLowerCase()));
+  const exCount=(cur?.exercises||[]).length;
+  const circuitCount=(cur?.circuits||[]).length;
+  const emomCount=(cur?.emoms||[]).length;
 
   if(view==="list") return(
-    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto"}}>
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
+    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
         <div style={{fontSize:20,fontWeight:800,color:T.txt}}>Programs</div>
-        <button onClick={newProg} style={S.btn}>+ New Program</button>
+        <button onClick={newProg} style={S.btn}>+ New</button>
       </div>
-      {programs.length===0&&(
-        <div style={{textAlign:"center",padding:"40px 20px",color:T.sub}}>
-          <div style={{fontSize:13,marginBottom:8}}>No programs yet</div>
-          <div style={{fontSize:11}}>Create programs here, then load them in Training</div>
+      {programs.length>0&&selectedProgs.size>0&&(
+        <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap"}}>
+          <button onClick={()=>{const sel=programs.filter(p=>selectedProgs.has(p.id));const json=JSON.stringify(sel,null,2);const a=document.createElement("a");a.href="data:application/json;charset=utf-8,"+encodeURIComponent(json);a.download="programs.json";a.click();}} style={{...S.sm,fontSize:11,padding:"6px 12px"}}>Export JSON ({selectedProgs.size})</button>
+          <button onClick={()=>{const sel=programs.filter(p=>selectedProgs.has(p.id));const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Programs</title><style>body{font-family:sans-serif;padding:24px;max-width:700px;margin:0 auto;}h1{font-size:22px;margin-bottom:20px;}h2{font-size:16px;border-bottom:2px solid #000;padding-bottom:4px;margin:18px 0 10px;}table{width:100%;border-collapse:collapse;}th{background:#000;color:#fff;padding:6px 10px;text-align:left;font-size:11px;}td{padding:5px 10px;border-bottom:1px solid #eee;font-size:12px;}.block{background:#f5f5f5;border-radius:6px;padding:10px 12px;margin:6px 0;}</style></head><body><h1>Training Programs</h1>${sel.map(p=>`<h2>${p.name}</h2>${p.note?`<p style="color:#666;font-size:12px">${p.note}</p>`:""}${ (p.exercises||[]).length>0?`<table><thead><tr><th>Exercise</th><th>Muscle</th><th>Sets</th><th>Reps</th><th>Weight</th></tr></thead><tbody>${(p.exercises||[]).map(e=>`<tr><td>${e.name}</td><td>${e.mu}</td><td>${(e.sets||[]).length}</td><td>${(e.sets||[])[0]?.reps||"-"}</td><td>${(e.sets||[])[0]?.weight||"BW"}</td></tr>`).join("")}</tbody></table>`:""} ${(p.circuits||[]).map((c,i)=>`<div class="block"><strong>Circuit ${i+1}</strong>${c.rounds>0?" · "+c.rounds+" rounds":""}${c.everyMins>0?" · every "+c.everyMins+"min":""}<ul>${(c.exercises||[]).map(e=>`<li>${e.name} — ${e.reps} reps${e.weight&&e.weight!=="BW"?" · "+e.weight:""}</li>`).join("")}</ul></div>`).join("")} ${(p.emoms||[]).map((a,i)=>`<div class="block"><strong>EMOM ${i+1} · ${a.exerciseName}</strong><br>${a.totalSets} sets · ${a.totalReps} reps${a.timeLimitMins>0?" · "+a.timeLimitMins+"min":""}</div>`).join("")}`).join("")}</body></html>`;const w=window.open("","_blank","width=800,height=700");if(!w)return;w.document.write(html);w.document.close();setTimeout(()=>w.print(),400);}} style={{...S.sm,fontSize:11,padding:"6px 12px"}}>Export PDF ({selectedProgs.size})</button>
+          <button onClick={()=>setSelectedProgs(new Set())} style={{...S.sm,fontSize:11,padding:"6px 12px"}}>Clear</button>
         </div>
       )}
+      {programs.length===0&&<div style={{textAlign:"center",padding:"40px 20px",color:T.sub,fontSize:13}}>No programs yet. Create one to load in Training.</div>}
       {programs.map(p=>(
-        <div key={p.id} style={{...S.card,marginBottom:10}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
-            <div>
+        <div key={p.id} style={{...S.card,marginBottom:10,border:selectedProgs.has(p.id)?"2px solid "+T.accent:"1px solid "+T.bdr}}>
+          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}>
+            <input type="checkbox" checked={selectedProgs.has(p.id)} onChange={e=>{setSelectedProgs(prev=>{const n=new Set(prev);e.target.checked?n.add(p.id):n.delete(p.id);return n;});}} style={{width:18,height:18,cursor:"pointer",accentColor:T.accent}}/>
+            <div style={{flex:1}}>
               <div style={{fontWeight:700,fontSize:14,color:T.txt}}>{p.name}</div>
-              <div style={{color:T.sub,fontSize:11,marginTop:3}}>{(p.exercises||[]).length} exercises · {(p.exercises||[]).reduce((s,e)=>s+(e.sets||[]).length,0)} sets</div>
+              <div style={{color:T.sub,fontSize:11,marginTop:2}}>{(p.exercises||[]).length>0&&(p.exercises||[]).length+" ex "}{(p.circuits||[]).length>0&&(p.circuits||[]).length+" circuit "}{(p.emoms||[]).length>0&&(p.emoms||[]).length+" EMOM"}</div>
             </div>
-            <div style={{display:"flex",gap:6}}>
-              <button onClick={()=>{setCur(p);setView("edit");}} style={{...S.sm,padding:"5px 10px"}}>Edit</button>
-              <button onClick={()=>dupProg(p)} style={{...S.sm,padding:"5px 10px"}}>Copy</button>
-              <button onClick={()=>delProg(p.id)} style={{...S.sm,color:T.red,padding:"5px 10px"}}>Del</button>
+            <div style={{display:"flex",gap:5}}>
+              <button onClick={()=>{setCur(p);setView("edit");}} style={{...S.sm,padding:"4px 9px",fontSize:11}}>Edit</button>
+              <button onClick={()=>dupProg(p)} style={{...S.sm,padding:"4px 9px",fontSize:11}}>Copy</button>
+              <button onClick={()=>delProg(p.id)} style={{...S.sm,color:T.red,padding:"4px 9px",fontSize:11}}>Del</button>
             </div>
           </div>
-          {(p.exercises||[]).slice(0,3).map((ex,i)=>(
-            <div key={i} style={{fontSize:12,color:T.sub,padding:"2px 0",borderTop:i===0?"1px solid "+T.bdr:"none",paddingTop:i===0?8:2}}>{ex.name} — {(ex.sets||[]).length} sets</div>
-          ))}
-          {(p.exercises||[]).length>3&&<div style={{fontSize:11,color:T.sub,marginTop:3}}>+{(p.exercises||[]).length-3} more</div>}
+          {(p.exercises||[]).slice(0,2).map((ex,i)=><div key={i} style={{fontSize:12,color:T.sub,padding:"2px 4px"}}>{ex.name} — {(ex.sets||[]).length}s</div>)}
+          {(p.circuits||[]).length>0&&<div style={{fontSize:12,color:T.blue,marginTop:2,padding:"0 4px"}}>Circuit: {(p.circuits||[]).length} block(s)</div>}
+          {(p.emoms||[]).length>0&&<div style={{fontSize:12,color:T.orange,marginTop:2,padding:"0 4px"}}>EMOM: {(p.emoms||[]).length} block(s)</div>}
         </div>
       ))}
     </div>
@@ -1188,65 +1438,99 @@ function ProgramTab({T,S,mob,programs,setPrograms}){
 
   return(
     <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:100}}>
-      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
+      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
         <button onClick={()=>setView("list")} style={S.sm}>Back</button>
         <input value={cur.name} onChange={e=>saveProg({...cur,name:e.target.value})} style={{...S.inp,fontSize:16,fontWeight:700,flex:1}} placeholder="Program name..."/>
       </div>
-      <textarea value={cur.note||""} onChange={e=>saveProg({...cur,note:e.target.value})} style={{...S.inp,resize:"none",height:60,fontSize:12,marginBottom:14}} placeholder="Program notes, goals, schedule... (optional)"/>
-      {(cur.exercises||[]).length===0&&<div style={{textAlign:"center",padding:"24px 16px",color:T.sub,fontSize:13}}>No exercises yet — tap below to add</div>}
-      {(cur.exercises||[]).map((ex,ei)=>(
-        <div key={ex.id} style={{...S.card,marginBottom:12}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-            <div><div style={{fontWeight:700,fontSize:14,color:T.txt}}>{ex.name}</div><div style={{color:T.sub,fontSize:11,marginTop:2}}>{ex.mu}</div></div>
-            <button onClick={()=>rmEx(ei)} style={{...S.sm,color:T.red,padding:"3px 9px",fontSize:11}}>Remove</button>
-          </div>
-          <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-            <thead><tr style={{borderBottom:"1px solid "+T.bdr}}>
-              <th style={{color:T.sub,fontWeight:600,textAlign:"left",padding:"4px 6px",width:36,fontSize:10}}>SET</th>
-              <th style={{color:T.sub,fontWeight:600,textAlign:"left",padding:"4px 6px",fontSize:10}}>REPS</th>
-              <th style={{color:T.sub,fontWeight:600,textAlign:"left",padding:"4px 6px",fontSize:10}}>WEIGHT</th>
-              <th style={{width:28}}></th>
-            </tr></thead>
-            <tbody>
-              {ex.sets.map((set,si)=>(
-                <tr key={si} style={{borderBottom:"1px solid "+T.bdr+"66"}}>
-                  <td style={{padding:"5px 6px",color:T.accent,fontWeight:700}}>{si+1}</td>
-                  <td style={{padding:"4px 6px"}}><input value={set.reps} onChange={e=>updSet(ei,si,"reps",e.target.value)} style={{...S.inp,width:64,padding:"5px 8px"}} placeholder="10"/></td>
-                  <td style={{padding:"4px 6px"}}><input value={set.weight} onChange={e=>updSet(ei,si,"weight",e.target.value)} style={{...S.inp,width:74,padding:"5px 8px"}} placeholder="BW"/></td>
-                  <td style={{padding:"4px 6px"}}><button onClick={()=>rmSet(ei,si)} style={{...S.sm,padding:"2px 6px",color:T.red,fontSize:11}}>x</button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <button onClick={()=>addSet(ei)} style={{...S.sm,marginTop:8,fontSize:11,padding:"4px 10px"}}>+ Add Set</button>
+      <textarea value={cur.note||""} onChange={e=>saveProg({...cur,note:e.target.value})} style={{...S.inp,resize:"none",height:52,fontSize:12,marginBottom:12}} placeholder="Program notes, goals, schedule..."/>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,marginBottom:16}}>
+        <button onClick={()=>setShowExPicker(true)} style={{...S.sm,color:T.accent,borderColor:T.accent+"55",padding:"10px 4px",fontSize:11,fontWeight:700}}>+ Exercise</button>
+        <button onClick={()=>setShowCircuit(true)} style={{...S.sm,color:T.blue,borderColor:T.blue+"55",padding:"10px 4px",fontSize:11,fontWeight:700}}>+ Circuit</button>
+        <button onClick={()=>setShowEmom(true)} style={{...S.sm,color:T.orange,borderColor:T.orange+"55",padding:"10px 4px",fontSize:11,fontWeight:700}}>+ EMOM</button>
+      </div>
+      {exCount===0&&circuitCount===0&&emomCount===0&&<div style={{textAlign:"center",padding:"20px 16px",color:T.sub,fontSize:13}}>Tap the buttons above to build your program</div>}
+      {exCount>0&&(
+        <div style={{...S.card,marginBottom:14,border:"1px solid "+T.accent+"33"}}>
+          <div style={{fontSize:10,fontWeight:700,color:T.accent,letterSpacing:2,marginBottom:12}}>EXERCISES</div>
+          {(cur.exercises||[]).map((ex,ei)=>(
+            <div key={ex.id} style={{marginBottom:14,paddingBottom:14,borderBottom:ei<exCount-1?"1px solid "+T.bdr:"none"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+                <div><div style={{fontWeight:700,fontSize:13,color:T.txt}}>{ex.name}</div><div style={{color:T.sub,fontSize:11,marginTop:1}}>{ex.mu}</div></div>
+                <button onClick={()=>rmEx(ei)} style={{...S.sm,color:T.red,padding:"2px 8px",fontSize:11}}>Remove</button>
+              </div>
+              <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+                <thead><tr style={{borderBottom:"1px solid "+T.bdr}}>
+                  <th style={{color:T.sub,fontWeight:600,textAlign:"left",padding:"3px 5px",width:30,fontSize:10}}>SET</th>
+                  <th style={{color:T.sub,fontWeight:600,textAlign:"left",padding:"3px 5px",fontSize:10}}>REPS</th>
+                  <th style={{color:T.sub,fontWeight:600,textAlign:"left",padding:"3px 5px",fontSize:10}}>WEIGHT</th>
+                  <th style={{width:26}}></th>
+                </tr></thead>
+                <tbody>
+                  {ex.sets.map((set,si)=>(
+                    <tr key={si} style={{borderBottom:"1px solid "+T.bdr+"55"}}>
+                      <td style={{padding:"4px 5px",color:T.accent,fontWeight:700}}>{si+1}</td>
+                      <td style={{padding:"3px 5px"}}><input value={set.reps} onChange={e=>updSet(ei,si,"reps",e.target.value)} style={{...S.inp,width:60,padding:"4px 7px"}} placeholder="10"/></td>
+                      <td style={{padding:"3px 5px"}}><input value={set.weight} onChange={e=>updSet(ei,si,"weight",e.target.value)} style={{...S.inp,width:68,padding:"4px 7px"}} placeholder="BW"/></td>
+                      <td style={{padding:"3px 5px"}}><button onClick={()=>rmSet(ei,si)} style={{...S.sm,padding:"2px 5px",color:T.red,fontSize:11}}>x</button></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div style={{display:"flex",gap:8,marginTop:8,justifyContent:"flex-end"}}>
+                {ex.sets.length>0&&<button onClick={()=>{const last={...ex.sets[ex.sets.length-1]};addSet(ei);setTimeout(()=>{updSet(ei,ex.sets.length-1,"reps",last.reps);updSet(ei,ex.sets.length-1,"weight",last.weight);},50);}} style={{...S.sm,fontSize:12,padding:"7px 16px",fontWeight:600}}>Copy Set</button>}
+                <button onClick={()=>addSet(ei)} style={{...S.sm,fontSize:12,padding:"7px 16px",fontWeight:600}}>+ Add Set</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      {(cur.circuits||[]).map((c,ci)=>(
+        <div key={c.id} style={{...S.card,marginBottom:12,border:"1px solid "+T.blue+"44"}}>
+          <div style={{fontSize:10,fontWeight:700,color:T.blue,letterSpacing:2,marginBottom:10}}>CIRCUIT{c.duration>0?" · "+c.duration+"min":""}{c.rounds>0?" · "+c.rounds+" rounds":""}</div>
+          {(c.exercises||[]).map((ex,i)=>(
+            <div key={i} style={{display:"flex",justifyContent:"space-between",padding:"6px 0",borderBottom:i<c.exercises.length-1?"1px solid "+T.bdr:"none",fontSize:12}}>
+              <div style={{display:"flex",gap:8}}><span style={{color:T.blue,fontWeight:700}}>{i+1}</span><span style={{color:T.txt,fontWeight:600}}>{ex.name}</span><span style={{color:T.sub,fontSize:10}}>({ex.mu})</span></div>
+              <span style={{color:T.sub}}>{ex.reps} reps{ex.weight&&ex.weight!=="BW"?" · "+ex.weight:""}</span>
+            </div>
+          ))}
         </div>
       ))}
-      <button onClick={()=>setShowExPicker(true)} style={{...S.btn,width:"100%",marginBottom:16}}>+ Add Exercise</button>
-      <button onClick={()=>setView("list")} style={{...S.sm,width:"100%",fontSize:13,padding:"12px"}}>Save & Back</button>
+      {(cur.emoms||[]).map((a,ai)=>(
+        <div key={a.id} style={{...S.card,marginBottom:12,border:"1px solid "+T.orange+"44"}}>
+          <div style={{fontSize:10,fontWeight:700,color:T.orange,letterSpacing:2,marginBottom:6}}>EMOM · {a.exerciseName}</div>
+          <div style={{fontSize:11,color:T.sub}}>{a.totalSets} sets · {a.totalReps} reps · {a.duration}min</div>
+        </div>
+      ))}
+      <button onClick={()=>setView("list")} style={{...S.btn,width:"100%",marginTop:8}}>Save & Back</button>
       {showExPicker&&(
         <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.8)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:500}}>
           <div style={{...S.card,width:mob?"95vw":"420px",maxHeight:"80vh",overflow:"hidden",display:"flex",flexDirection:"column",border:"1px solid "+T.accent+"33"}}>
             <div style={{fontWeight:700,fontSize:15,color:T.accent,marginBottom:12}}>Add Exercise</div>
             <input value={exSearch} onChange={e=>setExSearch(e.target.value)} style={{...S.inp,marginBottom:10}} placeholder="Search exercise or muscle..."/>
             <div style={{overflowY:"auto",flex:1}}>
-              {filtered.map(ex=>(
-                <button key={ex.id} onClick={()=>addEx(ex)} style={{display:"flex",width:"100%",textAlign:"left",padding:"10px 12px",background:"transparent",border:"1px solid "+T.bdr,borderRadius:10,cursor:"pointer",marginBottom:5,color:T.txt,fontFamily:"inherit"}}>
-                  <div><div style={{fontWeight:600,fontSize:13}}>{ex.name}</div><div style={{fontSize:11,color:T.sub,marginTop:2}}>{ex.typ} · {ex.mu}</div></div>
-                </button>
-              ))}
+              {filtered.map(ex=>(<button key={ex.id} onClick={()=>addEx(ex)} style={{display:"flex",width:"100%",textAlign:"left",padding:"10px 12px",background:"transparent",border:"1px solid "+T.bdr,borderRadius:10,cursor:"pointer",marginBottom:5,color:T.txt,fontFamily:"inherit"}}><div><div style={{fontWeight:600,fontSize:13}}>{ex.name}</div><div style={{fontSize:11,color:T.sub,marginTop:2}}>{ex.typ} · {ex.mu}</div></div></button>))}
             </div>
             <button onClick={()=>setShowExPicker(false)} style={{...S.sm,marginTop:10}}>Close</button>
           </div>
         </div>
       )}
+      {showCircuit&&<ProgramCircuitModal T={T} S={S} mob={mob} onSave={addCircuit} onClose={()=>setShowCircuit(false)}/>}
+      {showEmom&&<ProgramEmomModal T={T} S={S} mob={mob} onSave={addEmom} onClose={()=>setShowEmom(false)}/>}
     </div>
   );
 }
 
 
-function DietTab({T,S,mob,diets,setDiets,profile,priceDb}){
+function DietTab({T,S,mob,diets,setDiets,profile,priceDb,suppDb,setSuppDb}){
+  const[view,setView]=useState("log"); // log | plans
+  const[dietPlans,setDietPlans]=useLs("fl3_diet_plans",[]);
+  const[selPlan,setSelPlan]=useState(null);
+  const[selectedPlans,setSelectedPlans]=useState(new Set());
   const[selDate,setSelDate]=useState(today());
   const[selMeal,setSelMeal]=useState("Breakfast");
+  const[suppLogs,setSuppLogs]=useLs("fl3_supp_logs",[]);
+  const[suppForm,setSuppForm]=useState({name:"",dose:"",note:""});
+  const[showSuppPicker,setShowSuppPicker]=useState(false);
   const[foodSearch,setFoodSearch]=useState("");
   const[showPicker,setShowPicker]=useState(false);
   const[selFood,setSelFood]=useState(null);
@@ -1271,13 +1555,15 @@ function DietTab({T,S,mob,diets,setDiets,profile,priceDb}){
     else if(pu==="kg"){const grams=piece?n*baseG:n;cost=pr*grams/1000;}
     else if(pu==="100g"){const grams=piece?n*baseG:n;cost=pr*grams/100;}
     else if(pu==="g"){const grams=piece?n*baseG:n;cost=pr*grams;}
+    const microScaled=Object.fromEntries(MICROS.map(m=>[m.k,Math.round((food[m.k]||0)*scale*100)/100]));
     return{
       cal:Math.round(food.cal*scale*10)/10,
       p:Math.round(food.p*scale*10)/10,
       c:Math.round(food.c*scale*10)/10,
       f:Math.round(food.f*scale*10)/10,
       cost:Math.round(cost*100)/100,
-      label:piece?(n===1?"1 "+(food.pieceName||"piece"):n+" "+(food.pieceName||"piece")+"s"):(n+"g")
+      label:piece?(n===1?"1 "+(food.pieceName||"piece"):n+" "+(food.pieceName||"piece")+"s"):(n+"g"),
+      ...microScaled
     };
   }
   function pickFood(food){setSelFood(food);setAmount("");setShowPicker(false);}
@@ -1295,10 +1581,87 @@ function DietTab({T,S,mob,diets,setDiets,profile,priceDb}){
   const preview=selFood&&amount?scaleFood(selFood,amount):null;
   const piece=selFood?isPiece(selFood):false;
   const hasCost=totals.cost>0;
+  // Calculate daily micronutrient totals
+  const microTotals=Object.fromEntries(MICROS.map(m=>[m.k,0]));
+  entries.forEach(e=>{
+    const food=priceDb.find(f=>f.name===e.name);
+    if(food){
+      const base=food.baseGrams||100;
+      const isPieceF=food.baseType==="piece"||food.priceUnit==="piece";
+      const amt=parseFloat(e.unit)||1;
+      const scale=isPieceF?amt:amt/base;
+      MICROS.forEach(m=>{if(food[m.k])microTotals[m.k]+=Math.round((food[m.k]||0)*scale*100)/100;});
+    }
+  });
+  suppToday.forEach(s=>{
+    const item=suppDb&&suppDb.find(d=>d.name===s.name);
+    if(item){
+      const qty=parseFloat(s.dose)||1;
+      const perServing=item.unitType==="gram"&&item.totalWeight>0?qty:qty;
+      MICROS.forEach(m=>{if(item[m.k])microTotals[m.k]+=Math.round((item[m.k]||0)*perServing*100)/100;});
+    }
+  });
+  const hasMicros=MICROS.some(m=>microTotals[m.k]>0);
+  const suppToday=suppLogs.filter(s=>s.date===selDate);
+  const suppTotalCost=suppToday.reduce((sum,s)=>{
+    const item=suppDb&&suppDb.find(d=>d.name===s.name);
+    if(!item||!item.price||!item.count)return sum;
+    const perPill=item.price/item.count;
+    return sum+(perPill*(parseFloat(s.dose)||1));
+  },0);
+
+  if(view==="plans")return(
+    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+        <div style={{fontSize:20,fontWeight:800,color:T.txt}}>Diet Plans</div>
+        <button onClick={()=>{setDietPlans(p=>[...p,{id:uid(),name:"New Diet Plan",meals:[],supplements:[],note:""}]);}} style={S.btn}>+ New Plan</button>
+      </div>
+      {selectedPlans.size>0&&(
+        <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap"}}>
+          <button onClick={()=>{const sel=dietPlans.filter(p=>selectedPlans.has(p.id));const a=document.createElement("a");a.href="data:application/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(sel,null,2));a.download="diet_plans.json";a.click();}} style={{...S.sm,fontSize:11,padding:"6px 12px"}}>Export JSON ({selectedPlans.size})</button>
+          <button onClick={()=>setSelectedPlans(new Set())} style={{...S.sm,fontSize:11,padding:"6px 12px"}}>Clear</button>
+        </div>
+      )}
+      <button onClick={()=>setView("log")} style={{...S.sm,width:"100%",marginBottom:14}}>→ Today's Log</button>
+      {dietPlans.length===0&&<div style={{textAlign:"center",padding:"30px",color:T.sub,fontSize:13}}>No diet plans yet</div>}
+      {dietPlans.map(p=>(
+        <div key={p.id} style={{...S.card,marginBottom:10,border:selectedPlans.has(p.id)?"2px solid "+T.accent:"1px solid "+T.bdr}}>
+          <div style={{display:"flex",alignItems:"center",gap:10}}>
+            <input type="checkbox" checked={selectedPlans.has(p.id)} onChange={e=>{setSelectedPlans(prev=>{const n=new Set(prev);e.target.checked?n.add(p.id):n.delete(p.id);return n;});}} style={{width:18,height:18,cursor:"pointer"}}/>
+            <div style={{flex:1}}>
+              <div style={{fontWeight:700,fontSize:14,color:T.txt}}>{p.name}</div>
+              <div style={{fontSize:11,color:T.sub,marginTop:2}}>{(p.meals||[]).length} meals · {(p.supplements||[]).length} supplements</div>
+            </div>
+            <div style={{display:"flex",gap:5}}>
+              <button onClick={()=>setSelPlan(p)} style={{...S.sm,padding:"4px 9px",fontSize:11}}>Edit</button>
+              <button onClick={()=>setDietPlans(prev=>prev.filter(d=>d.id!==p.id))} style={{...S.sm,color:T.red,padding:"4px 9px",fontSize:11}}>Del</button>
+            </div>
+          </div>
+        </div>
+      ))}
+      {selPlan&&(
+        <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.85)",display:"flex",alignItems:"flex-start",justifyContent:"center",zIndex:600,overflowY:"auto",padding:"12px 0"}}>
+          <div style={{...S.card,width:mob?"96vw":"480px",padding:20}}>
+            <div style={{display:"flex",justifyContent:"space-between",marginBottom:14}}>
+              <div style={{fontSize:13,fontWeight:700,color:T.txt}}>Edit Plan</div>
+              <button onClick={()=>setSelPlan(null)} style={{...S.sm,padding:"3px 9px",fontSize:11}}>Close</button>
+            </div>
+            <input value={selPlan.name} onChange={e=>{const u={...selPlan,name:e.target.value};setSelPlan(u);setDietPlans(p=>p.map(d=>d.id===u.id?u:d));}} style={{...S.inp,fontSize:15,fontWeight:700,marginBottom:10}} placeholder="Plan name..."/>
+            <textarea value={selPlan.note||""} onChange={e=>{const u={...selPlan,note:e.target.value};setSelPlan(u);setDietPlans(p=>p.map(d=>d.id===u.id?u:d));}} style={{...S.inp,resize:"none",height:50,fontSize:12,marginBottom:14}} placeholder="Notes..."/>
+            <button onClick={()=>setSelPlan(null)} style={{...S.btn,width:"100%"}}>Save & Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
   return(
     <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto"}}>
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:18,flexWrap:"wrap",gap:8}}>
-        <div style={{fontSize:20,fontWeight:800,color:T.txt}}>Diet</div>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
+        <div style={{display:"flex",alignItems:"center",gap:10}}>
+          <div style={{fontSize:20,fontWeight:800,color:T.txt}}>Diet</div>
+          <button onClick={()=>setView("plans")} style={{...S.sm,fontSize:11,padding:"4px 10px"}}>Plans</button>
+        </div>
         <input type="date" value={selDate} onChange={e=>setSelDate(e.target.value)} style={{...S.inp,width:"auto",fontSize:12,padding:"6px 10px"}}/>
       </div>
       {nut&&(
@@ -1327,6 +1690,19 @@ function DietTab({T,S,mob,diets,setDiets,profile,priceDb}){
           <div style={{textAlign:"right"}}>
             <div style={{fontSize:11,color:T.sub}}>Per meal avg</div>
             <div style={{fontSize:16,fontWeight:700,color:T.txt}}>GBP {entries.length>0?(totals.cost/entries.length).toFixed(2):"0.00"}</div>
+          </div>
+        </div>
+      )}
+      {hasMicros&&(
+        <div style={{...S.card,marginBottom:12,padding:14}}>
+          <div style={{fontSize:10,fontWeight:700,color:T.sub,marginBottom:10,letterSpacing:1}}>MICRONUTRIENTS TODAY</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+            {MICROS.filter(m=>microTotals[m.k]>0).map(m=>(
+              <div key={m.k} style={{background:T.ib,borderRadius:8,padding:"5px 10px",minWidth:80,textAlign:"center"}}>
+                <div style={{fontSize:12,fontWeight:700,color:T.txt}}>{microTotals[m.k]}<span style={{fontSize:9,color:T.sub}}>{m.u}</span></div>
+                <div style={{fontSize:9,color:T.sub,marginTop:1}}>{m.l}</div>
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -1363,6 +1739,26 @@ function DietTab({T,S,mob,diets,setDiets,profile,priceDb}){
         );
       })}
       <button onClick={()=>setShowPicker(true)} style={{...S.btn,width:"100%",marginTop:4}}>+ Add to {selMeal}</button>
+      <div style={{...S.card,marginTop:16,marginBottom:8}}>
+        <div style={{fontSize:11,fontWeight:700,color:T.sub,marginBottom:10,letterSpacing:1}}>SUPPLEMENTS TODAY</div>
+        {suppToday.map((s,i)=>{
+          const item=suppDb&&suppDb.find(d=>d.name===s.name);
+          const perPill=item&&item.price&&item.count?item.price/item.count:null;
+          const cost=perPill?(perPill*(parseFloat(s.dose)||1)):null;
+          return(
+            <div key={s.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 0",borderBottom:i<suppToday.length-1?"1px solid "+T.bdr:"none"}}>
+              <div><div style={{fontSize:13,color:T.txt,fontWeight:600}}>{s.name}</div><div style={{fontSize:11,color:T.sub}}>{s.dose&&s.dose+" unit(s)"}{cost?" · GBP "+(cost).toFixed(4):""}</div></div>
+              <button onClick={()=>setSuppLogs(p=>p.filter(x=>x.id!==s.id))} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="delete" sz={14} cl={T.red}/></button>
+            </div>
+          );
+        })}
+        {suppTotalCost>0&&<div style={{fontSize:12,color:T.sub,marginTop:6,textAlign:"right"}}>Supps cost today: GBP {suppTotalCost.toFixed(3)}</div>}
+        <div style={{marginTop:10,display:"flex",gap:6}}>
+          <input value={suppForm.name} onChange={e=>setSuppForm(p=>({...p,name:e.target.value}))} style={{...S.inp,flex:2}} placeholder="Supplement..."/>
+          <input value={suppForm.dose} onChange={e=>setSuppForm(p=>({...p,dose:e.target.value}))} style={{...S.inp,flex:1,maxWidth:70}} placeholder="Qty" type="number"/>
+          <button onClick={()=>{if(!suppForm.name)return;setSuppLogs(p=>[...p,{id:uid(),date:selDate,...suppForm}]);setSuppForm({name:"",dose:"",note:"",});}} style={{...S.sm,padding:"8px 12px",fontSize:12}}>+</button>
+        </div>
+      </div>
       {showPicker&&(
         <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.8)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:500}}>
           <div style={{...S.card,width:mob?"95vw":"420px",maxHeight:"80vh",display:"flex",flexDirection:"column",border:"1px solid "+T.accent+"33"}}>
@@ -1801,7 +2197,74 @@ function HistoryTab({T,S,mob,wLogs}){
   );
 }
 
+
+function FinanceOverview({T,S,sources,mInc,mExp}){
+  const mainSources=[...sources.filter(s=>s.bank!=="saving")].sort((a,b)=>b.balance-a.balance);
+  const savingSources=[...sources.filter(s=>s.bank==="saving")].sort((a,b)=>b.balance-a.balance);
+  const mainBal=mainSources.reduce((t,s)=>t+s.balance,0);
+  const savingBal=savingSources.reduce((t,s)=>t+s.balance,0);
+  return(
+    <div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
+        <div style={{background:"linear-gradient(145deg,"+T.card+","+T.accent+"22)",border:"1px solid "+T.accent+"44",borderRadius:18,padding:16,textAlign:"center"}}>
+          <div style={{fontSize:9,color:T.sub,letterSpacing:1,marginBottom:4}}>TOTAL BALANCE</div>
+          <div style={{fontSize:22,fontWeight:800,color:T.txt}}>GBP {mainBal.toFixed(2)}</div>
+        </div>
+        <div style={{background:"linear-gradient(145deg,"+T.card+","+T.blue+"22)",border:"1px solid "+T.blue+"44",borderRadius:18,padding:16,textAlign:"center"}}>
+          <div style={{fontSize:9,color:T.sub,letterSpacing:1,marginBottom:4}}>SAVINGS</div>
+          <div style={{fontSize:22,fontWeight:800,color:T.blue}}>GBP {savingBal.toFixed(2)}</div>
+        </div>
+      </div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
+        <div style={{...S.card,textAlign:"center",padding:14}}><div style={{fontSize:16,fontWeight:700,color:T.green}}>+{mInc.toFixed(2)}</div><div style={{fontSize:10,color:T.sub,marginTop:3}}>Month Income</div></div>
+        <div style={{...S.card,textAlign:"center",padding:14}}><div style={{fontSize:16,fontWeight:700,color:T.red}}>-{mExp.toFixed(2)}</div><div style={{fontSize:10,color:T.sub,marginTop:3}}>Month Expenses</div></div>
+      </div>
+      {mainSources.length>0&&<div style={{...S.card,marginBottom:10}}>
+        <div style={{fontSize:10,fontWeight:700,color:T.accent,marginBottom:8,letterSpacing:1}}>ACCOUNTS</div>
+        {mainSources.map(s=><div key={s.id} style={{display:"flex",justifyContent:"space-between",padding:"7px 0",borderBottom:"1px solid "+T.bdr,alignItems:"center"}}><div style={{display:"flex",alignItems:"center",gap:8}}><div style={{width:10,height:10,borderRadius:"50%",background:s.color||T.accent,flexShrink:0}}/><span style={{fontSize:13,color:T.txt,fontWeight:600}}>{s.name}</span></div><span style={{fontWeight:700,color:s.balance>=0?T.green:T.red,fontSize:13}}>GBP {s.balance.toFixed(2)}</span></div>)}
+      </div>}
+      {savingSources.length>0&&<div style={S.card}>
+        <div style={{fontSize:10,fontWeight:700,color:T.blue,marginBottom:8,letterSpacing:1}}>SAVINGS</div>
+        {savingSources.map(s=><div key={s.id} style={{display:"flex",justifyContent:"space-between",padding:"7px 0",borderBottom:"1px solid "+T.bdr,alignItems:"center"}}><div style={{display:"flex",alignItems:"center",gap:8}}><div style={{width:10,height:10,borderRadius:"50%",background:T.blue,flexShrink:0}}/><span style={{fontSize:13,color:T.txt,fontWeight:600}}>{s.name}</span></div><span style={{fontWeight:700,color:T.blue,fontSize:13}}>GBP {s.balance.toFixed(2)}</span></div>)}
+      </div>}
+    </div>
+  );
+}
+
+
+function EditSrcForm({T,S,editSrc,sources,editForm,setEditForm}){
+  const s=sources.find(x=>x.id===editSrc)||{};
+  const bankNames={lloyds:"Lloyds",monzo:"Monzo",revolut:"Revolut",barclays:"Barclays",hsbc:"HSBC",natwest:"NatWest",santander:"Santander",tsb:"TSB",halifax:"Halifax",firstdirect:"first direct",starling:"Starling",metro:"Metro Bank",virgin:"Virgin Money",chase:"Chase UK",nationwide:"Nationwide",coop:"Co-op Bank",saving:"Saving"};
+  const bName=s.bank&&bankNames[s.bank]?bankNames[s.bank]:null;
+  return(
+    <>
+      {bName?(<div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME SUFFIX <span style={{fontWeight:400,color:T.sub}}>(after {bName})</span></div><input value={editForm.suffix} onChange={e=>setEditForm(p=>({...p,suffix:e.target.value}))} style={S.inp} placeholder="e.g. ISA, Joint..."/></div>):(<div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME</div><input value={editForm.suffix} onChange={e=>setEditForm(p=>({...p,suffix:e.target.value}))} style={S.inp}/></div>)}
+      <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>BALANCE (GBP)</div><input value={editForm.balance} onChange={e=>setEditForm(p=>({...p,balance:e.target.value}))} style={S.inp} type="number"/></div>
+      <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DESCRIPTION</div><input value={editForm.desc} onChange={e=>setEditForm(p=>({...p,desc:e.target.value}))} style={S.inp} placeholder="optional..."/></div>
+    </>
+  );
+}
+
 function FinanceSources({T,S,mob,sources,setSources,setTxns,newSrc,setNewSrc,addSrc,delSrc,SRC_COLORS}){
+  const[editSrc,setEditSrc]=useState(null);
+  const[editForm,setEditForm]=useState({suffix:"",desc:"",balance:""});
+  function startEditSrc(s){
+    const bankNames={lloyds:"Lloyds",monzo:"Monzo",revolut:"Revolut",barclays:"Barclays",hsbc:"HSBC",natwest:"NatWest",santander:"Santander",tsb:"TSB",halifax:"Halifax",firstdirect:"first direct",starling:"Starling",metro:"Metro Bank",virgin:"Virgin Money",chase:"Chase UK",nationwide:"Nationwide",coop:"Co-op Bank",saving:"Saving"};
+    const bankName=s.bank&&bankNames[s.bank]?bankNames[s.bank]:null;
+    const suffix=bankName&&s.name.startsWith(bankName)?s.name.slice(bankName.length).trim():s.name;
+    setEditForm({suffix,desc:s.desc||"",balance:s.balance.toString()});
+    setEditSrc(s.id);
+  }
+  function saveEditSrc(){
+    setSources(prev=>prev.map(s=>{
+      if(s.id!==editSrc)return s;
+      const bankNames={lloyds:"Lloyds",monzo:"Monzo",revolut:"Revolut",barclays:"Barclays",hsbc:"HSBC",natwest:"NatWest",santander:"Santander",tsb:"TSB",halifax:"Halifax",firstdirect:"first direct",starling:"Starling",metro:"Metro Bank",virgin:"Virgin Money",chase:"Chase UK",nationwide:"Nationwide",coop:"Co-op Bank",saving:"Saving"};
+      const bankName=s.bank&&bankNames[s.bank]?bankNames[s.bank]:null;
+      const newName=bankName?(editForm.suffix?bankName+" "+editForm.suffix:bankName):editForm.suffix||s.name;
+      return{...s,name:newName,desc:editForm.desc,balance:parseFloat(editForm.balance)||s.balance};
+    }));
+    setEditSrc(null);
+  }
   const[showTransfer,setShowTransfer]=useState(false);
         const[trFrom,setTrFrom]=useState("");
         const[trTo,setTrTo]=useState("");
@@ -1818,31 +2281,63 @@ function FinanceSources({T,S,mob,sources,setSources,setTxns,newSrc,setNewSrc,add
         }
         const[selBank,setSelBank]=useState("");
         const[customBal,setCustomBal]=useState("");
-        const BANK_OPTS=[{v:"lloyds",l:"Lloyds Bank",bg:"linear-gradient(135deg,#006A4E,#00A650)",logo:"L"},{v:"monzo",l:"Monzo",bg:"linear-gradient(135deg,#FF3264,#FF6B8A)",logo:"M"},{v:"revolut",l:"Revolut",bg:"linear-gradient(135deg,#191C1F,#3D3F42)",logo:"R"},{v:"saving",l:"Saving Account",bg:"linear-gradient(135deg,#1C3A6B,#2A5CA0)",logo:"S"},{v:"custom",l:"Custom",bg:"",logo:""}];
+        const[srcSuffix,setSrcSuffix]=useState("");
+        const[srcDesc,setSrcDesc]=useState("");
+        const BANK_OPTS=[
+          ...UK_BANKS.map(b=>({...b,v:b.v})),
+          {v:"saving",l:"Saving",bg:"linear-gradient(135deg,#1C3A6B,#2A5CA0)",logo:"S"},
+          {v:"custom",l:"Custom",bg:"linear-gradient(135deg,#B8860B,#DAA520)",logo:"C"},
+        ];
         function addBankSrc(){
           const b=BANK_OPTS.find(o=>o.v===selBank);
           if(!b)return;
           const bal=parseFloat(customBal)||0;
-          if(b.v==="custom"){if(!newSrc.name)return;setSources(prev=>[...prev,{id:uid(),name:newSrc.name,balance:bal,color:newSrc.color||"#555",bank:"custom"}]);setNewSrc(p=>({...p,name:""}));}
-          else{if(sources.some(s=>s.bank===b.v))return;setSources(prev=>[...prev,{id:uid(),name:b.l,balance:bal,color:b.bg,bank:b.v}]);}
-          setSelBank("");setCustomBal("");
+          const suffix=srcSuffix.trim();
+          const desc=srcDesc.trim();
+          if(b.v==="custom"){
+            if(!newSrc.name)return;
+            setSources(prev=>[...prev,{id:uid(),name:newSrc.name,balance:bal,color:newSrc.color||"#F5A623",bank:"custom",desc}]);
+            setNewSrc(p=>({...p,name:""}));
+          }else if(b.v==="saving"){
+            const name="Saving"+(suffix?" "+suffix:"");
+            setSources(prev=>[...prev,{id:uid(),name,balance:bal,color:b.bg,bank:"saving",desc}]);
+          }else{
+            if(sources.some(s=>s.bank===b.v&&!suffix))return;
+            const name=b.l+(suffix?" "+suffix:"");
+            setSources(prev=>[...prev,{id:uid(),name,balance:bal,color:b.bg,bank:b.v,desc}]);
+          }
+          setSelBank("");setCustomBal("");setSrcSuffix("");setSrcDesc("");
         }
-        const bgs={lloyds:"linear-gradient(135deg,#006A4E,#00A650)",monzo:"linear-gradient(135deg,#FF3264,#FF6B8A)",revolut:"linear-gradient(135deg,#191C1F,#3D3F42)",saving:"linear-gradient(135deg,#1C3A6B,#2A5CA0)"};
-        const logos={lloyds:"L",monzo:"M",revolut:"R",saving:"S"};
+        const bgsMap={};UK_BANKS.forEach(b=>bgsMap[b.v]=b.bg);bgsMap.saving="linear-gradient(135deg,#1C3A6B,#2A5CA0)";bgsMap.custom="linear-gradient(135deg,#B8860B,#DAA520)";const bgs=bgsMap;
+        const logosMap={};UK_BANKS.forEach(b=>logosMap[b.v]=b.logo);logosMap.saving="S";logosMap.custom="C";const logos=logosMap;
   return(
+    <>
     <div>
             <div style={{...S.card,marginBottom:12}}>
               <div style={{fontSize:10,fontWeight:700,color:T.sub,marginBottom:8,letterSpacing:1}}>ADD ACCOUNT</div>
               <div style={{marginBottom:8}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SELECT BANK / TYPE</div>
-                <select value={selBank} onChange={e=>setSelBank(e.target.value)} style={S.inp}>
+                <select value={selBank} onChange={e=>{setSelBank(e.target.value);setSrcSuffix("");setSrcDesc("");}} style={S.inp}>
                   <option value="">Select...</option>
-                  {BANK_OPTS.map(o=><option key={o.v} value={o.v} disabled={o.v!=="custom"&&o.v!=="saving"&&sources.some(s=>s.bank===o.v)}>{o.l}</option>)}
+                  {BANK_OPTS.map(o=><option key={o.v} value={o.v} disabled={o.v!=="custom"&&o.v!=="saving"&&!!sources.find(s=>s.bank===o.v&&!s.name.includes(" "))}>{o.l}</option>)}
                 </select>
               </div>
               {selBank==="custom"&&(
+                <div style={{marginBottom:8}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>ACCOUNT NAME</div>
+                  <input value={newSrc.name} onChange={e=>setNewSrc(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="e.g. Cash, Joint Account..."/>
+                </div>
+              )}
+              {(selBank==="saving"||["lloyds","monzo","revolut"].includes(selBank))&&(
+                <div style={{marginBottom:8}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>{selBank==="saving"?"SAVING":"BANK"} NAME SUFFIX <span style={{color:T.sub,fontWeight:400}}>(optional)</span></div>
+                  <div style={{display:"flex",alignItems:"center",gap:6}}>
+                    <span style={{fontSize:12,color:T.sub,flexShrink:0,whiteSpace:"nowrap"}}>{selBank==="saving"?"Saving":BANK_OPTS.find(o=>o.v===selBank)?.l||""}</span>
+                    <input value={srcSuffix} onChange={e=>setSrcSuffix(e.target.value)} style={{...S.inp,flex:1}} placeholder="e.g. ISA, Joint, Personal..."/>
+                  </div>
+                </div>
+              )}
+              {selBank&&(
                 <div style={{marginBottom:8}}>
-                  <div style={{fontSize:10,color:T.sub,marginBottom:4}}>ACCOUNT NAME</div>
-                  <input value={newSrc.name} onChange={e=>setNewSrc(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="e.g. Cash, Barclays..."/>
+                  <div style={{fontSize:10,color:T.sub,marginBottom:4}}>DESCRIPTION <span style={{color:T.sub,fontWeight:400}}>(optional)</span></div>
+                  <input value={srcDesc} onChange={e=>setSrcDesc(e.target.value)} style={S.inp} placeholder="e.g. Main account, Emergency fund..."/>
                 </div>
               )}
               {selBank&&(
@@ -1851,7 +2346,7 @@ function FinanceSources({T,S,mob,sources,setSources,setTxns,newSrc,setNewSrc,add
                   <input value={customBal} onChange={e=>setCustomBal(e.target.value)} style={S.inp} placeholder="0.00" type="number"/>
                 </div>
               )}
-              <button onClick={addBankSrc} disabled={!selBank} style={{...S.btn,background:"#34C759",opacity:selBank?1:0.4}}>Add Account</button>
+              <button onClick={addBankSrc} disabled={!selBank||(selBank==="custom"&&!newSrc.name)} style={{...S.btn,opacity:(selBank&&(selBank!=="custom"||newSrc.name))?1:0.4}}>Add Account</button>
             </div>
             <button onClick={()=>setShowTransfer(!showTransfer)} style={{...S.sm,width:"100%",marginBottom:10,padding:"10px",color:T.blue,borderColor:T.blue+"44",fontWeight:600}}>⇄ Transfer Between Sources</button>
             {showTransfer&&(
@@ -1863,34 +2358,51 @@ function FinanceSources({T,S,mob,sources,setSources,setTxns,newSrc,setNewSrc,add
                   <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>AMOUNT (GBP)</div><input value={trAmt} onChange={e=>setTrAmt(e.target.value)} style={S.inp} placeholder="0.00" type="number"/></div>
                   <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE</div><input value={trNote} onChange={e=>setTrNote(e.target.value)} style={S.inp} placeholder="optional..."/></div>
                 </div>
-                <button onClick={doTransfer} disabled={!trFrom||!trTo||!trAmt} style={{...S.btn,width:"100%",background:"#34C759",opacity:trFrom&&trTo&&trAmt?1:0.4}}>Confirm Transfer</button>
+                <button onClick={doTransfer} disabled={!trFrom||!trTo||!trAmt} style={{...S.btn,width:"100%",opacity:trFrom&&trTo&&trAmt?1:0.4}}>Confirm Transfer</button>
               </div>
             )}
             <div style={{display:"flex",flexDirection:"column",gap:10}}>
               {sources.map(s=>(
                 <div key={s.id}>
-                  {["lloyds","monzo","revolut","saving"].includes(s.bank)?(
-                    <div style={{background:bgs[s.bank],borderRadius:20,padding:"20px 24px",color:"#FFF",position:"relative",boxShadow:"0 4px 20px rgba(0,0,0,0.2)"}}>
-                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
-                        <div style={{fontSize:15,fontWeight:700}}>{s.name}</div>
-                        <div style={{fontSize:20,background:"rgba(255,255,255,0.15)",borderRadius:10,width:44,height:44,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:800}}>{logos[s.bank]}</div>
+                  {(()=>{
+                    const cardBg=s.bank&&s.bank!=="custom"&&bgs[s.bank]?bgs[s.bank]:"linear-gradient(135deg,#B8860B,#DAA520)";
+                    const cardLogo=s.bank&&logos[s.bank]?logos[s.bank]:(s.name?s.name.charAt(0).toUpperCase():"C");
+                    return(
+                      <div style={{background:cardBg,borderRadius:16,padding:"14px 18px",color:"#FFF",position:"relative",boxShadow:"0 3px 14px rgba(0,0,0,0.18)"}}>
+                        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+                          <div style={{fontSize:13,fontWeight:700}}>{s.name}</div>
+                          <div style={{fontSize:14,background:"rgba(255,255,255,0.15)",borderRadius:8,width:34,height:34,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:800}}>{cardLogo}</div>
+                        </div>
+                        <div style={{fontSize:22,fontWeight:900,letterSpacing:-0.5,marginBottom:s.desc?3:0}}>GBP {s.balance.toFixed(2)}</div>
+                        {s.desc&&<div style={{fontSize:11,opacity:0.7,marginBottom:2}}>{s.desc}</div>}
+                        <div style={{position:"absolute",top:12,right:12,display:"flex",gap:6}}>
+                        <button onClick={()=>startEditSrc(s)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:8,color:"#fff",padding:"4px 8px",cursor:"pointer",fontSize:11,fontFamily:"inherit"}}><Ico n="edit" sz={13} cl="#fff"/></button>
+                        <button onClick={()=>delSrc(s.id)} style={{background:"rgba(255,0,0,0.3)",border:"none",borderRadius:8,color:"#fff",padding:"4px 8px",cursor:"pointer",fontSize:11}}>✕</button>
                       </div>
-                      <div style={{fontSize:30,fontWeight:900,letterSpacing:-1}}>GBP {s.balance.toFixed(2)}</div>
-                      <button onClick={()=>delSrc(s.id)} style={{position:"absolute",top:12,right:12,background:"rgba(255,255,255,0.2)",border:"none",borderRadius:8,color:"#fff",padding:"4px 9px",cursor:"pointer",fontSize:11}}>✕</button>
-                    </div>
-                  ):(
-                    <div style={{...S.card,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                      <div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:14,height:14,borderRadius:"50%",background:s.color||T.accent}}/><div><div style={{fontWeight:700,fontSize:13,color:T.txt}}>{s.name}</div><div style={{fontSize:11,color:T.sub}}>GBP {s.balance.toFixed(2)}</div></div></div>
-                      <button onClick={()=>delSrc(s.id)} style={{...S.sm,color:T.red,fontSize:11}}>Delete</button>
-                    </div>
-                  )}
+                      </div>
+                    );
+                  })()}
                 </div>
               ))}
             </div>
           </div>
+          {editSrc&&(
+            <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",display:"flex",alignItems:"flex-end",justifyContent:"center",zIndex:700}}>
+              <div style={{...S.card,width:"100%",maxWidth:560,borderRadius:"20px 20px 0 0",padding:24}}>
+                <div style={{fontSize:14,fontWeight:700,color:T.txt,marginBottom:16}}>Edit Source</div>
+                <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:16}}>
+                  <EditSrcForm T={T} S={S} editSrc={editSrc} sources={sources} editForm={editForm} setEditForm={setEditForm}/>
+                </div>
+                <div style={{display:"flex",gap:8}}>
+                  <button onClick={saveEditSrc} style={{...S.btn,flex:1}}>Save</button>
+                  <button onClick={()=>setEditSrc(null)} style={S.sm}>Cancel</button>
+                </div>
+              </div>
+            </div>
+          )}
+  )    </>
   );
 }
-
 function FinanceReport({T,S,mob,repTxns,repFrom,setRepFrom,repTo,setRepTo,sources}){
   const[repSearch,setRepSearch]=useState("");
         const filtered=repTxns.filter(t=>{const q=repSearch.toLowerCase();return!q||t.cat.toLowerCase().includes(q)||(t.desc||"").toLowerCase().includes(q);}).sort((a,b)=>b.date.localeCompare(a.date));
@@ -1903,9 +2415,9 @@ function FinanceReport({T,S,mob,repTxns,repFrom,setRepFrom,repTo,setRepTo,source
         }
   return(
     <div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:12}}>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>FROM</div><input type="date" value={repFrom} onChange={e=>setRepFrom(e.target.value)} style={S.inp}/></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TO</div><input type="date" value={repTo} onChange={e=>setRepTo(e.target.value)} style={S.inp}/></div>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:12}}>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>FROM</div><input type="date" value={repFrom} onChange={e=>setRepFrom(e.target.value)} style={{...S.inp,width:"100%"}}/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TO</div><input type="date" value={repTo} onChange={e=>setRepTo(e.target.value)} style={{...S.inp,width:"100%"}}/></div>
             </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:12}}>
               <div style={{...S.card,textAlign:"center",padding:12}}><div style={{fontSize:15,fontWeight:700,color:T.green}}>+{totInc.toFixed(2)}</div><div style={{fontSize:9,color:T.sub,marginTop:2}}>Income</div></div>
@@ -1968,37 +2480,19 @@ function FinanceTab({T,S,mob,sources,setSources,txns,setTxns,subs,setSubs,debts,
     <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto"}}>
       <div style={{fontSize:20,fontWeight:800,color:T.txt,marginBottom:16}}>Finance</div>
       <div style={{display:"flex",gap:5,marginBottom:18,overflowX:"auto",paddingBottom:4}}>
-        {FTABS.map(([ft,fl])=><button key={ft} onClick={()=>setFtab(ft)} style={{...S.sm,whiteSpace:"nowrap",background:ftab===ft?T.accent:"transparent",color:ftab===ft?T.btnTxt:T.sub,borderColor:ftab===ft?T.accent:T.bdr,fontWeight:ftab===ft?700:400,fontSize:11,padding:"5px 11px"}}>{fl}</button>)}
+        {FTABS.map(([ft,fl])=><button key={ft} onClick={()=>setFtab(ft)} style={{...S.sm,whiteSpace:"nowrap",background:ftab===ft?T.accent:T.ib,color:ftab===ft?T.btnTxt:T.txt,border:"none",fontWeight:ftab===ft?700:500,fontSize:12,padding:"8px 14px",borderRadius:10}}>{fl}</button>)}
       </div>
-      {ftab==="overview"&&(
-        <div>
-          <div style={{background:"linear-gradient(145deg,"+T.card+","+T.accent+"22)",border:"1px solid "+T.accent+"44",borderRadius:18,padding:20,marginBottom:14,textAlign:"center"}}>
-            <div style={{fontSize:11,color:T.sub,letterSpacing:1,marginBottom:6}}>TOTAL BALANCE</div>
-            <div style={{fontSize:34,fontWeight:800,color:T.txt}}>GBP {totBal.toFixed(2)}</div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
-            <div style={{...S.card,textAlign:"center",padding:14}}><div style={{fontSize:16,fontWeight:700,color:T.green}}>+{mInc.toFixed(2)}</div><div style={{fontSize:10,color:T.sub,marginTop:3}}>Month Income</div></div>
-            <div style={{...S.card,textAlign:"center",padding:14}}><div style={{fontSize:16,fontWeight:700,color:T.red}}>-{mExp.toFixed(2)}</div><div style={{fontSize:10,color:T.sub,marginTop:3}}>Month Expenses</div></div>
-          </div>
-          <div style={S.card}>
-            <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:10,letterSpacing:1}}>SOURCES</div>
-            {sources.length===0&&<div style={{color:T.sub,fontSize:12}}>No sources added</div>}
-            {sources.map(s=><div key={s.id} style={{display:"flex",justifyContent:"space-between",padding:"6px 0",borderBottom:"1px solid "+T.bdr}}><div style={{display:"flex",alignItems:"center",gap:8}}><div style={{width:10,height:10,borderRadius:"50%",background:s.color||T.accent}}/><span style={{fontSize:13,color:T.txt}}>{s.name}</span></div><span style={{fontWeight:700,color:s.balance>=0?T.green:T.red,fontSize:13}}>GBP {s.balance.toFixed(2)}</span></div>)}
-          </div>
-        </div>
-      )}
+      {ftab==="overview"&&<FinanceOverview T={T} S={S} sources={sources} mInc={mInc} mExp={mExp}/>}
       {ftab==="sources"&&<FinanceSources T={T} S={S} mob={mob} sources={sources} setSources={setSources} setTxns={setTxns} newSrc={newSrc} setNewSrc={setNewSrc} addSrc={addSrc} delSrc={delSrc} SRC_COLORS={SRC_COLORS}/>}
       {ftab==="txns"&&(
         <div>
           <div style={{...S.card,marginBottom:12}}>
             <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:12,letterSpacing:1}}>ADD TRANSACTION</div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:10}}>
               <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TYPE</div><select value={txForm.type} onChange={e=>setTxForm(p=>({...p,type:e.target.value,cat:e.target.value==="income"?"Salary":"Groceries"}))} style={S.inp}><option value="expense">Expense</option><option value="income">Income</option></select></div>
               <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>AMOUNT</div><input value={txForm.amount} onChange={e=>setTxForm(p=>({...p,amount:e.target.value}))} style={S.inp} placeholder="0.00"/></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CATEGORY</div><select value={txForm.cat} onChange={e=>setTxForm(p=>({...p,cat:e.target.value}))} style={S.inp}>{(FCATS[txForm.type]||FCATS.expense).map(c=><option key={c} value={c}>{c}</option>)}</select></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SOURCE</div><select value={txForm.sourceId} onChange={e=>setTxForm(p=>({...p,sourceId:e.target.value}))} style={S.inp}><option value="">None</option>{sources.map(s=><option key={s.id} value={s.id}>{s.name}</option>)}</select></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DATE</div><input type="date" value={txForm.date} onChange={e=>setTxForm(p=>({...p,date:e.target.value}))} style={S.inp}/></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE</div><input value={txForm.desc} onChange={e=>setTxForm(p=>({...p,desc:e.target.value}))} style={S.inp} placeholder="optional..."/></div>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CATEGORY</div><select value={txForm.cat} onChange={e=>setTxForm(p=>({...p,cat:e.target.value}))} style={S.inp}>{(FCATS[txForm.type]||FCATS.expense).map(c=><option key={c} value={c}>{c}</option>)}</select></div><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SOURCE</div><select value={txForm.sourceId} onChange={e=>setTxForm(p=>({...p,sourceId:e.target.value}))} style={S.inp}><option value="">None</option>{sources.filter(s=>s.bank!=="saving").map(s=><option key={s.id} value={s.id}>{s.name} · GBP {s.balance.toFixed(2)}</option>)}</select></div></div>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DATE</div><input type="date" value={txForm.date} onChange={e=>setTxForm(p=>({...p,date:e.target.value}))} style={S.inp}/></div><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE</div><input value={txForm.desc} onChange={e=>setTxForm(p=>({...p,desc:e.target.value}))} style={S.inp} placeholder="optional..."/></div></div>
             </div>
             <button onClick={addTxn} style={S.btn}>Add</button>
           </div>
@@ -2009,13 +2503,17 @@ function FinanceTab({T,S,mob,sources,setSources,txns,setTxns,subs,setSubs,debts,
         <div>
           <div style={{...S.card,marginBottom:12}}>
             <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:12,letterSpacing:1}}>ADD SUBSCRIPTION</div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME</div><input value={subForm.name} onChange={e=>setSubForm(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="Netflix..."/></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>AMOUNT</div><input value={subForm.amount} onChange={e=>setSubForm(p=>({...p,amount:e.target.value}))} style={S.inp} placeholder="9.99"/></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DAY OF MONTH</div><input value={subForm.dayOfMonth} onChange={e=>setSubForm(p=>({...p,dayOfMonth:e.target.value}))} style={S.inp} placeholder="15"/></div>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SOURCE</div><select value={subForm.sourceId} onChange={e=>setSubForm(p=>({...p,sourceId:e.target.value}))} style={S.inp}><option value="">None</option>{sources.map(s=><option key={s.id} value={s.id}>{s.name}</option>)}</select></div>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:10}}>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME</div><input value={subForm.name} onChange={e=>setSubForm(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="Netflix..."/></div>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>AMOUNT</div><input value={subForm.amount} onChange={e=>setSubForm(p=>({...p,amount:e.target.value}))} style={S.inp} placeholder="9.99"/></div>
+              </div>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DAY OF MONTH</div><input value={subForm.dayOfMonth} onChange={e=>setSubForm(p=>({...p,dayOfMonth:e.target.value}))} style={S.inp} placeholder="15"/></div>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SOURCE</div><select value={subForm.sourceId} onChange={e=>setSubForm(p=>({...p,sourceId:e.target.value}))} style={S.inp}><option value="">None</option>{sources.filter(s=>s.bank!=="saving").map(s=><option key={s.id} value={s.id}>{s.name} · GBP {s.balance.toFixed(2)}</option>)}</select></div>
+              </div>
               <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TYPE</div><select value={subForm.subType} onChange={e=>setSubForm(p=>({...p,subType:e.target.value}))} style={S.inp}><option value="expense">Expense</option><option value="income">Income</option></select></div>
-              <div style={{display:"flex",alignItems:"center",gap:8,paddingTop:18}}><input type="checkbox" checked={subForm.autoDeduct} onChange={e=>setSubForm(p=>({...p,autoDeduct:e.target.checked}))} id="adck"/><label htmlFor="adck" style={{fontSize:12,color:T.txt,cursor:"pointer"}}>Auto-deduct</label></div>
+              <div style={{display:"flex",alignItems:"center",gap:8}}><input type="checkbox" checked={subForm.autoDeduct} onChange={e=>setSubForm(p=>({...p,autoDeduct:e.target.checked}))} id="adck"/><label htmlFor="adck" style={{fontSize:12,color:T.txt,cursor:"pointer"}}>Auto-deduct monthly</label></div>
             </div>
             <button onClick={addSub} style={S.btn}>Add</button>
           </div>
@@ -2092,7 +2590,7 @@ function TodoTab({T,S,mob,calEv,setCalEv}){
   }
   function toggleDone(id){setTodos(prev=>prev.map(t=>t.id===id?{...t,done:!t.done}:t));}
   function delTodo(id){setTodos(prev=>prev.filter(t=>t.id!==id));setCalEv(prev=>prev.filter(e=>e.todoId!==id));}
-  const filtered=todos.filter(t=>filter==="all"||filter==="done"?t.done:!t.done).sort((a,b)=>a.date.localeCompare(b.date));
+  const filtered=todos.filter(t=>filter==="all"?true:filter==="done"?t.done:!t.done).sort((a,b)=>{if(!a.date&&!b.date)return 0;if(!a.date)return 1;if(!b.date)return -1;return a.date.localeCompare(b.date);});
   const pending=todos.filter(t=>!t.done).length;
   return(
     <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
@@ -2112,7 +2610,7 @@ function TodoTab({T,S,mob,calEv,setCalEv}){
           </div>
           <input value={form.note} onChange={e=>setForm(p=>({...p,note:e.target.value}))} style={S.inp} placeholder="Note (optional)"/>
         </div>
-        <button onClick={addTodo} disabled={!form.title} style={{...S.btn,width:"100%",background:"#34C759",opacity:form.title?1:0.4}}>Add to List + Calendar</button>
+        <button onClick={addTodo} disabled={!form.title} style={{...S.btn,width:"100%",opacity:form.title?1:0.4}}>Add to List + Calendar</button>
       </div>
       <div style={{display:"flex",gap:6,marginBottom:14}}>
         {[["all","All"],["pending","Pending"],["done","Done"]].map(([v,l])=>(
@@ -2131,9 +2629,163 @@ function TodoTab({T,S,mob,calEv,setCalEv}){
               {t.note&&<span> · {t.note}</span>}
             </div>
           </div>
-          <button onClick={()=>delTodo(t.id)} style={{background:"transparent",border:"none",cursor:"pointer",fontSize:15,color:T.red,padding:"4px"}}>🗑️</button>
+          <button onClick={()=>delTodo(t.id)} style={{background:"transparent",border:"none",cursor:"pointer",fontSize:15,color:T.red,padding:"4px"}}><Ico n="delete" sz={18} cl={T.red}/></button>
         </div>
       ))}
+    </div>
+  );
+}
+
+
+
+const MICROS=[
+  {k:"vitD",l:"Vitamin D",u:"IU"},
+  {k:"vitE",l:"Vitamin E",u:"mg"},
+  {k:"vitC",l:"Vitamin C",u:"mg"},
+  {k:"vitA",l:"Vitamin A",u:"mcg"},
+  {k:"vitB12",l:"Vitamin B12",u:"mcg"},
+  {k:"vitB6",l:"Vitamin B6",u:"mg"},
+  {k:"vitK",l:"Vitamin K",u:"mcg"},
+  {k:"calcium",l:"Calcium",u:"mg"},
+  {k:"iron",l:"Iron",u:"mg"},
+  {k:"magnesium",l:"Magnesium",u:"mg"},
+  {k:"zinc",l:"Zinc",u:"mg"},
+  {k:"potassium",l:"Potassium",u:"mg"},
+  {k:"fiber",l:"Fiber",u:"g"},
+  {k:"omega3",l:"Omega-3",u:"mg"},
+  {k:"sodium",l:"Sodium",u:"mg"},
+];
+function emptyMicros(){return Object.fromEntries(MICROS.map(m=>[m.k,""]));}
+
+function FoodDatabaseTab({T,S,mob,priceDb,setPriceDb,suppDb,setSuppDb}){
+  const[pf,setPf]=useState({name:"",baseType:"weight",baseGrams:"100",pieceName:"",cal:"",p:"",c:"",f:"",price:"",priceUnit:"kg",...emptyMicros()});
+  const[sf,setSf]=useState({name:"",company:"",contents:"",dose:"",price:"",count:"",unitType:"tablet",totalWeight:"",...emptyMicros()});
+  const[search,setSearch]=useState("");
+  function genUnit(f){if(f.baseType==="piece"){const nm=f.pieceName||"piece";return f.baseGrams?"1 "+nm+" ("+f.baseGrams+"g)":"1 "+nm;}return (f.baseGrams||"100")+"g";}
+  function addFood(){
+    if(!pf.name)return;
+    const unit=genUnit(pf);
+    const priceUnit=pf.baseType==="piece"&&!pf.price?"piece":pf.priceUnit||"kg";
+    const microVals=Object.fromEntries(MICROS.map(m=>[m.k,parseFloat(pf[m.k])||0]));
+    setPriceDb(prev=>[...prev,{id:uid(),name:pf.name,unit,baseType:pf.baseType,baseGrams:parseFloat(pf.baseGrams)||100,pieceName:pf.pieceName,cal:parseFloat(pf.cal)||0,p:parseFloat(pf.p)||0,c:parseFloat(pf.c)||0,f:parseFloat(pf.f)||0,price:parseFloat(pf.price)||0,priceUnit,...microVals}]);
+    setPf({name:"",baseType:"weight",baseGrams:"100",pieceName:"",cal:"",p:"",c:"",f:"",price:"",priceUnit:"kg"});
+  }
+  function delFood(id){setPriceDb(prev=>prev.filter(p=>p.id!==id));}
+  const filtered=priceDb.filter(f=>!search||f.name.toLowerCase().includes(search.toLowerCase()));
+  return(
+    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
+      <div style={{fontSize:20,fontWeight:800,color:T.txt,marginBottom:16}}>Food Database</div>
+      <input value={search} onChange={e=>setSearch(e.target.value)} style={{...S.inp,marginBottom:14}} placeholder="Search food..."/>
+      <div style={{...S.card,marginBottom:14}}>
+        <div style={{fontSize:10,fontWeight:700,color:T.sub,marginBottom:12,letterSpacing:1}}>ADD FOOD ITEM</div>
+        <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:12}}>
+          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME</div><input value={pf.name} onChange={e=>setPf(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="Tuna Can, Egg, Chicken Breast..."/></div>
+          <div><div style={{fontSize:10,color:T.sub,marginBottom:6}}>BASE UNIT</div>
+            <div style={{display:"flex",gap:6}}>
+              {[{v:"weight",l:"Per Grams"},{v:"piece",l:"Per Piece"}].map(bt=>(
+                <button key={bt.v} onClick={()=>setPf(p=>({...p,baseType:bt.v}))} style={{flex:1,padding:"8px",borderRadius:10,border:"1px solid "+(pf.baseType===bt.v?T.accent:T.bdr),background:pf.baseType===bt.v?T.ib:"transparent",color:pf.baseType===bt.v?T.txt:T.sub,fontSize:12,fontWeight:pf.baseType===bt.v?700:400,cursor:"pointer",fontFamily:"inherit"}}>{bt.l}</button>
+              ))}
+            </div>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>{pf.baseType==="piece"?"GRAMS/PIECE":"GRAMS"}</div><input value={pf.baseGrams} onChange={e=>setPf(p=>({...p,baseGrams:e.target.value}))} style={S.inp} placeholder="100" type="number"/></div>
+            {pf.baseType==="piece"&&<div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PIECE NAME</div><input value={pf.pieceName} onChange={e=>setPf(p=>({...p,pieceName:e.target.value}))} style={S.inp} placeholder="egg, can..."/></div>}
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CALORIES</div><input value={pf.cal} onChange={e=>setPf(p=>({...p,cal:e.target.value}))} style={S.inp} placeholder="0" type="number"/></div>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PROTEIN g</div><input value={pf.p} onChange={e=>setPf(p=>({...p,p:e.target.value}))} style={S.inp} placeholder="0" type="number"/></div>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CARBS g</div><input value={pf.c} onChange={e=>setPf(p=>({...p,c:e.target.value}))} style={S.inp} placeholder="0" type="number"/></div>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>FAT g</div><input value={pf.f} onChange={e=>setPf(p=>({...p,f:e.target.value}))} style={S.inp} placeholder="0" type="number"/></div>
+          <div style={{fontSize:11,fontWeight:700,color:T.sub,marginTop:8,marginBottom:10,letterSpacing:1,paddingTop:8,borderTop:"1px solid "+T.bdr}}>MICRONUTRIENTS <span style={{fontSize:10,fontWeight:400}}>(optional)</span></div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>{MICROS.map(m=>(<div key={m.k}><div style={{fontSize:10,color:T.sub,marginBottom:5,fontWeight:600}}>{m.l} <span style={{color:T.sub,fontWeight:400}}>({m.u})</span></div><input value={pf[m.k]||""} onChange={e=>setPf(p=>({...p,[m.k]:e.target.value}))} style={{...S.inp,padding:"10px 14px",fontSize:14}} placeholder="0" type="number"/></div>))}</div>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr auto",gap:8}}>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PRICE (GBP)</div><input value={pf.price} onChange={e=>setPf(p=>({...p,price:e.target.value}))} style={S.inp} placeholder="0.00" type="number"/></div>
+            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PER</div><select value={pf.priceUnit} onChange={e=>setPf(p=>({...p,priceUnit:e.target.value}))} style={{...S.inp,width:70}}><option value="kg">kg</option><option value="100g">100g</option><option value="piece">piece</option></select></div>
+          </div>
+        </div>
+        <button onClick={addFood} style={S.btn}>Add Food</button>
+      </div>
+      {filtered.length===0&&<div style={{textAlign:"center",padding:"20px",color:T.sub,fontSize:13}}>No food items yet</div>}
+      {filtered.map(f=>(
+        <div key={f.id} style={{...S.card,marginBottom:8,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div>
+            <div style={{fontWeight:700,fontSize:13,color:T.txt}}>{f.name}</div>
+            <div style={{fontSize:11,color:T.sub,marginTop:2}}>{f.unit} · {f.cal}kcal · {f.p}g protein{f.price>0?" · GBP "+f.price+"/"+f.priceUnit:""}</div>
+          </div>
+          <button onClick={()=>delFood(f.id)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="delete" sz={16} cl={T.red}/></button>
+        </div>
+      ))}
+
+      <div style={{marginTop:24}}>
+        <div style={{fontSize:16,fontWeight:800,color:T.txt,marginBottom:14}}>Supplements & Pills</div>
+        <div style={{...S.card,marginBottom:14}}>
+          <div style={{fontSize:10,fontWeight:700,color:T.sub,marginBottom:12,letterSpacing:1}}>ADD SUPPLEMENT</div>
+          <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:12}}>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PRODUCT NAME</div><input value={sf.name} onChange={e=>setSf(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="Omega 3..."/></div>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>COMPANY</div><input value={sf.company} onChange={e=>setSf(p=>({...p,company:e.target.value}))} style={S.inp} placeholder="Holland & Barrett..."/></div>
+              </div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CONTENTS (per serving)</div><input value={sf.contents} onChange={e=>setSf(p=>({...p,contents:e.target.value}))} style={S.inp} placeholder="Omega-3 1000mg, EPA 300mg..."/></div>
+              <div>
+                <div style={{fontSize:10,color:T.sub,marginBottom:6}}>UNIT TYPE</div>
+                <div style={{display:"flex",gap:6}}>
+                  {[{v:"tablet",l:"Tablet/Capsule"},{v:"gram",l:"Powder (gram)"}].map(u=>(
+                    <button key={u.v} onClick={()=>setSf(p=>({...p,unitType:u.v}))} style={{flex:1,padding:"8px",borderRadius:10,border:"1px solid "+(sf.unitType===u.v?T.accent:T.bdr),background:sf.unitType===u.v?T.ib:"transparent",color:sf.unitType===u.v?T.txt:T.sub,fontSize:12,fontWeight:sf.unitType===u.v?700:400,cursor:"pointer",fontFamily:"inherit"}}>{u.l}</button>
+                  ))}
+                </div>
+              </div>
+              {sf.unitType==="tablet"?(
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
+                  <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DOSE (mg/IU)</div><input value={sf.dose} onChange={e=>setSf(p=>({...p,dose:e.target.value}))} style={S.inp} placeholder="1000"/></div>
+                  <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PRICE (GBP)</div><input value={sf.price} onChange={e=>setSf(p=>({...p,price:e.target.value}))} style={S.inp} placeholder="20.00" type="number"/></div>
+                  <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TABLETS</div><input value={sf.count} onChange={e=>setSf(p=>({...p,count:e.target.value}))} style={S.inp} placeholder="300" type="number"/></div>
+                </div>
+              ):(
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                  <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PRICE (GBP)</div><input value={sf.price} onChange={e=>setSf(p=>({...p,price:e.target.value}))} style={S.inp} placeholder="15.00" type="number"/></div>
+                  <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TOTAL WEIGHT (g)</div><input value={sf.totalWeight||""} onChange={e=>setSf(p=>({...p,totalWeight:e.target.value}))} style={S.inp} placeholder="500" type="number"/></div>
+                </div>
+              )}
+              {sf.price&&(sf.unitType==="gram"?sf.totalWeight:sf.count)&&parseFloat(sf.price)>0&&(
+                <div style={{background:T.ib,borderRadius:10,padding:"8px 12px",fontSize:12,color:T.txt}}>
+                  {sf.unitType==="gram"?
+                    <span>Per gram: <strong>GBP {(parseFloat(sf.price)/parseFloat(sf.totalWeight||1)).toFixed(4)}</strong> · 5g/day = <strong>GBP {(5*parseFloat(sf.price)/parseFloat(sf.totalWeight||1)).toFixed(3)}/day</strong></span>:
+                    <span>Per tablet: <strong>GBP {(parseFloat(sf.price)/parseFloat(sf.count||1)).toFixed(4)}</strong></span>
+                  }
+                </div>
+              )}
+              <div style={{fontSize:11,fontWeight:700,color:T.sub,marginTop:8,marginBottom:10,letterSpacing:1,paddingTop:8,borderTop:"1px solid "+T.bdr}}>MICRONUTRIENTS per serving <span style={{fontSize:10,fontWeight:400}}>(0 = none)</span></div>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>{MICROS.map(m=>(<div key={m.k}><div style={{fontSize:10,color:T.sub,marginBottom:5,fontWeight:600}}>{m.l} <span style={{color:T.sub,fontWeight:400}}>({m.u})</span></div><input value={sf[m.k]||""} onChange={e=>setSf(p=>({...p,[m.k]:e.target.value}))} style={{...S.inp,padding:"10px 14px",fontSize:14}} placeholder="0" type="number"/></div>))}</div>
+            </div>
+            <button onClick={()=>{
+              if(!sf.name)return;
+              const microVals=Object.fromEntries(MICROS.map(m=>[m.k,parseFloat(sf[m.k])||0]));
+              if(typeof setSuppDb==="function")setSuppDb(p=>[...p,{id:uid(),...sf,price:parseFloat(sf.price)||0,count:parseInt(sf.count)||0,totalWeight:parseFloat(sf.totalWeight)||0,...microVals}]);
+              setSf({name:"",company:"",contents:"",dose:"",price:"",count:"",unitType:"tablet",totalWeight:"",...emptyMicros()});
+            }} style={S.btn}>Add Supplement</button>
+        </div>
+        {(suppDb||[]).map(s=>(
+          <div key={s.id} style={{...S.card,marginBottom:8}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{fontWeight:700,fontSize:13,color:T.txt}}>{s.name}</div>
+                {s.company&&<div style={{fontSize:11,color:T.sub}}>{s.company}</div>}
+                {s.contents&&<div style={{fontSize:11,color:T.sub,marginTop:2,wordBreak:"break-word"}}>{s.contents}</div>}
+                <div style={{display:"flex",gap:10,marginTop:4,flexWrap:"wrap"}}>
+                  {s.unitType==="gram"?(
+                    s.totalWeight>0&&s.price>0&&<span style={{fontSize:11,color:T.txt}}>GBP {(s.price/s.totalWeight).toFixed(4)}/g · {s.totalWeight}g pack · GBP {s.price}</span>
+                  ):(
+                    s.price>0&&s.count>0&&<span style={{fontSize:11,color:T.txt}}>GBP {(s.price/s.count).toFixed(4)}/tablet · {s.count} tablets</span>
+                  )}
+                </div>
+                {MICROS.some(m=>s[m.k]>0)&&<div style={{display:"flex",flexWrap:"wrap",gap:4,marginTop:4}}>{MICROS.filter(m=>s[m.k]>0).map(m=><span key={m.k} style={{fontSize:10,background:T.ib,borderRadius:6,padding:"2px 6px",color:T.sub}}>{m.l}: {s[m.k]}{m.u}</span>)}</div>}
+              </div>
+              <button onClick={()=>{if(typeof setSuppDb==="function")setSuppDb(p=>p.filter(x=>x.id!==s.id));}} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px",flexShrink:0}}><Ico n="delete" sz={16} cl={T.red}/></button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -2160,13 +2812,18 @@ function CalendarTab({T,S,mob,calEv,setCalEv}){
   const MNAMES=["January","February","March","April","May","June","July","August","September","October","November","December"];
   const DNAMES=["Su","Mo","Tu","We","Th","Fr","Sa"];
   const todStr=today();
-  const selEvents=selDate?calEv.filter(e=>e.date===selDate&&!e.cancelled):[];
+  const[showAddPopup,setShowAddPopup]=useState(false);
+  const[viewEv,setViewEv]=useState(null);
+  const allEvents=[...calEv].filter(e=>!e.cancelled).sort((a,b)=>a.date.localeCompare(b.date));
   return(
-    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto"}}>
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
-        <button onClick={prevM} style={S.sm}>Prev</button>
-        <div style={{fontSize:18,fontWeight:800,color:T.txt}}>{MNAMES[month]} {year}</div>
-        <button onClick={nextM} style={S.sm}>Next</button>
+    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+        <div style={{display:"flex",alignItems:"center",gap:8}}>
+          <button onClick={prevM} style={{...S.sm,padding:"6px 12px"}}><Ico n="chevronLeft" sz={16} cl={T.txt}/></button>
+          <div style={{fontSize:16,fontWeight:800,color:T.txt,minWidth:140,textAlign:"center"}}>{MNAMES[month]} {year}</div>
+          <button onClick={nextM} style={{...S.sm,padding:"6px 12px"}}><Ico n="chevronRight" sz={16} cl={T.txt}/></button>
+        </div>
+        <button onClick={()=>{setEvForm({title:"",time:"",note:"",color:""});setEditId(null);setShowAddPopup(true);}} style={{...S.btn,padding:"8px 16px",fontSize:12}}>+ Add Event</button>
       </div>
       <div style={{...S.card,marginBottom:14,padding:12}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:3,marginBottom:6}}>
@@ -2179,7 +2836,7 @@ function CalendarTab({T,S,mob,calEv,setCalEv}){
             const isToday=ds===todStr;
             const isSel=ds===selDate;
             return(
-              <div key={i} onClick={()=>d&&setSelDate(ds)} style={{padding:"6px 2px",textAlign:"center",borderRadius:10,cursor:d?"pointer":"default",background:isSel?T.accent:isToday?T.accent+"22":"transparent",color:isSel?T.btnTxt:T.txt,fontSize:12,fontWeight:isToday||isSel?700:400,minHeight:32,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",transition:"background 0.15s"}}>
+              <div key={i} onClick={()=>d&&setSelDate(isSel?null:ds)} style={{padding:"6px 2px",textAlign:"center",borderRadius:10,cursor:d?"pointer":"default",background:isSel?T.accent:isToday?T.accent+"22":"transparent",color:isSel?T.btnTxt:T.txt,fontSize:12,fontWeight:isToday||isSel?700:400,minHeight:32,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",transition:"background 0.15s"}}>
                 {d}
                 {hasEv&&(
                   <div style={{width:4,height:4,borderRadius:"50%",background:isSel?T.btnTxt:((calEv.find(function(ev2){return ev2.date===ds&&!ev2.cancelled})||{}).color||T.accent),marginTop:2}}/>
@@ -2189,25 +2846,61 @@ function CalendarTab({T,S,mob,calEv,setCalEv}){
           })}
         </div>
       </div>
-      {selDate&&(
-        <div style={S.card}>
-          <div style={{fontWeight:700,color:T.accent,marginBottom:12,fontSize:13,letterSpacing:1}}>{fmtDate(selDate).toUpperCase()}</div>
-          {selEvents.map(e=>(
-            <div key={e.id} style={{background:T.ib,borderRadius:12,padding:"10px 12px",marginBottom:8,border:"1px solid "+T.bdr}}>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                <div><div style={{display:"flex",alignItems:"center",gap:6}}>{e.color&&<div style={{width:8,height:8,borderRadius:"50%",background:e.color,flexShrink:0}}/>}<div style={{fontWeight:600,fontSize:13,color:T.txt}}>{e.title}</div></div>{e.time&&<div style={{fontSize:11,color:e.color||T.accent,marginTop:2}}>{e.time}</div>}{e.note&&<div style={{fontSize:11,color:T.sub,marginTop:2}}>{e.note}</div>}</div>
-                <div style={{display:"flex",gap:5}}><button onClick={()=>startEdit(e)} style={{...S.sm,fontSize:11,padding:"2px 7px"}}>Edit</button><button onClick={()=>cancelEv(e.id)} style={{...S.sm,color:T.orange,fontSize:11,padding:"2px 7px"}}>Cancel</button><button onClick={()=>delEv(e.id)} style={{...S.sm,color:T.red,fontSize:11,padding:"2px 7px"}}>x</button></div>
+      <div style={S.card}>
+        <div style={{fontSize:10,fontWeight:700,color:T.sub,letterSpacing:1,marginBottom:12}}>
+          {selDate?fmtDate(selDate).toUpperCase()+" EVENTS":"ALL EVENTS"}
+        </div>
+        {(selDate?calEv.filter(e=>e.date===selDate&&!e.cancelled):allEvents).length===0&&(
+          <div style={{textAlign:"center",padding:"16px 0",color:T.sub,fontSize:13}}>No events</div>
+        )}
+        {(selDate?calEv.filter(e=>e.date===selDate&&!e.cancelled):allEvents).map(e=>(
+          <div key={e.id} onClick={()=>setViewEv(e)} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:"1px solid "+T.bdr,cursor:"pointer"}}>
+            <div style={{width:3,alignSelf:"stretch",borderRadius:2,background:e.color||T.accent,flexShrink:0}}/>
+            <div style={{flex:1,minWidth:0}}>
+              <div style={{fontWeight:600,fontSize:13,color:T.txt}}>{e.title}</div>
+              <div style={{fontSize:11,color:T.sub,marginTop:2}}>{fmtDate(e.date)}{e.time?" · "+e.time:""}</div>
+            </div>
+            <Ico n="chevronRight" sz={16} cl={T.sub}/>
+          </div>
+        ))}
+      </div>
+      {showAddPopup&&(
+        <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",display:"flex",alignItems:"flex-end",justifyContent:"center",zIndex:700}}>
+          <div style={{...S.card,width:"100%",maxWidth:560,borderRadius:"20px 20px 0 0",padding:24,maxHeight:"90vh",overflowY:"auto"}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+              <div style={{fontSize:14,fontWeight:700,color:T.txt}}>{editId?"Edit Event":"Add Event"}</div>
+              <button onClick={()=>{setShowAddPopup(false);setEditId(null);}} style={{background:"transparent",border:"none",cursor:"pointer"}}><Ico n="close" sz={20} cl={T.sub}/></button>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:10}}>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DATE</div><input type="date" value={selDate||todStr} onChange={e=>setSelDate(e.target.value)} style={{...S.inp,width:"100%"}}/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TITLE</div><input value={evForm.title} onChange={e=>setEvForm(p=>({...p,title:e.target.value}))} style={S.inp} placeholder="Event title..."/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TIME</div><input value={evForm.time} onChange={e=>setEvForm(p=>({...p,time:e.target.value}))} style={S.inp} type="time"/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE</div><input value={evForm.note} onChange={e=>setEvForm(p=>({...p,note:e.target.value}))} style={S.inp} placeholder="Optional..."/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:6}}>COLOR</div><div style={{display:"flex",gap:6,flexWrap:"wrap"}}>{"#FF3B30,#FF9500,#34C759,#007AFF,#5856D6,#FF2D55,#AC8E68".split(",").map(c=>(<button key={c} onClick={()=>setEvForm(p=>({...p,color:c}))} style={{width:26,height:26,borderRadius:"50%",background:c,border:evForm.color===c?"3px solid "+T.txt:"2px solid transparent",cursor:"pointer"}}/>))}</div></div>
+              <div style={{display:"flex",gap:8,marginTop:4}}>
+                <button onClick={()=>{addEv();setShowAddPopup(false);}} style={{...S.btn,flex:1}}>{editId?"Save Changes":"Add Event"}</button>
+                <button onClick={()=>{setShowAddPopup(false);setEditId(null);}} style={S.sm}>Cancel</button>
               </div>
             </div>
-          ))}
-          <div style={{marginTop:selEvents.length?10:0}}>
-            <div style={{fontSize:10,color:T.sub,marginBottom:8,letterSpacing:1}}>{editId?"EDIT EVENT":"ADD EVENT"}</div>
-            <div style={{display:"flex",flexDirection:"column",gap:6}}>
-              <input value={evForm.title} onChange={e=>setEvForm(p=>({...p,title:e.target.value}))} style={S.inp} placeholder="Event title"/>
-              <input value={evForm.time} onChange={e=>setEvForm(p=>({...p,time:e.target.value}))} style={S.inp} placeholder="Time" type="time"/>
-              <input value={evForm.note} onChange={e=>setEvForm(p=>({...p,note:e.target.value}))} style={S.inp} placeholder="Note (optional)"/>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:6}}>COLOR</div><div style={{display:"flex",gap:6,flexWrap:"wrap"}}>{"#FF3B30,#FF9500,#34C759,#007AFF,#5856D6,#FF2D55,#AC8E68".split(",").map(c=>(<button key={c} onClick={()=>setEvForm(p=>({...p,color:c}))} style={{width:24,height:24,borderRadius:"50%",background:c,border:evForm.color===c?"3px solid "+T.txt:"2px solid transparent",cursor:"pointer"}}/>))}<button onClick={()=>setEvForm(p=>({...p,color:""}))} style={{width:24,height:24,borderRadius:"50%",background:T.ib,border:evForm.color===""?"3px solid "+T.txt:"2px solid "+T.bdr,cursor:"pointer",fontSize:9,color:T.sub}}>⊘</button></div></div>
-              <div style={{display:"flex",gap:8}}><button onClick={addEv} style={S.btn}>{editId?"Save":"Add"}</button>{editId&&<button onClick={()=>{setEditId(null);setEvForm({title:"",time:"",note:"",color:"",});}} style={S.sm}>Cancel</button>}</div>
+          </div>
+        </div>
+      )}
+      {viewEv&&(
+        <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",display:"flex",alignItems:"flex-end",justifyContent:"center",zIndex:700}}>
+          <div style={{...S.card,width:"100%",maxWidth:560,borderRadius:"20px 20px 0 0",padding:24}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+              <div style={{display:"flex",alignItems:"center",gap:8}}>{viewEv.color&&<div style={{width:12,height:12,borderRadius:"50%",background:viewEv.color}}/>}<div style={{fontSize:16,fontWeight:700,color:T.txt}}>{viewEv.title}</div></div>
+              <button onClick={()=>setViewEv(null)} style={{background:"transparent",border:"none",cursor:"pointer"}}><Ico n="close" sz={20} cl={T.sub}/></button>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:18}}>
+              <div style={{display:"flex",gap:10,alignItems:"center"}}><Ico n="calendar" sz={16} cl={T.sub}/><span style={{fontSize:13,color:T.txt}}>{fmtDate(viewEv.date)}</span></div>
+              {viewEv.time&&<div style={{display:"flex",gap:10,alignItems:"center"}}><Ico n="shifts" sz={16} cl={T.sub}/><span style={{fontSize:13,color:T.txt}}>{viewEv.time}</span></div>}
+              {viewEv.note&&<div style={{display:"flex",gap:10,alignItems:"flex-start"}}><Ico n="note" sz={16} cl={T.sub}/><span style={{fontSize:13,color:T.sub}}>{viewEv.note}</span></div>}
+            </div>
+            <div style={{display:"flex",gap:8}}>
+              <button onClick={()=>{setEditId(viewEv.id);setEvForm({title:viewEv.title,time:viewEv.time||"",note:viewEv.note||"",color:viewEv.color||""});setSelDate(viewEv.date);setShowAddPopup(true);setViewEv(null);}} style={{...S.sm,flex:1}}><Ico n="edit" sz={14} cl={T.txt}/> Edit</button>
+              <button onClick={()=>{cancelEv(viewEv.id);setViewEv(null);}} style={{...S.sm,flex:1,color:T.orange,borderColor:T.orange+"44"}}>Cancel Event</button>
+              <button onClick={()=>{delEv(viewEv.id);setViewEv(null);}} style={{...S.sm,flex:1,color:T.red,borderColor:T.red+"44"}}><Ico n="delete" sz={14} cl={T.red}/></button>
             </div>
           </div>
         </div>
@@ -2263,8 +2956,8 @@ function WorkShiftsTab({T,S,mob,calEv,setCalEv}){
             {s.note&&<div style={{fontSize:11,color:T.sub,marginTop:2}}>{s.note}</div>}
           </div>
           <div style={{display:"flex",gap:8}}>
-            <button onClick={()=>startEdit(s)} style={{...S.sm,fontSize:16,padding:"4px 8px",border:"none",background:"transparent",cursor:"pointer"}}>✏️</button>
-            <button onClick={()=>delShift(s)} style={{...S.sm,fontSize:16,padding:"4px 8px",border:"none",background:"transparent",cursor:"pointer"}}>🗑️</button>
+            <button onClick={()=>startEdit(s)} style={{...S.sm,fontSize:16,padding:"4px 8px",border:"none",background:"transparent",cursor:"pointer"}}><Ico n="edit" sz={18} cl={T.sub}/></button>
+            <button onClick={()=>delShift(s)} style={{...S.sm,fontSize:16,padding:"4px 8px",border:"none",background:"transparent",cursor:"pointer"}}><Ico n="delete" sz={18} cl={T.red}/></button>
           </div>
         </div>
       ))}
@@ -2273,76 +2966,355 @@ function WorkShiftsTab({T,S,mob,calEv,setCalEv}){
 }
 
 
+
+function VaultCardItem({T,S,item,visible,onToggle,onDelete}){
+  const CBGS={lloyds:"linear-gradient(135deg,#006A4E,#00A650)",monzo:"linear-gradient(135deg,#FF3264,#FF6B8A)",revolut:"linear-gradient(135deg,#191C1F,#3D3F42)",barclays:"linear-gradient(135deg,#00AEEF,#1F5BA8)"};
+  let cd={bank:"",number:"",holder:"",expiry:"",cvv:"",sortCode:"",accountNo:""};
+  try{cd=JSON.parse(item.value);}catch(e){}
+  const bg=CBGS[cd.bank]||"linear-gradient(135deg,#333,#555)";
+  const last4=cd.number?cd.number.replace(/\s/g,"").slice(-4):"????";
+  const bankName=cd.bank?cd.bank.charAt(0).toUpperCase()+cd.bank.slice(1):"";
+  const isVis=visible;
+  return(
+    <div style={{background:bg,borderRadius:18,padding:"18px 20px",color:"#fff",position:"relative",boxShadow:"0 4px 20px rgba(0,0,0,0.2)"}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:18}}>
+        <div style={{fontWeight:700,fontSize:14}}>{bankName}</div>
+        <div style={{fontSize:11,opacity:0.7,background:"rgba(255,255,255,0.15)",padding:"3px 8px",borderRadius:6}}>DEBIT</div>
+      </div>
+      <div style={{fontFamily:"monospace",fontSize:15,letterSpacing:3,marginBottom:16}}>
+        {isVis?cd.number:"\u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 "+last4}
+      </div>
+      <div style={{display:"flex",justifyContent:"space-between",fontSize:11,marginBottom:isVis&&cd.sortCode?10:0}}>
+        <div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>CARD HOLDER</div><div>{isVis?cd.holder:"\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"}</div></div>
+        <div style={{textAlign:"right"}}><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>EXPIRES</div><div>{isVis?cd.expiry:"\u2022\u2022/\u2022\u2022"}</div></div>
+        <div style={{textAlign:"right"}}><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>CVV</div><div>{isVis?cd.cvv:"\u2022\u2022\u2022"}</div></div>
+      </div>
+      {isVis&&cd.sortCode&&<div style={{display:"flex",gap:16,fontSize:11,marginTop:8,paddingTop:8,borderTop:"1px solid rgba(255,255,255,0.2)"}}><div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>SORT CODE</div><div style={{fontFamily:"monospace"}}>{cd.sortCode}</div></div><div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>ACCOUNT</div><div style={{fontFamily:"monospace"}}>{cd.accountNo}</div></div></div>}
+      <div style={{position:"absolute",bottom:14,right:14,display:"flex",gap:6}}>
+        <button onClick={onToggle} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:8,color:"#fff",padding:"5px 10px",cursor:"pointer",fontSize:11,fontFamily:"inherit"}}>{isVis?"Hide":"Show"}</button>
+        <button onClick={onDelete} style={{background:"rgba(255,0,0,0.3)",border:"none",borderRadius:8,color:"#fff",padding:"5px 8px",cursor:"pointer",fontSize:11}}>x</button>
+      </div>
+    </div>
+  );
+}
+
 function VaultTab({T,S,mob}){
   const[items,setItems]=useLs("fl3_vault",[]);
-  const[search,setSearch]=useState("");
+  const[globalSearch,setGlobalSearch]=useState("");
+  const[activeSection,setActiveSection]=useState("card"); // card|phone|login|other
   const[showAdd,setShowAdd]=useState(false);
-  const[form,setForm]=useState({title:"",value:"",category:"other",note:""});
-  const[visible,setVisible]=useState({});
   const[editId,setEditId]=useState(null);
-  const CATS=[{v:"card",l:"💳 Card Numbers"},{v:"phone",l:"📱 Phone Numbers"},{v:"login",l:"🔑 Logins & Passwords"},{v:"other",l:"📝 Other"}];
-  function saveItem(){
-    if(!form.title||!form.value)return;
-    if(editId){setItems(prev=>prev.map(i=>i.id===editId?{...i,...form}:i));setEditId(null);}
-    else setItems(prev=>[...prev,{id:uid(),...form,date:today()}]);
-    setForm({title:"",value:"",category:"other",note:""});setShowAdd(false);
+  const[pinDialog,setPinDialog]=useState(null); // {id, action}
+  const[revealedCards,setRevealedCards]=useState({});
+  // Card form
+  const[cardForm,setCardForm]=useState({bank:"",number:"",holder:"",expiry:"",cvv:"",sortCode:"",accountNo:""});
+  // Phone form
+  const[phoneForm,setPhoneForm]=useState({name:"",prefix:"+44",number:""});
+  // Login form
+  const[loginForm,setLoginForm]=useState({title:"",username:"",password:"",url:"",note:""});
+  // Other form
+  const[otherForm,setOtherForm]=useState({title:"",value:"",note:""});
+  // Section search
+  const[secSearch,setSecSearch]=useState("");
+  // Login visibility
+  const[visLogins,setVisLogins]=useState({});
+
+  function delItem(id){setItems(prev=>prev.filter(i=>i.id!==id));setRevealedCards(p=>{const n={...p};delete n[id];return n;});}
+  function copyText(v){
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).catch(()=>{});}
+      else{const t=document.createElement("textarea");t.value=v;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.focus();t.select();try{document.execCommand("copy");}catch(e2){}document.body.removeChild(t);}
+    }catch(e){const t=document.createElement("textarea");t.value=v;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.focus();t.select();try{document.execCommand("copy");}catch(e2){}document.body.removeChild(t);}
   }
-  function delItem(id){setItems(prev=>prev.filter(i=>i.id!==id));}
-  function toggleVis(id){setVisible(p=>({...p,[id]:!p[id]}));}
-  function copyVal(val){try{navigator.clipboard.writeText(val);}catch(e){}}
-  function startEdit(item){setForm({title:item.title,value:item.value,category:item.category,note:item.note||""});setEditId(item.id);setShowAdd(true);}
-  const filtered=items.filter(i=>!search||i.title.toLowerCase().includes(search.toLowerCase())||(i.value.toLowerCase().includes(search.toLowerCase())));
+  function revealCard(id){
+    const pin=localStorage.getItem("fl_pin");
+    if(!pin){setRevealedCards(p=>({...p,[id]:true}));return;}
+    setPinDialog({id,action:"reveal"});
+  }
+  function saveCard(){
+    if(!cardForm.bank||!cardForm.number)return;
+    const bank=UK_BANKS.find(b=>b.v===cardForm.bank)||{l:cardForm.bank};
+    const last4=cardForm.number.replace(/\s/g,"").slice(-4);
+    const item={id:editId||uid(),category:"card",title:bank.l+" ••••"+last4,value:JSON.stringify(cardForm),date:today()};
+    if(editId){setItems(prev=>prev.map(i=>i.id===editId?item:i));}
+    else setItems(prev=>[...prev,item]);
+    setCardForm({bank:"",number:"",holder:"",expiry:"",cvv:"",sortCode:"",accountNo:""});
+    setEditId(null);setShowAdd(false);
+  }
+  function savePhone(){
+    if(!phoneForm.name&&!phoneForm.number)return;
+    const item={id:editId||uid(),category:"phone",title:phoneForm.name,value:phoneForm.prefix+" "+phoneForm.number,prefix:phoneForm.prefix,number:phoneForm.number,name:phoneForm.name,date:today()};
+    if(editId){setItems(prev=>prev.map(i=>i.id===editId?item:i));}
+    else setItems(prev=>[...prev,item]);
+    setPhoneForm({name:"",prefix:"+44",number:""});
+    setEditId(null);setShowAdd(false);
+  }
+  function saveLogin(){
+    if(!loginForm.title)return;
+    const item={id:editId||uid(),category:"login",title:loginForm.title,username:loginForm.username,password:loginForm.password,url:loginForm.url||"",note:loginForm.note||"",value:loginForm.username,date:today()};
+    if(editId){setItems(prev=>prev.map(i=>i.id===editId?item:i));}
+    else setItems(prev=>[...prev,item]);
+    setLoginForm({title:"",username:"",password:"",url:"",note:""});
+    setEditId(null);setShowAdd(false);
+  }
+  function saveOther(){
+    if(!otherForm.title||!otherForm.value)return;
+    const item={id:editId||uid(),category:"other",title:otherForm.title,value:otherForm.value,note:otherForm.note||"",date:today()};
+    if(editId){setItems(prev=>prev.map(i=>i.id===editId?item:i));}
+    else setItems(prev=>[...prev,item]);
+    setOtherForm({title:"",value:"",note:""});
+    setEditId(null);setShowAdd(false);
+  }
+  function startEdit(item){
+    setEditId(item.id);
+    if(item.category==="card"){try{setCardForm(JSON.parse(item.value));}catch(e){}}
+    else if(item.category==="phone"){setPhoneForm({name:item.name||item.title,prefix:item.prefix||"+44",number:item.number||item.value});}
+    else if(item.category==="login"){setLoginForm({title:item.title,username:item.username||"",password:item.password||"",url:item.url||"",note:item.note||""});}
+    else setOtherForm({title:item.title,value:item.value,note:item.note||""});
+    setShowAdd(true);
+  }
+  function exportPhones(){
+    const phones=items.filter(i=>i.category==="phone");
+    const csv=phones.map(p=>[p.name||p.title,p.prefix||"+44",p.number||p.value].join(",")).join("\n");
+    const a=document.createElement("a");a.href="data:text/csv;charset=utf-8,Name,Prefix,Number\n"+csv;a.download="contacts.csv";a.click();
+  }
+
+  const sections=[{v:"card",l:"Cards"},{v:"phone",l:"Phones"},{v:"login",l:"Logins"},{v:"other",l:"Other"}];
+  const q=secSearch.toLowerCase();
+  const gq=globalSearch.toLowerCase();
+
+  // Filtered by section + search
+  const getItems=(cat)=>items.filter(i=>i.category===cat&&(!q||(i.title||"").toLowerCase().includes(q)||((i.value||"")).toLowerCase().includes(q)||((i.name||"")).toLowerCase().includes(q)));
+  // Global search across all
+  const globalItems=gq?items.filter(i=>(i.title||"").toLowerCase().includes(gq)||((i.value||"")).toLowerCase().includes(gq)||((i.name||"")).toLowerCase().includes(gq)):[];
+
   return(
-    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-        <div style={{fontSize:20,fontWeight:800,color:T.txt}}>Vault 🔐</div>
-        <button onClick={()=>{setShowAdd(!showAdd);setEditId(null);setForm({title:"",value:"",category:"other",note:"",});}} style={{...S.btn,background:"#34C759",padding:"8px 16px",fontSize:13}}>+ Add</button>
+    <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:100}}>
+      {pinDialog&&<PinDialog title="Enter PIN to reveal card" onSuccess={()=>{setRevealedCards(p=>({...p,[pinDialog.id]:true}));setPinDialog(null);}} onClose={()=>setPinDialog(null)}/>}
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+        <div style={{display:"flex",alignItems:"center",gap:8}}><Ico n="vault" sz={22} cl={T.txt}/><div style={{fontSize:20,fontWeight:800,color:T.txt}}>Vault</div></div>
+        <button onClick={()=>{setShowAdd(!showAdd);setEditId(null);setCardForm({bank:"",number:"",holder:"",expiry:"",cvv:"",sortCode:"",accountNo:""});setPhoneForm({name:"",prefix:"+44",number:""});setLoginForm({title:"",username:"",password:"",url:"",note:""});setOtherForm({title:"",value:"",note:"",});}} style={{...S.btn,padding:"8px 16px",fontSize:13}}>+ Add</button>
       </div>
-      <input value={search} onChange={e=>setSearch(e.target.value)} style={{...S.inp,marginBottom:14}} placeholder="Search vault..."/>
-      {showAdd&&(
-        <div style={{...S.card,marginBottom:14,borderColor:"#34C759",border:"1.5px solid #34C759"}}>
-          <div style={{fontSize:10,fontWeight:700,color:"#34C759",marginBottom:12,letterSpacing:1}}>{editId?"EDIT ITEM":"ADD ITEM"}</div>
-          <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:12}}>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CATEGORY</div><select value={form.category} onChange={e=>setForm(p=>({...p,category:e.target.value}))} style={S.inp}>{CATS.map(c=><option key={c.v} value={c.v}>{c.l}</option>)}</select></div>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TITLE</div><input value={form.title} onChange={e=>setForm(p=>({...p,title:e.target.value}))} style={S.inp} placeholder="e.g. Barclays Card, John Mobile..."/></div>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>VALUE</div><input value={form.value} onChange={e=>setForm(p=>({...p,value:e.target.value}))} style={S.inp} placeholder="Card number, phone, password..."/></div>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE (optional)</div><input value={form.note} onChange={e=>setForm(p=>({...p,note:e.target.value}))} style={S.inp} placeholder="Additional info..."/></div>
-          </div>
-          <div style={{display:"flex",gap:8}}>
-            <button onClick={saveItem} style={{...S.btn,flex:1,background:"#34C759"}}>{editId?"Save Changes":"Add to Vault"}</button>
-            <button onClick={()=>{setShowAdd(false);setEditId(null);}} style={S.sm}>Cancel</button>
-          </div>
+      <input value={globalSearch} onChange={e=>setGlobalSearch(e.target.value)} style={{...S.inp,marginBottom:12}} placeholder="Search everything in vault..."/>
+      {gq&&globalItems.length>0&&(
+        <div style={{...S.card,marginBottom:14}}>
+          <div style={{fontSize:10,fontWeight:700,color:T.sub,marginBottom:8}}>SEARCH RESULTS ({globalItems.length})</div>
+          {globalItems.map(item=>(
+            <div key={item.id} style={{display:"flex",justifyContent:"space-between",padding:"7px 0",borderBottom:"1px solid "+T.bdr,fontSize:12}}>
+              <div><div style={{fontWeight:600,color:T.txt}}>{item.title}</div><div style={{color:T.sub,fontSize:10}}>{item.category}</div></div>
+              <button onClick={()=>{setActiveSection(item.category);setGlobalSearch("");}} style={{...S.sm,fontSize:10,padding:"2px 8px"}}>Go</button>
+            </div>
+          ))}
         </div>
       )}
-      {filtered.length===0&&!showAdd&&<div style={{textAlign:"center",padding:"30px",color:T.sub,fontSize:13}}>Vault is empty</div>}
-      {CATS.map(cat=>{
-        const cItems=filtered.filter(i=>i.category===cat.v);
-        if(cItems.length===0)return null;
-        return(
-          <div key={cat.v} style={{marginBottom:16}}>
-            <div style={{fontSize:10,fontWeight:700,color:T.sub,letterSpacing:1,marginBottom:8}}>{cat.l}</div>
-            {cItems.map(item=>(
-              <div key={item.id} style={{...S.card,marginBottom:8}}>
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:8}}>
-                  <div style={{flex:1,minWidth:0}}>
-                    <div style={{fontWeight:700,fontSize:13,color:T.txt}}>{item.title}</div>
-                    <div style={{fontSize:13,color:T.txt,marginTop:4,letterSpacing:visible[item.id]?0:2,fontFamily:visible[item.id]?"inherit":"monospace",wordBreak:"break-all"}}>
-                      {visible[item.id]?item.value:"••••••••••••"}
-                    </div>
-                    {item.note&&<div style={{fontSize:11,color:T.sub,marginTop:3}}>{item.note}</div>}
+      <div style={{display:"flex",gap:6,marginBottom:14,overflowX:"auto"}}>
+        {sections.map(sec=>(
+          <button key={sec.v} onClick={()=>{setActiveSection(sec.v);setSecSearch("");}} style={{...S.sm,padding:"7px 16px",background:activeSection===sec.v?T.accent:T.ib,color:activeSection===sec.v?T.btnTxt:T.sub,border:"none",fontWeight:activeSection===sec.v?700:400,flexShrink:0}}>{sec.l} ({items.filter(i=>i.category===sec.v).length})</button>
+        ))}
+      </div>
+
+      {/* ── ADD FORM ── */}
+      {showAdd&&(
+        <div style={{...S.card,marginBottom:14,border:"1.5px solid #34C759"}}>
+          <div style={{fontSize:10,fontWeight:700,color:"#34C759",marginBottom:12,letterSpacing:1}}>{editId?"EDIT":"ADD"} {activeSection.toUpperCase()}</div>
+          {activeSection==="card"&&(
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>BANK</div>
+                <select value={cardForm.bank} onChange={e=>setCardForm(p=>({...p,bank:e.target.value}))} style={S.inp}>
+                  <option value="">Select bank...</option>
+                  {UK_BANKS.map(b=><option key={b.v} value={b.v}>{b.l}</option>)}
+                </select>
+              </div>
+              {cardForm.bank&&<div style={{background:(UK_BANKS.find(b=>b.v===cardForm.bank)||{bg:"#333"}).bg,borderRadius:14,padding:"16px 18px",color:"#fff",marginBottom:4}}>
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:14}}><div style={{fontWeight:700,fontSize:13}}>{(UK_BANKS.find(b=>b.v===cardForm.bank)||{l:""}).l}</div><div style={{fontSize:11,opacity:0.7}}>DEBIT</div></div>
+                <div style={{fontFamily:"monospace",fontSize:13,letterSpacing:2,marginBottom:10}}>{cardForm.number||"•••• •••• •••• ••••"}</div>
+                <div style={{display:"flex",justifyContent:"space-between",fontSize:11}}><div><div style={{opacity:0.5,fontSize:8}}>HOLDER</div><div>{cardForm.holder||"YOUR NAME"}</div></div><div><div style={{opacity:0.5,fontSize:8}}>EXPIRES</div><div>{cardForm.expiry||"MM/YY"}</div></div></div>
+              </div>}
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CARD NUMBER (16 digits)</div><input value={cardForm.number} onChange={e=>{const v=e.target.value.replace(/[^0-9]/g,"").slice(0,16);const fmt=v.replace(/(.{4})/g,"$1 ").trim();setCardForm(p=>({...p,number:fmt}));}} style={{...S.inp,letterSpacing:2,fontSize:15}} placeholder="0000 0000 0000 0000" maxLength={19}/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CARD HOLDER</div><input value={cardForm.holder} onChange={e=>setCardForm(p=>({...p,holder:e.target.value.toUpperCase()}))} style={S.inp} placeholder="FULL NAME"/></div>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>EXPIRY (MM/YY)</div><input value={cardForm.expiry} onChange={e=>{let v=e.target.value.replace(/[^0-9]/g,"").slice(0,4);if(v.length>2)v=v.slice(0,2)+"/"+v.slice(2);setCardForm(p=>({...p,expiry:v}));}} style={S.inp} placeholder="MM/YY" maxLength={5}/></div>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CVV (3-4 digits)</div><input value={cardForm.cvv} onChange={e=>setCardForm(p=>({...p,cvv:e.target.value.replace(/[^0-9]/g,"").slice(0,4)}))} style={S.inp} placeholder="•••" type="password" maxLength={4}/></div>
+              </div>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SORT CODE (6 digits)</div><input value={cardForm.sortCode} onChange={e=>{let v=e.target.value.replace(/[^0-9]/g,"").slice(0,6);if(v.length>4)v=v.slice(0,2)+"-"+v.slice(2,4)+"-"+v.slice(4);else if(v.length>2)v=v.slice(0,2)+"-"+v.slice(2);setCardForm(p=>({...p,sortCode:v}));}} style={S.inp} placeholder="00-00-00" maxLength={8}/></div>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>ACCOUNT NO (8 digits)</div><input value={cardForm.accountNo} onChange={e=>setCardForm(p=>({...p,accountNo:e.target.value.replace(/[^0-9]/g,"").slice(0,8)}))} style={S.inp} placeholder="00000000" maxLength={8}/></div>
+              </div>
+              <div style={{display:"flex",gap:8}}>
+                <button onClick={saveCard} style={{...S.btn,flex:1}}>Save Card</button>
+                <button onClick={()=>{setShowAdd(false);setEditId(null);}} style={S.sm}>Cancel</button>
+              </div>
+            </div>
+          )}
+          {activeSection==="phone"&&(
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME / LABEL</div><input value={phoneForm.name} onChange={e=>setPhoneForm(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="e.g. Mum, Work..."/></div>
+              <div style={{display:"grid",gridTemplateColumns:"88px 1fr",gap:8}}>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PREFIX</div><input value={phoneForm.prefix} onChange={e=>setPhoneForm(p=>({...p,prefix:e.target.value}))} style={S.inp} placeholder="+44"/></div>
+                <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NUMBER</div><input value={phoneForm.number} onChange={e=>setPhoneForm(p=>({...p,number:e.target.value.replace(/[^0-9]/g,"").slice(0,12)}))} style={S.inp} placeholder="7700123456" type="tel" maxLength={12}/></div>
+              </div>
+              <div style={{display:"flex",gap:8}}>
+                <button onClick={savePhone} style={{...S.btn,flex:1}}>Save</button>
+                <button onClick={()=>{setShowAdd(false);setEditId(null);}} style={S.sm}>Cancel</button>
+              </div>
+            </div>
+          )}
+          {activeSection==="login"&&(
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TITLE / SITE</div><input value={loginForm.title} onChange={e=>setLoginForm(p=>({...p,title:e.target.value}))} style={S.inp} placeholder="e.g. Gmail, Netflix..."/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>USERNAME / EMAIL</div><input value={loginForm.username} onChange={e=>setLoginForm(p=>({...p,username:e.target.value}))} style={S.inp} placeholder="username or email"/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PASSWORD</div><input value={loginForm.password} onChange={e=>setLoginForm(p=>({...p,password:e.target.value}))} style={S.inp} placeholder="password" type="password"/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>URL</div><input value={loginForm.url} onChange={e=>setLoginForm(p=>({...p,url:e.target.value}))} style={S.inp} placeholder="https://..."/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE</div><input value={loginForm.note} onChange={e=>setLoginForm(p=>({...p,note:e.target.value}))} style={S.inp} placeholder="optional..."/></div>
+              <div style={{display:"flex",gap:8}}>
+                <button onClick={saveLogin} style={{...S.btn,flex:1}}>Save</button>
+                <button onClick={()=>{setShowAdd(false);setEditId(null);}} style={S.sm}>Cancel</button>
+              </div>
+            </div>
+          )}
+          {activeSection==="other"&&(
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TITLE</div><input value={otherForm.title} onChange={e=>setOtherForm(p=>({...p,title:e.target.value}))} style={S.inp} placeholder="Title..."/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>VALUE</div><input value={otherForm.value} onChange={e=>setOtherForm(p=>({...p,value:e.target.value}))} style={S.inp} placeholder="Value..."/></div>
+              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NOTE</div><input value={otherForm.note} onChange={e=>setOtherForm(p=>({...p,note:e.target.value}))} style={S.inp} placeholder="optional..."/></div>
+              <div style={{display:"flex",gap:8}}>
+                <button onClick={saveOther} style={{...S.btn,flex:1}}>Save</button>
+                <button onClick={()=>{setShowAdd(false);setEditId(null);}} style={S.sm}>Cancel</button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── SEARCH BAR FOR SECTION ── */}
+      <input value={secSearch} onChange={e=>setSecSearch(e.target.value)} style={{...S.inp,marginBottom:12}} placeholder={"Search "+activeSection+"..."}/>
+
+      {/* ── CARDS SECTION ── */}
+      {activeSection==="card"&&(
+        <div>
+          {getItems("card").length===0&&<div style={{textAlign:"center",padding:"24px",color:T.sub,fontSize:13}}>No cards saved yet</div>}
+          {getItems("card").map(item=>{
+            const CBGS={};UK_BANKS.forEach(b=>CBGS[b.v]=b.bg);
+            let cd={bank:"",number:"",holder:"",expiry:"",cvv:"",sortCode:"",accountNo:""};
+            try{cd=JSON.parse(item.value);}catch(e){}
+            const bg=CBGS[cd.bank]||"linear-gradient(135deg,#333,#555)";
+            const last4=cd.number?cd.number.replace(/\s/g,"").slice(-4):"????";
+            const bankName=(UK_BANKS.find(b=>b.v===cd.bank)||{l:cd.bank||""}).l;
+            const isVis=revealedCards[item.id];
+            return(
+              <div key={item.id} style={{background:bg,borderRadius:20,padding:"18px 20px",color:"#fff",position:"relative",boxShadow:"0 4px 20px rgba(0,0,0,0.2)",marginBottom:14}}>
+                <div style={{position:"absolute",top:12,right:12,display:"flex",gap:6}}>
+                  <button onClick={()=>startEdit(item)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:8,color:"#fff",padding:"4px 8px",cursor:"pointer",fontSize:11,fontFamily:"inherit"}}>Edit</button>
+                  <button onClick={()=>delItem(item.id)} style={{background:"rgba(255,0,0,0.3)",border:"none",borderRadius:8,color:"#fff",padding:"4px 8px",cursor:"pointer",fontSize:11}}>x</button>
+                </div>
+                <div style={{fontWeight:700,fontSize:14,marginBottom:16}}>{bankName}</div>
+                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:14}}>
+                  <div style={{fontFamily:"monospace",fontSize:14,letterSpacing:2,flex:1}}>{isVis?cd.number:"•••• •••• •••• "+last4}</div>
+                  {isVis&&<button onClick={()=>copyText(cd.number.replace(/\s/g,""))} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:6,color:"#fff",padding:"3px 7px",cursor:"pointer",fontSize:10,fontFamily:"inherit"}}>Copy</button>}
+                </div>
+                <div style={{display:"flex",justifyContent:"space-between",fontSize:11,marginBottom:isVis&&(cd.sortCode||cd.cvv)?10:0}}>
+                  <div>
+                    <div style={{opacity:0.6,fontSize:8,marginBottom:2}}>NAME</div>
+                    <div style={{display:"flex",alignItems:"center",gap:6}}><span>{isVis?cd.holder:"••••••••"}</span>{isVis&&<button onClick={()=>copyText(cd.holder)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button>}</div>
                   </div>
-                  <div style={{display:"flex",gap:2,flexShrink:0}}>
-                    <button onClick={()=>toggleVis(item.id)} style={{background:"transparent",border:"none",cursor:"pointer",fontSize:16,padding:"4px"}}>{visible[item.id]?"🙈":"👁️"}</button>
-                    {visible[item.id]&&<button onClick={()=>copyVal(item.value)} style={{...S.sm,fontSize:10,padding:"3px 7px"}}>Copy</button>}
-                    <button onClick={()=>startEdit(item)} style={{background:"transparent",border:"none",cursor:"pointer",fontSize:15,padding:"4px"}}>✏️</button>
-                    <button onClick={()=>delItem(item.id)} style={{background:"transparent",border:"none",cursor:"pointer",fontSize:15,padding:"4px",color:T.red}}>🗑️</button>
+                  <div style={{textAlign:"center"}}>
+                    <div style={{opacity:0.6,fontSize:8,marginBottom:2}}>EXPIRES</div>
+                    <div style={{display:"flex",alignItems:"center",gap:6}}><span>{isVis?cd.expiry:"••/••"}</span>{isVis&&<button onClick={()=>copyText(cd.expiry)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button>}</div>
+                  </div>
+                  <div style={{textAlign:"right"}}>
+                    <div style={{opacity:0.6,fontSize:8,marginBottom:2}}>CVV</div>
+                    <div style={{display:"flex",alignItems:"center",gap:6}}><span>{isVis?cd.cvv:"•••"}</span>{isVis&&<button onClick={()=>copyText(cd.cvv)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button>}</div>
                   </div>
                 </div>
+                {isVis&&(cd.sortCode||cd.accountNo)&&(
+                  <div style={{display:"flex",gap:14,fontSize:11,paddingTop:8,borderTop:"1px solid rgba(255,255,255,0.2)",marginTop:8}}>
+                    {cd.sortCode&&<div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>SORT CODE</div><div style={{display:"flex",alignItems:"center",gap:5}}><span style={{fontFamily:"monospace"}}>{cd.sortCode}</span><button onClick={()=>copyText(cd.sortCode)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button></div></div>}
+                    {cd.accountNo&&<div><div style={{opacity:0.6,fontSize:8,marginBottom:2}}>ACCOUNT</div><div style={{display:"flex",alignItems:"center",gap:5}}><span style={{fontFamily:"monospace"}}>{cd.accountNo}</span><button onClick={()=>copyText(cd.accountNo)} style={{background:"rgba(255,255,255,0.2)",border:"none",borderRadius:5,color:"#fff",padding:"2px 5px",cursor:"pointer",fontSize:9,fontFamily:"inherit"}}>Copy</button></div></div>}
+                  </div>
+                )}
+                <button onClick={()=>{if(isVis){setRevealedCards(p=>{const n={...p};delete n[item.id];return n;});}else revealCard(item.id);}} style={{marginTop:12,background:"rgba(255,255,255,0.15)",border:"none",borderRadius:8,color:"#fff",padding:"7px 14px",cursor:"pointer",fontSize:12,fontFamily:"inherit",width:"100%"}}>{isVis?"Hide Details":"Show Details"}</button>
               </div>
-            ))}
+            );
+          })}
+        </div>
+      )}
+
+      {/* ── PHONES SECTION ── */}
+      {activeSection==="phone"&&(
+        <div>
+          <div style={{display:"flex",justifyContent:"flex-end",marginBottom:8}}>
+            <button onClick={exportPhones} style={{...S.sm,fontSize:11,padding:"5px 10px"}}>Export CSV</button>
           </div>
-        );
-      })}
+          {getItems("phone").length===0&&<div style={{textAlign:"center",padding:"24px",color:T.sub,fontSize:13}}>No phone numbers saved</div>}
+          {getItems("phone").map(item=>(
+            <div key={item.id} style={{...S.card,marginBottom:8,display:"flex",alignItems:"center",gap:12}}>
+              <div style={{flex:1}}>
+                <div style={{fontWeight:700,fontSize:13,color:T.txt}}>{item.name||item.title}</div>
+                <div style={{fontSize:14,color:T.blue,fontFamily:"monospace",marginTop:2}}>{item.prefix||""} {item.number||item.value}</div>
+              </div>
+              <div style={{display:"flex",gap:6}}>
+                <button onClick={()=>copyText((item.prefix||"")+item.number||item.value)} style={{...S.sm,fontSize:10,padding:"4px 8px"}}>Copy</button>
+                <button onClick={()=>startEdit(item)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="edit" sz={15} cl={T.sub}/></button>
+                <button onClick={()=>delItem(item.id)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="delete" sz={15} cl={T.red}/></button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── LOGINS SECTION ── */}
+      {activeSection==="login"&&(
+        <div>
+          {getItems("login").length===0&&<div style={{textAlign:"center",padding:"24px",color:T.sub,fontSize:13}}>No logins saved</div>}
+          {getItems("login").map(item=>(
+            <div key={item.id} style={{...S.card,marginBottom:8}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+                <div style={{fontWeight:700,fontSize:13,color:T.txt}}>{item.title}</div>
+                <div style={{display:"flex",gap:4}}>
+                  <button onClick={()=>startEdit(item)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="edit" sz={15} cl={T.sub}/></button>
+                  <button onClick={()=>delItem(item.id)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="delete" sz={15} cl={T.red}/></button>
+                </div>
+              </div>
+              {item.url&&<div style={{fontSize:11,color:T.blue,marginBottom:4}}>{item.url}</div>}
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
+                <span style={{fontSize:10,color:T.sub,width:70}}>Username:</span>
+                <span style={{fontSize:12,color:T.txt,flex:1}}>{item.username}</span>
+                <button onClick={()=>copyText(item.username)} style={{...S.sm,fontSize:10,padding:"2px 7px"}}>Copy</button>
+              </div>
+              <div style={{display:"flex",alignItems:"center",gap:6}}>
+                <span style={{fontSize:10,color:T.sub,width:70}}>Password:</span>
+                <span style={{fontSize:12,color:T.txt,flex:1,letterSpacing:visLogins[item.id]?0:2}}>{visLogins[item.id]?item.password:"••••••••"}</span>
+                <button onClick={()=>setVisLogins(p=>({...p,[item.id]:!p[item.id]}))} style={{...S.sm,fontSize:10,padding:"2px 7px"}}>{visLogins[item.id]?"Hide":"Show"}</button>
+                {visLogins[item.id]&&<button onClick={()=>copyText(item.password)} style={{...S.sm,fontSize:10,padding:"2px 7px"}}>Copy</button>}
+              </div>
+              {item.note&&<div style={{fontSize:11,color:T.sub,marginTop:4}}>{item.note}</div>}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ── OTHER SECTION ── */}
+      {activeSection==="other"&&(
+        <div>
+          {getItems("other").length===0&&<div style={{textAlign:"center",padding:"24px",color:T.sub,fontSize:13}}>No items saved</div>}
+          {getItems("other").map(item=>(
+            <div key={item.id} style={{...S.card,marginBottom:8}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div style={{flex:1}}>
+                  <div style={{fontWeight:700,fontSize:13,color:T.txt}}>{item.title}</div>
+                  <div style={{fontSize:13,color:T.txt,marginTop:3}}>{item.value}</div>
+                  {item.note&&<div style={{fontSize:11,color:T.sub,marginTop:2}}>{item.note}</div>}
+                </div>
+                <div style={{display:"flex",gap:4}}>
+                  <button onClick={()=>copyText(item.value)} style={{...S.sm,fontSize:10,padding:"3px 7px"}}>Copy</button>
+                  <button onClick={()=>startEdit(item)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="edit" sz={15} cl={T.sub}/></button>
+                  <button onClick={()=>delItem(item.id)} style={{background:"transparent",border:"none",cursor:"pointer",padding:"4px"}}><Ico n="delete" sz={15} cl={T.red}/></button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -2357,7 +3329,7 @@ function FilesTab({T,S,mob}){
   const[upDesc,setUpDesc]=useState("");
   const fileRef=useRef(null);
   function fmtSz(b){if(b<1024)return b+"B";if(b<1048576)return(b/1024).toFixed(1)+"KB";return(b/1048576).toFixed(1)+"MB";}
-  function fileIcon(t){if(t.includes("pdf"))return "📄";if(t.includes("image"))return "🖼️";if(t.includes("text"))return "📝";return "📎";}
+  function fileIcon(t){if(t.includes("pdf"))return "note";if(t.includes("image"))return "files";if(t.includes("text"))return "note";return "files";}
   function compressImage(dataUrl,cb){
     const img=new Image();
     img.onload=()=>{
@@ -2401,8 +3373,8 @@ function FilesTab({T,S,mob}){
   return(
     <div style={{padding:mob?14:24,maxWidth:600,margin:"0 auto",paddingBottom:80}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-        <div style={{fontSize:20,fontWeight:800,color:T.txt}}>Files 📁</div>
-        <button onClick={()=>setShowUpload(true)} style={{...S.btn,background:"#34C759",padding:"8px 16px",fontSize:13}}>+ Add New</button>
+        <div style={{display:"flex",alignItems:"center",gap:8}}><Ico n="files" sz={22} cl={T.txt}/><div style={{fontSize:20,fontWeight:800,color:T.txt}}>Files</div></div>
+        <button onClick={()=>setShowUpload(true)} style={{...S.btn,padding:"8px 16px",fontSize:13}}>+ Add New</button>
       </div>
       <input value={search} onChange={e=>setSearch(e.target.value)} style={{...S.inp,marginBottom:14}} placeholder="Search files..."/>
       {filtered.length===0&&<div style={{textAlign:"center",padding:"30px",color:T.sub,fontSize:13}}>No files yet</div>}
@@ -2432,7 +3404,7 @@ function FilesTab({T,S,mob}){
             </div>
             {!pendingFile?(
               <div onClick={()=>fileRef.current&&fileRef.current.click()} style={{border:"2px dashed "+T.bdr,borderRadius:16,padding:"40px 20px",textAlign:"center",cursor:"pointer",marginBottom:16}}>
-                <div style={{fontSize:36,marginBottom:8}}>📎</div>
+                <div style={{marginBottom:8}}><Ico n="upload" sz={36} cl={T.sub}/></div>
                 <div style={{fontWeight:600,color:T.txt,marginBottom:4}}>Tap to choose file</div>
                 <div style={{fontSize:12,color:T.sub}}>Images, PDFs · Max 10MB</div>
               </div>
@@ -2440,7 +3412,7 @@ function FilesTab({T,S,mob}){
               <div style={{background:T.ib,borderRadius:14,padding:14,marginBottom:14,display:"flex",alignItems:"center",gap:12}}>
                 {pendingFile.type.startsWith("image/")?
                   <img src={pendingFile.data} style={{width:60,height:60,borderRadius:10,objectFit:"cover"}}/>:
-                  <div style={{fontSize:32}}>{fileIcon(pendingFile.type)}</div>
+                  <div><Ico n={fileIcon(pendingFile.type)} sz={32} cl={T.sub}/></div>
                 }
                 <div>
                   <div style={{fontSize:12,fontWeight:600,color:T.txt}}>{pendingFile.name}</div>
@@ -2451,7 +3423,7 @@ function FilesTab({T,S,mob}){
             <div style={{marginBottom:10}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>TITLE *</div><input value={upTitle} onChange={e=>setUpTitle(e.target.value)} style={S.inp} placeholder="File title..."/></div>
             <div style={{marginBottom:16}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>DESCRIPTION</div><textarea value={upDesc} onChange={e=>setUpDesc(e.target.value)} style={{...S.inp,resize:"none",height:60}} placeholder="Optional notes..."/></div>
             <div style={{display:"flex",gap:8}}>
-              <button onClick={saveFile} disabled={!pendingFile||!upTitle} style={{...S.btn,flex:1,background:"#34C759",opacity:pendingFile&&upTitle?1:0.4}}>Save File</button>
+              <button onClick={saveFile} disabled={!pendingFile||!upTitle} style={{...S.btn,flex:1,opacity:pendingFile&&upTitle?1:0.4}}>Save File</button>
               <button onClick={()=>fileRef.current&&fileRef.current.click()} style={S.sm}>Choose File</button>
             </div>
           </div>
@@ -2492,17 +3464,18 @@ function MenuTab({T,S,mob,...props}){
   const[section,setSection]=useState(null);
   const fa=lang==="fa";
   const ITEMS=[
-    {id:"training",label:fa?"تمرین":"Training",icon:"🏋️",desc:fa?"ثبت و پیگیری تمرین":"Log & track workouts",color:T.orange},
-    {id:"program",label:fa?"برنامه":"Program",icon:"📋",desc:fa?"طراحی برنامه تمرینی":"Design your programs",color:T.accent},
-    {id:"diet",label:fa?"رژیم":"Diet",icon:"🥗",desc:fa?"پیگیری تغذیه":"Track nutrition",color:T.green},
-    {id:"health",label:fa?"سلامت":"Health",icon:"💪",desc:fa?"اندازه‌گیری بدن":"Measurements & History",color:T.blue},
-    {id:"history",label:fa?"تاریخچه":"History",icon:"📊",desc:fa?"جلسات گذشته":"Past sessions & trends",color:T.pink},
-    {id:"finance",label:fa?"مالی":"Finance",icon:"💰",desc:fa?"مدیریت مالی":"Manage your money",color:T.accent},
-    {id:"calendar",label:fa?"تقویم":"Calendar",icon:"📅",desc:fa?"رویدادها و برنامه":"Events & schedule",color:T.blue},
-    {id:"shifts",label:fa?"شیفت کاری":"Work Shifts",icon:"🗓️",desc:fa?"ثبت شیفت کاری":"Log your work schedule",color:T.blue},
-    {id:"vault",label:fa?"خزانه":"Vault",icon:"🔐",desc:fa?"اطلاعات مهم":"Store sensitive info",color:T.sub},
-    {id:"files",label:fa?"فایل‌ها":"Files",icon:"📁",desc:fa?"فایل‌های مهم":"Store important files",color:T.sub},
-    {id:"todo",label:fa?"لیست کارها":"To-Do",icon:"✅",desc:fa?"وظایف و یادآوری":"Tasks & reminders",color:"#5856D6"},
+    {id:"training",label:fa?"تمرین":"Training",icon:"training",desc:fa?"ثبت و پیگیری تمرین":"Log & track workouts",color:T.orange},
+    {id:"program",label:fa?"برنامه":"Program",icon:"program",desc:fa?"طراحی برنامه تمرینی":"Design your programs",color:T.accent},
+    {id:"diet",label:fa?"رژیم":"Diet",icon:"diet",desc:fa?"پیگیری تغذیه":"Track nutrition",color:T.green},
+    {id:"health",label:fa?"سلامت":"Health",icon:"health",desc:fa?"اندازه‌گیری بدن":"Measurements & History",color:T.blue},
+    {id:"history",label:fa?"تاریخچه":"History",icon:"history",desc:fa?"جلسات گذشته":"Past sessions & trends",color:T.pink},
+    {id:"finance",label:fa?"مالی":"Finance",icon:"finance",desc:fa?"مدیریت مالی":"Manage your money",color:T.accent},
+    {id:"calendar",label:fa?"تقویم":"Calendar",icon:"calendar",desc:fa?"رویدادها و برنامه":"Events & schedule",color:T.blue},
+    {id:"shifts",label:fa?"شیفت کاری":"Work Shifts",icon:"shifts",desc:fa?"ثبت شیفت کاری":"Log your work schedule",color:T.blue},
+    {id:"vault",label:fa?"خزانه":"Vault",icon:"vault",desc:fa?"اطلاعات مهم":"Store sensitive info",color:T.sub},
+    {id:"files",label:fa?"فایل‌ها":"Files",icon:"files",desc:fa?"فایل‌های مهم":"Store important files",color:T.sub},
+    {id:"todo",label:fa?"لیست کارها":"To-Do",icon:"todo",desc:fa?"وظایف و یادآوری":"Tasks & reminders",color:"#5856D6"},
+    {id:"fooddb",label:fa?"پایگاه غذا":"Food DB",icon:"diet",desc:fa?"مدیریت اطلاعات غذایی":"Manage food database",color:T.sub},
   ];
   if(section){
     return(
@@ -2513,7 +3486,7 @@ function MenuTab({T,S,mob,...props}){
         </div>
         {section==="training"&&<TrainingTab T={T} S={S} mob={mob} wLogs={props.wLogs} setWLogs={props.setWLogs} programs={props.programs}/>}
         {section==="program"&&<ProgramTab T={T} S={S} mob={mob} programs={props.programs} setPrograms={props.setPrograms}/>}
-        {section==="diet"&&<DietTab T={T} S={S} mob={mob} diets={props.diets} setDiets={props.setDiets} profile={props.profile} priceDb={props.priceDb}/>}
+        {section==="diet"&&<DietTab T={T} S={S} mob={mob} diets={props.diets} setDiets={props.setDiets} profile={props.profile} priceDb={props.priceDb} suppDb={props.suppDb} setSuppDb={props.setSuppDb}/>}
         {section==="health"&&<HealthTab T={T} S={S} mob={mob} hLog={props.hLog} setHLog={props.setHLog} profile={props.profile}/>}
         {section==="history"&&<HistoryTab T={T} S={S} mob={mob} wLogs={props.wLogs}/>}
         {section==="finance"&&<FinanceTab T={T} S={S} mob={mob} sources={props.sources} setSources={props.setSources} txns={props.txns} setTxns={props.setTxns} subs={props.subs} setSubs={props.setSubs} debts={props.debts} setDebts={props.setDebts} goals={props.goals} setGoals={props.setGoals}/>}
@@ -2522,29 +3495,108 @@ function MenuTab({T,S,mob,...props}){
         {section==="vault"&&<VaultTab T={T} S={S} mob={mob}/>}
         {section==="files"&&<FilesTab T={T} S={S} mob={mob}/>}
         {section==="todo"&&<TodoTab T={T} S={S} mob={mob} calEv={props.calEv} setCalEv={props.setCalEv}/>}
+        {section==="fooddb"&&<FoodDatabaseTab T={T} S={S} mob={mob} priceDb={props.priceDb} setPriceDb={props.setPriceDb} suppDb={props.suppDb} setSuppDb={props.setSuppDb}/>}
       </div>
     );
   }
+  const GROUPS=[
+    {label:fa?"ورزش و تناسب اندام":"FITNESS",items:["training","program","diet","health","history"]},
+    {label:fa?"برنامه‌ریزی":"LIFESTYLE",items:["calendar","shifts","todo"]},
+    {label:fa?"مالی و امنیت":"FINANCE & SECURITY",items:["finance","vault","files"]},
+    {label:fa?"سایر":"OTHER",items:["fooddb"]},
+  ];
   return(
-    <div style={{padding:mob?16:28,maxWidth:600,margin:"0 auto"}}>
-      <div style={{marginBottom:24}}>
-        <div style={{fontSize:26,fontWeight:800,color:T.txt,marginBottom:4}}>Menu</div>
-        <div style={{fontSize:13,color:T.sub}}>All your tools in one place</div>
+    <div style={{paddingBottom:100,maxWidth:600,margin:"0 auto"}}>
+      <div style={{padding:mob?"18px 18px 8px":"24px 24px 8px"}}>
+        <div style={{fontSize:28,fontWeight:800,color:T.txt}}>Menu</div>
       </div>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
-        {ITEMS.map(item=>(
-          <button key={item.id} onClick={()=>setSection(item.id)} style={{background:T.card,border:"1px solid "+item.color+"33",borderRadius:18,padding:20,cursor:"pointer",textAlign:"left",fontFamily:"inherit",display:"flex",flexDirection:"column",gap:8,transition:"border-color 0.2s"}}>
-            <div style={{fontSize:28}}>{item.icon}</div>
-            <div>
-              <div style={{fontSize:14,fontWeight:700,color:T.txt}}>{item.label}</div>
-              <div style={{fontSize:11,color:T.sub,marginTop:3}}>{item.desc}</div>
-            </div>
-          </button>
-        ))}
+      {GROUPS.map(group=>(
+        <div key={group.label} style={{marginBottom:8,padding:"0 16px"}}>
+          <div style={{fontSize:11,fontWeight:600,color:T.sub,letterSpacing:1,padding:"12px 4px 6px",textTransform:"uppercase"}}>{group.label}</div>
+          <div style={{...S.card,padding:0,overflow:"hidden"}}>
+            {group.items.map((id,idx)=>{
+              const item=ITEMS.find(i=>i.id===id);
+              if(!item)return null;
+              return(
+                <button key={id} onClick={()=>setSection(id)} style={{display:"flex",alignItems:"center",gap:14,width:"100%",padding:"14px 16px",background:"transparent",border:"none",borderBottom:idx<group.items.length-1?"1px solid "+T.bdr:"none",cursor:"pointer",fontFamily:"inherit",textAlign:"left"}}>
+                  <div style={{width:36,height:36,borderRadius:10,background:T.ib,border:"1px solid "+T.bdr,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                    <Ico n={item.icon} sz={18} cl={T.txt}/>
+                  </div>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{fontSize:15,fontWeight:600,color:T.txt}}>{item.label}</div>
+                    <div style={{fontSize:12,color:T.sub,marginTop:1}}>{item.desc}</div>
+                  </div>
+                  <Ico n="chevronRight" sz={18} cl={T.sub}/>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+function AccountSettings({T,S}){
+  const[mode,setMode]=useState("view");
+  const[field,setField]=useState("");
+  const[curPass,setCurPass]=useState("");
+  const[newVal,setNewVal]=useState("");
+  const[newConf,setNewConf]=useState("");
+  const[curPin,setCurPin]=useState("");
+  const[msg,setMsg]=useState("");
+  const auth=JSON.parse(localStorage.getItem("fl_auth")||"{}");
+  const pin=localStorage.getItem("fl_pin")||"";
+  function startEdit(f){setField(f);setMode("edit");setCurPass("");setNewVal("");setNewConf("");setCurPin("");setMsg("");}
+  function save(){
+    if(field==="email"){
+      if(curPass!==auth.pass){setMsg("Wrong password");return;}
+      if(!newVal.includes("@")){setMsg("Invalid email");return;}
+      localStorage.setItem("fl_auth",JSON.stringify({...auth,email:newVal}));
+    }else if(field==="password"){
+      if(curPass!==auth.pass){setMsg("Wrong current password");return;}
+      if(newVal.length<6){setMsg("Min 6 characters");return;}
+      if(newVal!==newConf){setMsg("Passwords don't match");return;}
+      localStorage.setItem("fl_auth",JSON.stringify({...auth,pass:newVal}));
+    }else if(field==="pin"){
+      if(curPass!==auth.pass){setMsg("Wrong password");return;}
+      if(newVal.length!==6||newVal!==newConf){setMsg("PIN must be 6 digits and match");return;}
+      localStorage.setItem("fl_pin",newVal);
+    }else if(field==="resetPin"){
+      if(curPass!==auth.pass){setMsg("Wrong password");return;}
+      localStorage.removeItem("fl_pin");
+      setMsg("PIN removed. Please set a new one.");
+      setTimeout(()=>setMode("view"),1500);return;
+    }
+    setMsg("Saved!");setTimeout(()=>{setMode("view");setMsg("");},1200);
+  }
+  if(mode==="view")return(
+    <div style={{display:"flex",flexDirection:"column",gap:0}}>
+      {[["Email",auth.email||"–"],["Password","••••••••"],["PIN",pin?"6-digit PIN set":"No PIN"]].map(([l,v],i)=>(
+        <div key={l} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:i<2?"1px solid "+T.bdr:"none"}}>
+          <div><div style={{fontSize:13,color:T.txt}}>{l}</div><div style={{fontSize:11,color:T.sub}}>{v}</div></div>
+          <button onClick={()=>startEdit(l.toLowerCase())} style={{...S.sm,padding:"5px 12px",fontSize:11}}>Edit</button>
+        </div>
+      ))}
+      {pin&&<button onClick={()=>startEdit("resetPin")} style={{...S.sm,color:T.red,borderColor:T.red+"44",marginTop:8,fontSize:11,padding:"6px 12px"}}>Reset PIN</button>}
+    </div>
+  );
+  return(
+    <div style={{display:"flex",flexDirection:"column",gap:8}}>
+      <div style={{fontSize:11,fontWeight:700,color:T.sub,letterSpacing:1,marginBottom:4}}>EDIT {field.toUpperCase()}</div>
+      <input value={curPass} onChange={e=>setCurPass(e.target.value)} style={S.inp} placeholder="Current password" type="password"/>
+      {field!=="resetPin"&&<input value={newVal} onChange={e=>setNewVal(e.target.value.slice(0,field==="pin"?6:100))} style={{...S.inp,letterSpacing:field==="pin"?4:0}} placeholder={"New "+(field==="pin"?"6-digit PIN":field)} type={field==="pin"?"password":"text"}/>}
+      {(field==="password"||field==="pin")&&field!=="resetPin"&&<input value={newConf} onChange={e=>setNewConf(e.target.value.slice(0,field==="pin"?6:100))} style={{...S.inp,letterSpacing:field==="pin"?4:0}} placeholder="Confirm" type="password"/>}
+      {msg&&<div style={{fontSize:12,color:msg.includes("Saved")||msg.includes("removed")?"#34C759":"#FF3B30"}}>{msg}</div>}
+      <div style={{display:"flex",gap:8}}>
+        <button onClick={save} style={{...S.btn,flex:1}}>{field==="resetPin"?"Confirm Reset":"Save"}</button>
+        <button onClick={()=>setMode("view")} style={S.sm}>Cancel</button>
       </div>
     </div>
   );
 }
+
 
 function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lang,setLang,onExport,onImport}){
   const[pForm,setPForm]=useState(profile);
@@ -2569,16 +3621,20 @@ function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lan
     <div style={{padding:mob?16:28,paddingBottom:100,maxWidth:600,margin:"0 auto"}}>
       <div style={{fontSize:26,fontWeight:800,color:T.txt,marginBottom:24}}>Settings</div>
       <div style={{...S.card,marginBottom:16}}>
+        <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:14,letterSpacing:1}}>ACCOUNT & SECURITY</div>
+        <AccountSettings T={T} S={S}/>
+      </div>
+      <div style={{...S.card,marginBottom:16}}>
         <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:14,letterSpacing:1}}>APPEARANCE</div>
-        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14,flexWrap:"wrap",gap:8}}>
           <div style={{fontSize:13,color:T.txt}}>Theme: <span style={{color:T.accent,fontWeight:600}}>{tn==="dark"?"Dark":"Light"}</span></div>
-          <button onClick={()=>setTn(tn==="dark"?"light":"dark")} style={S.btn}>{tn==="dark"?"Light Mode":"Dark Mode"}</button>
-          <div style={{marginTop:16}}>
-            <div style={{fontSize:11,fontWeight:700,color:T.sub,letterSpacing:1,marginBottom:10}}>LANGUAGE / زبان</div>
-            <div style={{display:"flex",gap:8}}>
-              <button onClick={()=>setLang("en")} style={{...S.btn,flex:1,background:lang==="en"?T.accent:T.ib,color:lang==="en"?T.btnTxt:T.sub}}>English</button>
-              <button onClick={()=>setLang("fa")} style={{...S.btn,flex:1,background:lang==="fa"?T.accent:T.ib,color:lang==="fa"?T.btnTxt:T.sub,fontFamily:"'Vazirmatn','Tahoma',sans-serif"}}>فارسی</button>
-            </div>
+          <button onClick={()=>setTn(tn==="dark"?"light":"dark")} style={{...S.btn,padding:"8px 16px",fontSize:12}}>{tn==="dark"?"Light Mode":"Dark Mode"}</button>
+        </div>
+        <div style={{borderTop:"1px solid "+T.bdr,paddingTop:14}}>
+          <div style={{fontSize:11,fontWeight:700,color:T.sub,letterSpacing:1,marginBottom:10}}>LANGUAGE / زبان</div>
+          <div style={{display:"flex",gap:8}}>
+            <button onClick={()=>setLang("en")} style={{...S.btn,flex:1,background:lang==="en"?T.accent:T.ib,color:lang==="en"?T.btnTxt:T.sub,padding:"10px 8px",fontSize:13}}>English</button>
+            <button onClick={()=>setLang("fa")} style={{...S.btn,flex:1,background:lang==="fa"?T.accent:T.ib,color:lang==="fa"?T.btnTxt:T.sub,fontFamily:"'Vazirmatn','Tahoma',sans-serif",padding:"10px 8px",fontSize:13}}>فارسی</button>
           </div>
         </div>
       </div>
@@ -2586,12 +3642,10 @@ function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lan
         <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:14,letterSpacing:1}}>PROFILE</div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
           <div style={{gridColumn:"1/-1"}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME</div><input value={pForm.name||""} onChange={e=>setPForm(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="Your name"/></div>
-          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>AGE</div><input value={pForm.age||""} onChange={e=>setPForm(p=>({...p,age:e.target.value}))} style={S.inp} placeholder="24"/></div>
-          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>GENDER</div><select value={pForm.gender||"male"} onChange={e=>setPForm(p=>({...p,gender:e.target.value}))} style={S.inp}><option value="male">Male</option><option value="female">Female</option></select></div>
-          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>HEIGHT (CM)</div><input value={pForm.height||""} onChange={e=>setPForm(p=>({...p,height:e.target.value}))} style={S.inp} placeholder="175"/></div>
-          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>WEIGHT (KG)</div><input value={pForm.weight||""} onChange={e=>setPForm(p=>({...p,weight:e.target.value}))} style={S.inp} placeholder="75"/></div>
-          <div style={{gridColumn:"1/-1"}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>ACTIVITY LEVEL</div><select value={pForm.activity||"moderate"} onChange={e=>setPForm(p=>({...p,activity:e.target.value}))} style={S.inp}>{ACT.map(a=><option key={a.v} value={a.v}>{a.l}</option>)}</select></div>
-          <div style={{gridColumn:"1/-1"}}><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SPORT / DISCIPLINE</div><input value={pForm.sport||""} onChange={e=>setPForm(p=>({...p,sport:e.target.value}))} style={S.inp} placeholder="Calisthenics"/></div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>AGE</div><input value={pForm.age||""} onChange={e=>setPForm(p=>({...p,age:e.target.value}))} style={S.inp} placeholder="24"/></div><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>GENDER</div><select value={pForm.gender||"male"} onChange={e=>setPForm(p=>({...p,gender:e.target.value}))} style={S.inp}><option value="male">Male</option><option value="female">Female</option></select></div></div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>HEIGHT (CM)</div><input value={pForm.height||""} onChange={e=>setPForm(p=>({...p,height:e.target.value}))} style={S.inp} placeholder="175"/></div><div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>WEIGHT (KG)</div><input value={pForm.weight||""} onChange={e=>setPForm(p=>({...p,weight:e.target.value}))} style={S.inp} placeholder="75"/></div></div>
+          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>ACTIVITY LEVEL</div><select value={pForm.activity||"moderate"} onChange={e=>setPForm(p=>({...p,activity:e.target.value}))} style={S.inp}>{ACT.map(a=><option key={a.v} value={a.v}>{a.l}</option>)}</select></div>
+          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>SPORT / DISCIPLINE</div><input value={pForm.sport||""} onChange={e=>setPForm(p=>({...p,sport:e.target.value}))} style={S.inp} placeholder="Calisthenics"/></div>
         </div>
         <button onClick={saveProfile} style={{...S.btn,width:"100%",marginBottom:14}}>Save Profile</button>
         {W&&H&&(
@@ -2604,77 +3658,7 @@ function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lan
           </div>
         )}
       </div>
-      <div style={{...S.card,marginBottom:16}}>
-        <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:14,letterSpacing:1}}>CUSTOM FOOD DATABASE</div>
-        <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:12}}>
-          <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>NAME</div><input value={pf.name} onChange={e=>setPf(p=>({...p,name:e.target.value}))} style={S.inp} placeholder="Tuna Can, Egg, Chicken Breast..."/></div>
-          <div>
-            <div style={{fontSize:10,color:T.sub,marginBottom:8}}>BASE UNIT TYPE</div>
-            <div style={{display:"flex",gap:6}}>
-              {[{v:"weight",l:"Per Grams"},{v:"piece",l:"Per Piece"}].map(bt=>(
-                <button key={bt.v} onClick={()=>setPf(p=>({...p,baseType:bt.v,priceUnit:bt.v==="piece"?"piece":p.priceUnit==="piece"?"kg":p.priceUnit}))} style={{flex:1,padding:"9px 8px",borderRadius:10,border:"1px solid "+(pf.baseType===bt.v?T.accent:T.bdr),background:pf.baseType===bt.v?T.accent+"22":"transparent",color:pf.baseType===bt.v?T.accent:T.sub,fontSize:12,fontWeight:pf.baseType===bt.v?700:400,cursor:"pointer",fontFamily:"inherit"}}>{bt.l}</button>
-              ))}
-            </div>
-          </div>
-          {pf.baseType==="weight"?(
-            <div>
-              <div style={{fontSize:10,color:T.sub,marginBottom:4}}>GRAMS PER SERVING</div>
-              <div style={{display:"flex",alignItems:"center",gap:8}}>
-                <input value={pf.baseGrams} onChange={e=>setPf(p=>({...p,baseGrams:e.target.value}))} style={{...S.inp,flex:1}} placeholder="100" type="number"/>
-                <span style={{fontSize:13,color:T.sub}}>g</span>
-              </div>
-            </div>
-          ):(
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-              <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PIECE NAME</div><input value={pf.pieceName} onChange={e=>setPf(p=>({...p,pieceName:e.target.value}))} style={S.inp} placeholder="egg, can, tomato..."/></div>
-              <div>
-                <div style={{fontSize:10,color:T.sub,marginBottom:4}}>GRAMS PER PIECE <span style={{color:T.sub,fontWeight:400}}>(optional)</span></div>
-                <div style={{display:"flex",alignItems:"center",gap:6}}>
-                  <input value={pf.baseGrams} onChange={e=>setPf(p=>({...p,baseGrams:e.target.value}))} style={{...S.inp,flex:1}} placeholder="60" type="number"/>
-                  <span style={{fontSize:12,color:T.sub}}>g</span>
-                </div>
-              </div>
-            </div>
-          )}
-          <div style={{background:T.ib,borderRadius:10,padding:"8px 12px",fontSize:12,color:T.accent}}>
-            Nutritional values below = per <strong>{pf.baseType==="piece"?(pf.pieceName?"1 "+(pf.pieceName||"piece")+(pf.baseGrams?" ("+pf.baseGrams+"g)":""):"1 piece"):((pf.baseGrams||"100")+"g")}</strong>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CALORIES</div><input value={pf.cal} onChange={e=>setPf(p=>({...p,cal:e.target.value}))} style={S.inp} placeholder="78"/></div>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>PROTEIN (G)</div><input value={pf.p} onChange={e=>setPf(p=>({...p,p:e.target.value}))} style={S.inp} placeholder="6"/></div>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>CARBS (G)</div><input value={pf.c} onChange={e=>setPf(p=>({...p,c:e.target.value}))} style={S.inp} placeholder="0.6"/></div>
-            <div><div style={{fontSize:10,color:T.sub,marginBottom:4}}>FAT (G)</div><input value={pf.f} onChange={e=>setPf(p=>({...p,f:e.target.value}))} style={S.inp} placeholder="5"/></div>
-          </div>
-          <div>
-            <div style={{fontSize:10,color:T.sub,marginBottom:6}}>PRICE (GBP) — optional</div>
-            <div style={{display:"flex",gap:8,alignItems:"center"}}>
-              <input value={pf.price} onChange={e=>setPf(p=>({...p,price:e.target.value}))} style={{...S.inp,flex:1}} placeholder="0.00"/>
-              <span style={{fontSize:12,color:T.sub,whiteSpace:"nowrap"}}>per</span>
-              <div style={{display:"flex",gap:4}}>
-                {(pf.baseType==="piece"?["piece","kg"]:["kg","100g","g","piece"]).map(u=>(
-                  <button key={u} onClick={()=>setPf(p=>({...p,priceUnit:u}))} style={{background:pf.priceUnit===u?T.accent:"transparent",color:pf.priceUnit===u?T.btnTxt:T.sub,border:"1px solid "+(pf.priceUnit===u?T.accent:T.bdr),borderRadius:7,padding:"5px 9px",fontSize:11,cursor:"pointer",fontFamily:"inherit",fontWeight:pf.priceUnit===u?700:400}}>{u}</button>
-                ))}
-              </div>
-            </div>
-            {pf.price>0&&<div style={{marginTop:6,fontSize:11,color:T.accent,background:T.ib,borderRadius:8,padding:"5px 10px"}}>GBP {parseFloat(pf.price).toFixed(2)} / {pf.priceUnit}</div>}
-          </div>
-        </div>
-        <button onClick={addFood} style={S.btn}>Add Food</button>
-        {priceDb.length>0&&(
-          <div style={{marginTop:12}}>
-            {priceDb.map(p=>(
-              <div key={p.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:"1px solid "+T.bdr}}>
-                <div>
-                  <div style={{fontWeight:600,fontSize:13,color:T.txt}}>{p.name} <span style={{color:T.sub,fontWeight:400,fontSize:11}}>({p.unit})</span></div>
-                  <div style={{color:T.sub,fontSize:11,marginTop:2}}>{p.cal}kcal · P:{p.p} C:{p.c} F:{p.f}</div>
-                  {p.price>0&&<div style={{color:T.accent,fontSize:11,marginTop:2,fontWeight:600}}>GBP {parseFloat(p.price).toFixed(2)} / {p.priceUnit||"kg"}</div>}
-                </div>
-                <button onClick={()=>delFood(p.id)} style={{...S.sm,color:T.red,padding:"2px 8px",fontSize:11}}>x</button>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+
       <div style={S.card}>
         <div style={{fontSize:11,fontWeight:700,color:T.accent,marginBottom:12,letterSpacing:1}}>DATA</div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
@@ -2686,7 +3670,144 @@ function SettingsTab({T,S,mob,profile,setProfile,priceDb,setPriceDb,tn,setTn,lan
   );
 }
 
+
+// ── UK BANKS DATA ─────────────────────────────────────────────────
+const UK_BANKS=[
+  {v:"lloyds",l:"Lloyds",bg:"linear-gradient(135deg,#006A4E,#00A650)",text:"#fff",logo:"L"},
+  {v:"monzo",l:"Monzo",bg:"linear-gradient(135deg,#FF3264,#FF6B8A)",text:"#fff",logo:"M"},
+  {v:"revolut",l:"Revolut",bg:"linear-gradient(135deg,#191C1F,#3D3F42)",text:"#fff",logo:"R"},
+  {v:"barclays",l:"Barclays",bg:"linear-gradient(135deg,#00AEEF,#1F5BA8)",text:"#fff",logo:"B"},
+  {v:"hsbc",l:"HSBC",bg:"linear-gradient(135deg,#DB0011,#8B0000)",text:"#fff",logo:"H"},
+  {v:"natwest",l:"NatWest",bg:"linear-gradient(135deg,#4B006E,#7B00AE)",text:"#fff",logo:"N"},
+  {v:"santander",l:"Santander",bg:"linear-gradient(135deg,#EC0000,#C00000)",text:"#fff",logo:"S"},
+  {v:"tsb",l:"TSB",bg:"linear-gradient(135deg,#0070CC,#004999)",text:"#fff",logo:"T"},
+  {v:"halifax",l:"Halifax",bg:"linear-gradient(135deg,#007DBB,#005A8B)",text:"#fff",logo:"Hx"},
+  {v:"firstdirect",l:"first direct",bg:"linear-gradient(135deg,#000000,#222222)",text:"#fff",logo:"fd"},
+  {v:"starling",l:"Starling",bg:"linear-gradient(135deg,#00BFAF,#008C7E)",text:"#fff",logo:"S*"},
+  {v:"metro",l:"Metro Bank",bg:"linear-gradient(135deg,#CC0000,#8B0000)",text:"#fff",logo:"M+"},
+  {v:"virgin",l:"Virgin Money",bg:"linear-gradient(135deg,#E10000,#B80000)",text:"#fff",logo:"V"},
+  {v:"chase",l:"Chase UK",bg:"linear-gradient(135deg,#117ACA,#0A5B9A)",text:"#fff",logo:"C"},
+  {v:"nationwide",l:"Nationwide",bg:"linear-gradient(135deg,#0040A0,#002060)",text:"#fff",logo:"NW"},
+  {v:"coop",l:"Co-op Bank",bg:"linear-gradient(135deg,#00857C,#005C55)",text:"#fff",logo:"Co"},
+];
+
+// ── Welcome / Auth ─────────────────────────────────────────────────
+function WelcomeScreen({onDone}){
+  const[step,setStep]=useState("auth"); // auth | pin
+  const[isLogin,setIsLogin]=useState(false);
+  const[email,setEmail]=useState("");
+  const[pass,setPass]=useState("");
+  const[pin,setPin]=useState("");
+  const[pinConfirm,setPinConfirm]=useState("");
+  const[err,setErr]=useState("");
+  function handleAuth(){
+    if(!email||!pass){setErr("Please fill all fields");return;}
+    if(pass.length<6){setErr("Password must be at least 6 characters");return;}
+    if(isLogin){
+      const saved=JSON.parse(localStorage.getItem("fl_auth")||"{}");
+      if(saved.email!==email||saved.pass!==pass){setErr("Invalid email or password");return;}
+      setStep("pinEntry");
+    }else{
+      localStorage.setItem("fl_auth",JSON.stringify({email,pass}));
+      setStep("pin");
+    }
+    setErr("");
+  }
+  function handlePin(){
+    if(pin.length!==6){setErr("PIN must be 6 digits");return;}
+    if(pin!==pinConfirm){setErr("PINs do not match");return;}
+    localStorage.setItem("fl_pin",pin);
+    onDone();
+  }
+  function handlePinEntry(){
+    const saved=localStorage.getItem("fl_pin");
+    if(pin!==saved){setErr("Incorrect PIN");setPin("");return;}
+    onDone();
+  }
+  const T_W={bg:"#F2F2F7",card:"#FFFFFF",txt:"#000000",sub:"#8E8E93",accent:"#000000",bdr:"rgba(0,0,0,0.1)"};
+  const btnStyle={background:"#000000",color:"#fff",border:"none",borderRadius:14,padding:"15px",fontSize:16,fontWeight:700,cursor:"pointer",width:"100%",fontFamily:"inherit",marginTop:8};
+  const inpStyle={background:"#F2F2F7",border:"1px solid rgba(0,0,0,0.12)",borderRadius:12,color:"#000",padding:"14px 16px",fontSize:16,outline:"none",fontFamily:"inherit",width:"100%",boxSizing:"border-box"};
+  return(
+    <div style={{minHeight:"100vh",background:T_W.bg,display:"flex",alignItems:"center",justifyContent:"center",padding:"24px"}}>
+      <div style={{background:T_W.card,borderRadius:24,padding:"32px 28px",width:"100%",maxWidth:360,boxShadow:"0 4px 24px rgba(0,0,0,0.08)"}}>
+        {step==="auth"&&(
+          <div>
+            <div style={{fontSize:28,fontWeight:900,color:T_W.txt,marginBottom:4}}>FitLife</div>
+            <div style={{fontSize:14,color:T_W.sub,marginBottom:28}}>{isLogin?"Welcome back":"Create your account"}</div>
+            <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:16}}>
+              <input value={email} onChange={e=>setEmail(e.target.value)} style={inpStyle} placeholder="Email address" type="email"/>
+              <input value={pass} onChange={e=>setPass(e.target.value)} style={inpStyle} placeholder="Password (min 6 chars)" type="password"/>
+            </div>
+            {err&&<div style={{color:"#FF3B30",fontSize:13,marginBottom:10}}>{err}</div>}
+            <button onClick={handleAuth} style={btnStyle}>{isLogin?"Sign In":"Create Account"}</button>
+            <button onClick={()=>{setIsLogin(!isLogin);setErr("");}} style={{background:"transparent",border:"none",color:T_W.sub,fontSize:13,cursor:"pointer",width:"100%",marginTop:12,fontFamily:"inherit"}}>{isLogin?"Don't have an account? Sign Up":"Already have an account? Sign In"}</button>
+            {isLogin&&<button onClick={()=>{
+              const saved=localStorage.getItem("fl_auth");
+              if(!saved){setErr("No account found. Please sign up.");return;}
+              const a=JSON.parse(saved);
+              setErr("Your email: "+a.email+". Password is stored only on this device. Go to Settings to change it.");
+            }} style={{background:"transparent",border:"none",color:"#007AFF",fontSize:12,cursor:"pointer",width:"100%",marginTop:6,fontFamily:"inherit"}}>Forgot Password?</button>}
+
+          </div>
+        )}
+        {step==="pin"&&(
+          <div>
+            <div style={{fontSize:22,fontWeight:800,color:T_W.txt,marginBottom:4}}>Create PIN</div>
+            <div style={{fontSize:13,color:T_W.sub,marginBottom:24}}>Set a 6-digit PIN to protect your data</div>
+            <div style={{display:"flex",flexDirection:"column",gap:10,marginBottom:16}}>
+              <input value={pin} onChange={e=>setPin(e.target.value.replace(/[^0-9]/g,"").slice(0,6))} style={{...inpStyle,letterSpacing:8,textAlign:"center",fontSize:22}} placeholder="● ● ● ● ● ●" type="password" maxLength={6}/>
+              <input value={pinConfirm} onChange={e=>setPinConfirm(e.target.value.replace(/[^0-9]/g,"").slice(0,6))} style={{...inpStyle,letterSpacing:8,textAlign:"center",fontSize:22}} placeholder="Confirm PIN" type="password" maxLength={6}/>
+            </div>
+            {err&&<div style={{color:"#FF3B30",fontSize:13,marginBottom:10}}>{err}</div>}
+            <button onClick={handlePin} style={btnStyle}>Set PIN & Enter App</button>
+          </div>
+        )}
+        {step==="pinEntry"&&(
+          <div>
+            <div style={{fontSize:22,fontWeight:800,color:T_W.txt,marginBottom:4}}>Enter PIN</div>
+            <div style={{fontSize:13,color:T_W.sub,marginBottom:24}}>Enter your 6-digit PIN</div>
+            <input value={pin} onChange={e=>setPin(e.target.value.replace(/[^0-9]/g,"").slice(0,6))} style={{...inpStyle,letterSpacing:8,textAlign:"center",fontSize:22,marginBottom:16}} placeholder="● ● ● ● ● ●" type="password" maxLength={6}/>
+            {err&&<div style={{color:"#FF3B30",fontSize:13,marginBottom:10}}>{err}</div>}
+            <button onClick={handlePinEntry} style={btnStyle}>Enter</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── PIN Entry Dialog ───────────────────────────────────────────────
+function PinDialog({onSuccess,onClose,title}){
+  const[pin,setPin]=useState("");
+  const[err,setErr]=useState("");
+  function check(){
+    const saved=localStorage.getItem("fl_pin");
+    if(pin===saved){onSuccess();}
+    else{setErr("Incorrect PIN");setPin("");}
+  }
+  return(
+    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.7)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:900}}>
+      <div style={{background:"#FFFFFF",borderRadius:20,padding:"28px 24px",width:"90%",maxWidth:320,textAlign:"center"}}>
+        <div style={{fontSize:16,fontWeight:700,marginBottom:4,color:"#000"}}>{title||"Enter PIN"}</div>
+        <div style={{fontSize:13,color:"#8E8E93",marginBottom:20}}>Your 6-digit PIN is required</div>
+        <input value={pin} onChange={e=>setPin(e.target.value.replace(/[^0-9]/g,"").slice(0,6))} style={{background:"#F2F2F7",border:"1px solid rgba(0,0,0,0.1)",borderRadius:12,padding:"12px",fontSize:22,letterSpacing:8,textAlign:"center",width:"100%",outline:"none",marginBottom:12,boxSizing:"border-box"}} type="password" maxLength={6} autoFocus/>
+        {err&&<div style={{color:"#FF3B30",fontSize:12,marginBottom:8}}>{err}</div>}
+        <div style={{display:"flex",gap:8}}>
+          <button onClick={check} style={{flex:1,background:"#000",color:"#fff",border:"none",borderRadius:12,padding:"12px",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Confirm</button>
+          <button onClick={onClose} style={{flex:1,background:"#F2F2F7",color:"#000",border:"none",borderRadius:12,padding:"12px",fontSize:14,cursor:"pointer",fontFamily:"inherit"}}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App(){
+  const[authed,setAuthed]=useState(()=>{
+    const auth=localStorage.getItem("fl_auth");
+    const pin=localStorage.getItem("fl_pin");
+    const sess=sessionStorage.getItem("fl_sess");
+    return !!(auth&&pin&&sess==="1");
+  });
   const[tn,setTn]=useLs("fl_theme","dark");
   const[lang,setLang]=useLs("fl_lang","en");
   const T=tn==="dark"?DARK:LIGHT;
@@ -2704,6 +3825,7 @@ export default function App(){
   const[debts,setDebts]=useLs("fl3_debts",[]);
   const[goals,setGoals]=useLs("fl3_goals",[]);
   const[priceDb,setPriceDb]=useLs("fl3_prices",[]);
+  const[suppDb,setSuppDb]=useLs("fl3_suppdb",[]);
   const[profile,setProfile]=useLs("fl3_profile",{name:"",age:"",height:"",weight:"",gender:"male",activity:"very",sport:"Calisthenics"});
   const impRef=useRef(null);
   const autoRan=useRef(false);
@@ -2724,7 +3846,7 @@ export default function App(){
   },[]);
   function expAll(){const d=JSON.stringify({programs,wLogs,diets,hLog,calEv,sources,txns,subs,debts,goals,priceDb,profile},null,2);const url=URL.createObjectURL(new Blob([d],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="fitlife-backup.json";a.click();}
   function impAll(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(d.programs)setPrograms(d.programs);if(d.wLogs)setWLogs(d.wLogs);if(d.diets)setDiets(d.diets);if(d.hLog)setHLog(d.hLog);if(d.calEv)setCalEv(d.calEv);if(d.sources)setSources(d.sources);if(d.txns)setTxns(d.txns);if(d.subs)setSubs(d.subs);if(d.debts)setDebts(d.debts);if(d.goals)setGoals(d.goals);if(d.priceDb)setPriceDb(d.priceDb);if(d.profile)setProfile(d.profile);alert("Imported!");}catch(err){alert("Invalid file.");}};r.readAsText(f);e.target.value="";}
-  const allProps={T,S,mob,lang,setLang,programs,setPrograms,wLogs,setWLogs,diets,setDiets,hLog,setHLog,calEv,setCalEv,sources,setSources,txns,setTxns,subs,setSubs,debts,setDebts,goals,setGoals,priceDb,setPriceDb,profile,setProfile};
+  const allProps={T,S,mob,lang,setLang,suppDb,setSuppDb,programs,setPrograms,wLogs,setWLogs,diets,setDiets,hLog,setHLog,calEv,setCalEv,sources,setSources,txns,setTxns,subs,setSubs,debts,setDebts,goals,setGoals,priceDb,setPriceDb,profile,setProfile};
   const TABS=[{id:"home",icon:"⌂",label:lang==="fa"?"داشبورد":"Dashboard"},{id:"menu",icon:"⊞",label:lang==="fa"?"منو":"Menu"},{id:"settings",icon:"⚙",label:lang==="fa"?"تنظیمات":"Settings"}];
   useEffect(()=>{
     const l=document.createElement("link");
@@ -2732,6 +3854,20 @@ export default function App(){
     l.href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800;900&display=swap";
     document.head.appendChild(l);
   },[]);
+  useEffect(()=>{
+    window.history.replaceState({level:"root"},"");
+    const handler=()=>{
+      setTab(prev=>{
+        if(prev!=="menu"&&prev!=="home"){window.history.pushState({level:"menu"},"");return "menu";}
+        return prev;
+      });
+    };
+    window.addEventListener("popstate",handler);
+    return()=>window.removeEventListener("popstate",handler);
+  },[]);
+  if(!authed){
+    return <WelcomeScreen onDone={()=>{sessionStorage.setItem("fl_sess","1");setAuthed(true);}}/>;
+  }
   return(
     <div dir={lang==="fa"?"rtl":"ltr"} style={{display:"flex",flexDirection:"column",height:"100vh",background:T.bg,color:T.txt,fontFamily:lang==="fa"?"'Vazirmatn','Tahoma',sans-serif":"'DM Sans','Sora','Segoe UI',sans-serif",overflow:"hidden"}}>
       <div style={{flex:1,overflowY:"auto",paddingBottom:100}}>
@@ -2741,13 +3877,18 @@ export default function App(){
       </div>
       <div style={{position:"fixed",bottom:0,left:0,right:0,zIndex:100,pointerEvents:"none",paddingBottom:"env(safe-area-inset-bottom,0px)"}}>
         <div style={{maxWidth:500,margin:"0 auto",padding:"0 16px 16px",pointerEvents:"none"}}>
-          <div style={{background:tn==="dark"?"#1E1E18":"#1C1C1E",borderRadius:28,boxShadow:"0 4px 28px rgba(0,0,0,0.28)",display:"flex",pointerEvents:"auto",overflow:"hidden"}}>
-            {TABS.map(t=>(
-              <button key={t.id} onClick={()=>setTab(t.id)} style={{flex:1,padding:"10px 6px 12px",background:tab===t.id?"rgba(201,168,76,0.15)":"transparent",border:"none",cursor:"pointer",fontFamily:"inherit",display:"flex",flexDirection:"column",alignItems:"center",gap:3,transition:"background 0.2s"}}>
-                <div style={{fontSize:22,color:tab===t.id?T.accent:"rgba(255,255,255,0.45)",transition:"color 0.2s"}}>{t.icon}</div>
-                <div style={{fontSize:9,fontWeight:tab===t.id?700:400,color:tab===t.id?T.accent:"rgba(255,255,255,0.45)",letterSpacing:0.5,textTransform:"uppercase"}}>{t.label}</div>
-              </button>
-            ))}
+          <div style={{background:tn==="dark"?"#1C1C1E":"#FFFFFF",borderRadius:28,boxShadow:tn==="dark"?"0 4px 28px rgba(0,0,0,0.4)":"0 4px 28px rgba(0,0,0,0.12)",display:"flex",pointerEvents:"auto",overflow:"hidden",border:tn==="dark"?"none":"1px solid rgba(0,0,0,0.08)"}}>
+            {TABS.map(t=>{
+              const isAct=tab===t.id;
+              const icCol=tn==="dark"?(isAct?"#FFFFFF":"rgba(255,255,255,0.38)"):(isAct?"#000000":"rgba(0,0,0,0.32)");
+              const bg=isAct?(tn==="dark"?"rgba(255,255,255,0.1)":"rgba(0,0,0,0.07)"):"transparent";
+              return(
+                <button key={t.id} onClick={()=>setTab(t.id)} style={{flex:1,padding:"10px 6px 12px",background:bg,border:"none",cursor:"pointer",fontFamily:"inherit",display:"flex",flexDirection:"column",alignItems:"center",gap:3,transition:"background 0.2s"}}>
+                  <Ico n={t.id==="home"?"home":t.id==="menu"?"menu":"settings"} sz={22} cl={icCol}/>
+                  <div style={{fontSize:9,fontWeight:isAct?700:400,color:icCol,letterSpacing:0.5,textTransform:"uppercase"}}>{t.label}</div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
